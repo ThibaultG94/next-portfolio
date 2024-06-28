@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import ThemeProvider from "./components/ThemeProvider";
 import "../style/app.scss";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +17,13 @@ export default function RootLayout({ children }) {
     <html lang="fr" className="text-foreground bg-gradient">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
-          {children}
+          <header>
+            <Header />
+          </header>
+          <main>{children}</main>
+          <footer>
+            <Footer />
+          </footer>
         </ThemeProvider>
       </body>
     </html>
