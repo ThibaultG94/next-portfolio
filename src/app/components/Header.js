@@ -1,9 +1,10 @@
 import React from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
     <div>
-      <div></div>
+      <ThemeToggle />
     </div>
   );
 };
