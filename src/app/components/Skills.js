@@ -2,7 +2,7 @@ import React from "react";
 
 const Skills = () => {
   return (
-    <section className="py-20 bg-dark text-white">
+    <section className="py-20 bg-dark">
       <h2 className="text-3xl text-center">Mes Compétences</h2>
       <p className="text-xl text-center mt-4">
         J'aime prendre la responsabilité de créer une expérience utilisateur

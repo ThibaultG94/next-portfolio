@@ -2,7 +2,7 @@ import React from "react";
 
 const ReseauxSociaux = () => {
   return (
-    <section className="py-20 bg-dark text-white">
+    <section className="py-20 bg-dark">
       <h2 className="text-3xl text-center">
         Suivez-moi sur les réseaux sociaux
       </h2>

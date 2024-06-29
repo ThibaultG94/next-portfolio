@@ -15,7 +15,7 @@ const projets = [
 
 const Projects = () => {
   return (
-    <section className="py-20 bg-dark text-white">
+    <section className="py-20 bg-dark">
       <h2 className="text-3xl text-center">Mes Travaux</h2>
       <p className="text-xl text-center mt-4">
         J'ai contribué à plus de 20 projets allant du développement frontend,
