@@ -25,7 +25,7 @@ const TextIntro = () => {
     const elementCenter = rect.top + rect.height / 2;
     const screenCenter = window.innerHeight / 2;
     const distanceToCenter = Math.abs(screenCenter - elementCenter);
-    const maxDistance = 60; // Adjust this value to control the range of "in focus" area
+    const maxDistance = 100; // Adjust this value to control the range of "in focus" area
     return distanceToCenter < maxDistance ? 1 : 0.1;
   };
 
@@ -41,7 +41,7 @@ const TextIntro = () => {
         <p
           key={index}
           ref={(el) => (blocksRef.current[index] = el)}
-          className="text-5xl mb-6 font-semibold transition-opacity duration-300"
+          className="text-5xl mb-10 font-semibold transition-opacity duration-300"
           style={{ opacity: getOpacity(blocksRef.current[index]) }}
         >
           {text}
