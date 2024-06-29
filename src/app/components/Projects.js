@@ -1,4 +1,3 @@
-// components/Projects.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -38,12 +37,6 @@ const Projects = () => {
         principaux.
       </p>
       <div className="mt-12 flex justify-center items-center space-x-4">
-        <button
-          onClick={prevProject}
-          className="text-4xl text-gray-400 hover:text-gray-200 transition duration-300"
-        >
-          &lt;
-        </button>
         <div className="relative">
           <div className="laptop">
             <div className="laptop__screen">
@@ -59,6 +52,12 @@ const Projects = () => {
           </div>
         </div>
         <div className="relative tablet">
+          <button
+            onClick={prevProject}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 text-4xl text-gray-400 hover:text-gray-200 transition duration-300 z-10"
+          >
+            &lt;
+          </button>
           <div className="tablet__screen">
             <div className="tablet__content">
               <h3 className="text-2xl font-semibold">
@@ -75,13 +74,13 @@ const Projects = () => {
               </a>
             </div>
           </div>
+          <button
+            onClick={nextProject}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 text-4xl text-gray-400 hover:text-gray-200 transition duration-300 z-10"
+          >
+            &gt;
+          </button>
         </div>
-        <button
-          onClick={nextProject}
-          className="text-4xl text-gray-400 hover:text-gray-200 transition duration-300"
-        >
-          &gt;
-        </button>
       </div>
     </section>
   );
