@@ -46,7 +46,10 @@ const Dashboard = () => {
         >
           <FaGithub size={30} />
         </a>
-        <a href="mailto:thibault.guilhem@gmail.com" className="text-gray-900">
+        <a
+          href="mailto:thibault.guilhem@gmail.com"
+          className="text-gray-900 dark:text-gray-100"
+        >
           <FaEnvelope size={30} />
         </a>
       </div>

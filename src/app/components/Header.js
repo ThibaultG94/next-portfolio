@@ -85,7 +85,7 @@ const Header = () => {
             onClick={(e) => handleSmoothScroll(e, "timeline")}
             className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
           >
-            Timeline
+            Parcours
           </a>
           <a
             href="#contact"
@@ -142,7 +142,7 @@ const Header = () => {
                   onClick={toggleMenu}
                   className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
                 >
-                  Timeline
+                  Parcours
                 </a>
                 <a
                   href="#contact"
