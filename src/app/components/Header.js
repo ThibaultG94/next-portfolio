@@ -66,7 +66,7 @@ const Header = () => {
             Thibault Guilhem
           </span>
         </div>
-        <nav className="hidden md:flex items-center space-x-4">
+        <nav className="hidden md:flex items-center space-x-6 text-lg font-semibold">
           <a
             href="#home"
             onClick={(e) => handleSmoothScroll(e, "home")}
@@ -114,8 +114,8 @@ const Header = () => {
           </button>
         </div>
         {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 md:hidden">
-            <div className="fixed right-0 top-0 h-full w-full max-w-sm bg-white bg-opacity-90 dark:bg-gray-800 p-4">
+          <div className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50 md:hidden">
+            <div className="right-0 top-0 h-screen w-screen max-w-sm bg-white bg-opacity-90 dark:bg-gray-800 p-4">
               <div className="flex justify-end">
                 <button
                   onClick={toggleMenu}
