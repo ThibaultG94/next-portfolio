@@ -20,13 +20,15 @@ const Dashboard = () => {
 
   return (
     <section className="h-screen flex flex-col justify-center items-center bg-dark text-center text-light">
-      <h1 className="text-xl sm:text-2xl">Bonjour 👋</h1>
-      <h2 className="text-xl sm:text-2xl mt-2">Je suis Thibault Guilhem</h2>
-      <p className="text-2xl sm:text-3xl my-4">
+      <h1 className="text-xl sm:text-2xl md:text-3xl">Bonjour 👋</h1>
+      <h2 className="text-xl sm:text-2xl md:text-3xl mt-2 md:mt-3">
+        Je suis Thibault Guilhem
+      </h2>
+      <p className="text-2xl sm:text-3xl md:text-4xl my-4 md:my-5">
         {text}
         <Cursor />
       </p>
-      <div className="mt-4 flex space-x-6">
+      <div className="mt-4 md:mt-5 flex space-x-6">
         <a
           href="https://www.linkedin.com/in/thibault-g-10b37a271/"
           target="_blank"
