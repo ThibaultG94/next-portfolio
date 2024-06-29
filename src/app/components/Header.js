@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className="container mx-auto flex justify-between items-center p-4">
       <div className="flex items-center">
-        <div className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 mr-2 rounded-full overflow-hidden relative">
+        <div className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 mr-3.5 sm:mr-4 md:mr-5 lg:mr-6 rounded-full overflow-hidden relative">
           <Image
             src="/img/profil.jpg"
             alt="profil"
@@ -23,7 +23,7 @@ const Header = () => {
             className="absolute top-0 left-0 transform translate-y-[-4px]"
           />
         </div>
-        <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
+        <span className="text-sm sm:text-md md:text-lg lg:text-xl font-bold text-gray-900 dark:text-gray-100">
           Thibault Guilhem
         </span>
       </div>
