@@ -6,9 +6,10 @@ import React, { useState } from "react";
 const projets = [
   {
     title: "Task Manager",
-    description: "Pixel perfect HTML/Tailwind for Figma Auto layout designs.",
+    description:
+      "Application de gestion de tâches et de workspace conçue pour être performante et sécurisée.",
     image: "/img/task-manager.png",
-    github: "https://github.com/yourusername/figgen",
+    github: "https://github.com/ThibaultG94/Task-manager-frontend",
   },
   {
     title: "myOKR Website",
