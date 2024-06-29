@@ -11,6 +11,8 @@ const Home = () => {
     <div>
       <section id="home">
         <Dashboard />
+      </section>
+      <section id="text">
         <TextIntro />
       </section>
       <section id="projects">
