@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { handleSmoothScroll } from "../lib/scrollUtils";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,15 +12,6 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-  };
-
-  const handleSmoothScroll = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
-    }
   };
 
   const controlHeader = () => {

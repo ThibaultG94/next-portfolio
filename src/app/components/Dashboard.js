@@ -4,6 +4,7 @@ import React from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
+import { handleSmoothScroll } from "../lib/scrollUtils";
 
 const Dashboard = () => {
   const [text] = useTypewriter({
@@ -17,14 +18,6 @@ const Dashboard = () => {
     deleteSpeed: 20,
     delaySpeed: 1000,
   });
-
-  const handleScrollToText = (e) => {
-    e.preventDefault();
-    const targetElement = document.getElementById("text");
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section className="h-screen flex flex-col justify-center items-center bg-dark text-center text-light">
@@ -58,7 +51,7 @@ const Dashboard = () => {
         </a>
       </div>
       <div className="absolute bottom-10">
-        <a href="#text" onClick={handleScrollToText}>
+        <a href="#text" onClick={(e) => handleSmoothScroll(e, "text")}>
           <FiChevronDown
             size={50}
             className="animate-bounce text-gray-600 dark:text-gray-300"
