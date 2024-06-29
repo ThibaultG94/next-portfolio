@@ -11,6 +11,15 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <div className="container mx-auto flex justify-between items-center p-4">
       <div className="flex items-center">
@@ -30,30 +39,35 @@ const Header = () => {
       <nav className="hidden md:flex items-center space-x-4">
         <a
           href="#home"
+          onClick={(e) => handleSmoothScroll(e, "home")}
           className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
         >
           Accueil
         </a>
         <a
           href="#projects"
+          onClick={(e) => handleSmoothScroll(e, "projects")}
           className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
         >
           Projets
         </a>
         <a
           href="#skills"
+          onClick={(e) => handleSmoothScroll(e, "skills")}
           className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
         >
           Compétences
         </a>
         <a
           href="#timeline"
+          onClick={(e) => handleSmoothScroll(e, "timeline")}
           className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
         >
           Timeline
         </a>
         <a
           href="#contact"
+          onClick={(e) => handleSmoothScroll(e, "contact")}
           className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
         >
           Contact

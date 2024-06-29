@@ -9,12 +9,22 @@ import Contact from "./components/Contact";
 const Home = () => {
   return (
     <div>
-      <Dashboard />
-      <TextIntro />
-      <Projects />
-      <Skills />
-      <Timeline />
-      <Contact />
+      <section id="home">
+        <Dashboard />
+        <TextIntro />
+      </section>
+      <section id="projects">
+        <Projects />
+      </section>
+      <section id="skills">
+        <Skills />
+      </section>
+      <section id="timeline">
+        <Timeline />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </div>
   );
 };
