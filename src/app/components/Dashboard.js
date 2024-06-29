@@ -53,6 +53,7 @@ const Dashboard = () => {
           <FaEnvelope size={30} />
         </a>
       </div>
+      <div id="text"></div>
       <div className="absolute bottom-10">
         <a href="#text" onClick={(e) => handleSmoothScroll(e, "text")}>
           <FiChevronDown
