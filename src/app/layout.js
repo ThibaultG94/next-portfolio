@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className="text-foreground bg-gradient">
+    <html lang="fr" className="text-foreground">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
           <header className="fixed w-full">

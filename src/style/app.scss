@@ -11,6 +11,20 @@ $primary-red: #FF865E;
 $primary-orange: #FFC44D;
 $primary-yellow: #F9F871;
 
+:root {
+    --foreground: black;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: #FBF8FF;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground: #FBF8FF;
+        --background-start-rgb: black;
+        --background-end-rgb: black;
+    }
+}
+
 * {
     font-family: 'Satoshi', sans-serif;
 }
