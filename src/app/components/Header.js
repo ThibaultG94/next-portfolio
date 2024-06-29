@@ -49,7 +49,7 @@ const Header = () => {
     <div
       className={`fixed w-full transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
-      } bg-white dark:bg-gray-800`}
+      } bg-white dark:bg-[#121212]`}
     >
       <div className="container mx-auto flex justify-between items-center p-4">
         <div className="flex items-center">
@@ -114,7 +114,7 @@ const Header = () => {
         </div>
         {isOpen && (
           <div className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50 md:hidden">
-            <div className="right-0 top-0 h-screen w-screen bg-white bg-opacity-90 dark:bg-gray-800 p-4">
+            <div className="right-0 top-0 h-screen w-screen bg-white bg-opacity-90 dark:bg-[#121212] p-4">
               <div className="flex justify-end">
                 <button
                   onClick={toggleMenu}

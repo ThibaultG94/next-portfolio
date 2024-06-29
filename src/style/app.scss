@@ -3,19 +3,13 @@
 @import 'tailwindcss/utilities';
 @import 'fonts.scss';
 
-:root {
-    --foreground: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
-}
+$primary-white: #FBF8FF;
+$primary-blue: #6D4FFF;
+$primary-purple: #F421CB;
+$primary-pink: #FF408E;
+$primary-red: #FF865E;
+$primary-orange: #FFC44D;
+$primary-yellow: #F9F871;
 
 * {
     font-family: 'Satoshi', sans-serif;
