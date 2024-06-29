@@ -66,7 +66,7 @@ const Header = () => {
             Thibault Guilhem
           </span>
         </div>
-        <nav className="hidden md:flex items-center space-x-6 text-lg font-semibold">
+        <nav className="hidden md:flex items-center md:space-x-4 lg:space-x-10 md:text-md lg:text-lg font-semibold">
           <a
             href="#home"
             onClick={(e) => handleSmoothScroll(e, "home")}
@@ -102,26 +102,25 @@ const Header = () => {
           >
             Contact
           </a>
-          <ThemeToggle />
         </nav>
-        <div className="md:hidden flex items-center">
+        <div className=" flex items-center">
           <ThemeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-800 dark:text-gray-200 focus:outline-none ml-2"
+            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none ml-2"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
         {isOpen && (
           <div className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50 md:hidden">
-            <div className="right-0 top-0 h-screen w-screen max-w-sm bg-white bg-opacity-90 dark:bg-gray-800 p-4">
+            <div className="right-0 top-0 h-screen w-screen bg-white bg-opacity-90 dark:bg-gray-800 p-4">
               <div className="flex justify-end">
                 <button
                   onClick={toggleMenu}
                   className="text-gray-800 dark:text-gray-200 focus:outline-none"
                 >
-                  <X className="h-6 w-6" />
+                  <X className="h-7 w-7" />
                 </button>
               </div>
               <nav className="flex flex-col items-center mt-10 space-y-6 text-2xl">
