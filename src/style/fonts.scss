@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.eot');
+    /* IE9 Compat Modes */
+    src: url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.woff') format('woff'),
+        /* Pretty Modern Browsers */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Regular.ttf') format('truetype');
+    /* Safari, Android, iOS */
+    /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Répète cette déclaration pour chaque variante de police (italic, bold, etc.) */
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.eot');
+    /* IE9 Compat Modes */
+    src: url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.woff') format('woff'),
+        /* Pretty Modern Browsers */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Bold.ttf') format('truetype');
+    /* Safari, Android, iOS */
+    /* Legacy iOS */
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.eot');
+    /* IE9 Compat Modes */
+    src: url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.woff') format('woff'),
+        /* Pretty Modern Browsers */
+        url('../../public/fonts/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Italic.ttf') format('truetype');
+    /* Safari, Android, iOS */
+    /* Legacy iOS */
+    font-weight: normal;
+    font-style: italic;
+}

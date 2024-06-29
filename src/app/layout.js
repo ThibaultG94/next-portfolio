@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="fr" className="text-foreground bg-gradient">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
-          <header>
+          <header className="fixed w-full">
             <Header />
           </header>
           <main>{children}</main>
