@@ -34,8 +34,8 @@ const Projects = () => {
     <section className="py-20 bg-dark text-light">
       <h2 className="text-5xl text-center font-bold">Mes Travaux</h2>
       <p className="text-xl text-center mt-4">
-        J'ai contribué à plus de 20 projets allant du développement frontend,
-        UI/UX design, Open Source et Motion Graphics.
+        J'ai développer plusieurs projets fullstack from scratch dont voici les
+        principaux.
       </p>
       <div className="mt-12 flex justify-center items-center space-x-4">
         <button
@@ -44,18 +44,23 @@ const Projects = () => {
         >
           &lt;
         </button>
-        <div className="relative w-[355px] h-[200px] md:w-[680px] md:h-[405px] bg-black dark:bg-white p-4 rounded-lg shadow-lg overflow-hidden">
-          <div className="absolute inset-x-0 inset-y-1 m-4 overflow-hidden">
-            <img
-              src={projets[currentProject].image}
-              alt={projets[currentProject].title}
-              className="w-full h-full object-cover"
-            />
+        <div className="relative">
+          <div className="laptop">
+            <div className="laptop__screen">
+              <img
+                src={projets[currentProject].image}
+                alt={projets[currentProject].title}
+              />
+            </div>
+            <div className="laptop__bottom">
+              <div className="laptop__under"></div>
+            </div>
+            <div className="laptop__shadow"></div>
           </div>
         </div>
-        <div className="relative w-[150px] h-[202px] md:w-[300px] md:h-[405px] bg-black dark:bg-white p-4 rounded-lg shadow-lg overflow-hidden">
-          <div className="absolute inset-0 m-4 border-2 border-gray-700 overflow-hidden">
-            <div className="h-full flex flex-col bg-white dark:bg-black justify-center items-center p-4 text-center">
+        <div className="relative tablet">
+          <div className="tablet__screen">
+            <div className="tablet__content">
               <h3 className="text-2xl font-semibold">
                 {projets[currentProject].title}
               </h3>
