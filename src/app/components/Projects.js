@@ -26,7 +26,12 @@ const projets = [
     title: "Thiblog",
     description:
       "Blog personnel pour partager mes expériences et mes projets de développeur web. Codé avec Quasar",
-    images: ["/img/thiblog.jpg"],
+    images: [
+      "/img/quasar-blog/thiblog-home.jpg",
+      "/img/quasar-blog/quasar-blog.jpg",
+      "/img/quasar-blog/quasar-blog-projects.jpg",
+      "/img/quasar-blog/quasar-blog-about.jpg",
+    ],
     github: "https://github.com/ThibaultG94/quasar-blog",
   },
 ];
@@ -96,7 +101,7 @@ const Projects = () => {
         <div className="relative tablet">
           <button
             onClick={prevProject}
-            className="absolute left-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
+            className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowLeft />
           </button>
@@ -118,7 +123,7 @@ const Projects = () => {
           </div>
           <button
             onClick={nextProject}
-            className="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
+            className="absolute right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowRight />
           </button>
