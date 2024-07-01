@@ -137,7 +137,7 @@ $primary-yellow: #F9F871;
         position: relative;
         height: 100%;
         z-index: 1;
-        padding: 10%;
+        // padding: 10%;
         border-radius: 1rem;
         background: #ecf1f7;
         box-shadow: 0 0.1rem 0 #cfcfcf;
@@ -151,6 +151,13 @@ $primary-yellow: #F9F871;
             align-items: center;
             height: 100%;
             text-align: center;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            background: #000;
         }
     }
 
