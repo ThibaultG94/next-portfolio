@@ -39,7 +39,18 @@ const projets = [
       "/img/quasar-blog/thiblog-projects-dark.jpg",
       "/img/quasar-blog/thiblog-about-dark.jpg",
     ],
-    tabletImages: ["/img/quasar-blog/thiblog-home-tablet.jpg"],
+    tabletImages: [
+      "/img/quasar-blog/thiblog-home-tablet.jpg",
+      "/img/quasar-blog/thiblog-tablet.jpg",
+      "/img/quasar-blog/thiblog-projects-tablet.jpg",
+      "/img/quasar-blog/thiblog-about-tablet.jpg",
+    ],
+    tabletDarkImages: [
+      "/img/quasar-blog/thiblog-home-dark-tablet.jpg",
+      "/img/quasar-blog/thiblog-dark-tablet.jpg",
+      "/img/quasar-blog/thiblog-projects-dark-tablet.jpg",
+      "/img/quasar-blog/thiblog-about-dark-tablet.jpg",
+    ],
     github: "https://github.com/ThibaultG94/quasar-blog",
     url: "https://github.com/ThibaultG94/quasar-blog",
   },
@@ -82,7 +93,10 @@ const Projects = () => {
       ? projets[currentProject].darkImages
       : projets[currentProject].images;
 
-  const tabletImages = projets[currentProject].tabletImages || currentImages;
+  const tabletImages =
+    theme === "dark" && projets[currentProject].tabletDarkImages
+      ? projets[currentProject].tabletDarkImages
+      : projets[currentProject].tabletImages || currentImages;
 
   return (
     <section className="py-20 bg-dark text-light">

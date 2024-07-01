@@ -130,14 +130,13 @@ $primary-yellow: #F9F871;
 .tablet {
     position: relative;
     width: 20rem;
-    height: 400px;
+    height: 385px;
     margin: auto;
 
     &__screen {
         position: relative;
         height: 100%;
         z-index: 1;
-        // padding: 10%;
         border-radius: 1rem;
         background: #ecf1f7;
         box-shadow: 0 0.1rem 0 #cfcfcf;
