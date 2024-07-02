@@ -172,20 +172,20 @@ const Projects = () => {
               </h3>
               <p className="mt-2">{projets[currentProject].description}</p>
               <a
-                href={projets[currentProject].github}
+                href={projets[currentProject].url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 text-blue-500 hover:text-blue-400"
               >
-                Voir sur GitHub
+                Voir le site
               </a>
               <a
-                href={projets[currentProject].url}
+                href={projets[currentProject].github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 text-blue-500 hover:text-blue-400"
               >
-                Voir le site
+                Voir sur GitHub
               </a>
             </div>
           </div>
