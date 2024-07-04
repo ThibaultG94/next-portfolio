@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const timelineEvents = [
@@ -50,6 +50,27 @@ const timelineEvents = [
 
 const Timeline = () => {
   const [selectedYear, setSelectedYear] = useState(timelineEvents[0].year);
+  const eventsRefs = useRef([]);
+
+  const handleScroll = () => {
+    for (let i = 0; i < eventsRefs.current.length; i++) {
+      const eventElement = eventsRefs.current[i];
+      if (eventElement) {
+        const rect = eventElement.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+          setSelectedYear(timelineEvents[i].year);
+          break;
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const selectedEvent = timelineEvents.find(
     (event) => event.year === selectedYear
@@ -60,16 +81,21 @@ const Timeline = () => {
       <div className="flex-1">
         <h2 className="text-3xl text-center">Mon Parcours</h2>
         <div className="relative mt-8 pl-10">
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-white"></div>
+          <div className="absolute left-12 top-0 bottom-0 h-full w-0.5 bg-black dark:bg-white"></div>
           {timelineEvents.map((event, index) => (
             <div
               key={index}
-              className={`flex items-center mb-8 cursor-pointer ${
+              ref={(el) => (eventsRefs.current[index] = el)}
+              className={`flex items-center mb-8 ${
                 selectedYear === event.year ? "text-dark" : "text-gray-400"
               }`}
-              onClick={() => setSelectedYear(event.year)}
             >
-              <div className="w-4 h-4 rounded-full bg-white"></div>
+              <div className="flex flex-col items-center">
+                <div className="w-4 h-4 rounded-full bg-black dark:bg-white"></div>
+                {index < timelineEvents.length - 1 && (
+                  <div className="flex-grow w-px bg-black dark:bg-white"></div>
+                )}
+              </div>
               <div className="ml-6">
                 <div className="text-xl font-bold">{event.year}</div>
                 <div className="text-lg">{event.title}</div>

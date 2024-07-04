@@ -43,7 +43,7 @@ const Header = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       } bg-white dark:bg-[#121212]`}
     >
-      <div className="container mx-auto flex justify-between items-center p-4">
+      <div className="container mx-auto flex justify-between items-center p-4 bg-white dark:bg-[#121212]">
         <div className="flex items-center">
           <div className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 mr-3.5 sm:mr-4 md:mr-5 lg:mr-6 rounded-full overflow-hidden relative">
             <Image
