@@ -1,59 +1,99 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+
+const timelineEvents = [
+  {
+    year: "2022",
+    title: "Formation autodidacte Développeur Web",
+    description: "",
+    image: "/path/to/formation-image.jpg",
+  },
+  {
+    year: "2020",
+    title: "Monteur Freelance",
+    description: "",
+    image: "/path/to/freelance-image.jpg",
+  },
+  {
+    year: "2017",
+    title: "Géomètre Topographe",
+    description: "",
+    image: "/path/to/topographe-image.jpg",
+  },
+  {
+    year: "2015",
+    title: "BTS Géomètre Topographe",
+    description: "",
+    image: "/path/to/bts-topographe-image.jpg",
+  },
+  {
+    year: "2014",
+    title: "BTS Paysagiste",
+    description: "",
+    image: "/path/to/paysagiste-image.jpg",
+  },
+  {
+    year: "2013",
+    title: "Licence MIPI UPMC",
+    description: "",
+    image: "/path/to/licence-image.jpg",
+  },
+  {
+    year: "2009",
+    title: "Lycée Evariste Galois",
+    description: "",
+    image: "/path/to/lycee-image.jpg",
+  },
+];
 
 const Timeline = () => {
+  const [selectedYear, setSelectedYear] = useState(timelineEvents[0].year);
+
+  const selectedEvent = timelineEvents.find(
+    (event) => event.year === selectedYear
+  );
+
   return (
-    <section className="py-10 sm:py-12 md:py-16 lg:py-20 bg-dark px-3">
-      <h2 className="text-3xl text-center">Mon Parcours</h2>
-      <div className="mt-8">
-        <div className="flex items-center">
-          <span className="h-1 w-4 bg-white"></span>
-          <div className="w-full flex justify-between items-center ml-4">
-            <div className="text-xl">2022</div>
-            <div className="text-xl">Formation autodidate Développeur Web</div>
-          </div>
+    <section className="relative flex bg-dark py-10 sm:py-12 md:py-16 lg:py-20 px-3">
+      <div className="flex-1">
+        <h2 className="text-3xl text-center">Mon Parcours</h2>
+        <div className="relative mt-8 pl-10">
+          <div className="absolute left-0 top-0 bottom-0 w-1 bg-white"></div>
+          {timelineEvents.map((event, index) => (
+            <div
+              key={index}
+              className={`flex items-center mb-8 cursor-pointer ${
+                selectedYear === event.year ? "text-dark" : "text-gray-400"
+              }`}
+              onClick={() => setSelectedYear(event.year)}
+            >
+              <div className="w-4 h-4 rounded-full bg-white"></div>
+              <div className="ml-6">
+                <div className="text-xl font-bold">{event.year}</div>
+                <div className="text-lg">{event.title}</div>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="mt-4 flex items-center">
-          <span className="h-1 w-4 bg-white"></span>
-          <div className="w-full flex justify-between items-center ml-4">
-            <div className="text-xl">2020</div>
-            <div className="text-xl">Monteur Freelance</div>
+      </div>
+      <div className="w-1/2 ml-8 hidden lg:block">
+        {selectedEvent && (
+          <div className="relative h-full w-full">
+            <Image
+              src={selectedEvent.image}
+              alt={selectedEvent.title}
+              layout="fill"
+              objectFit="contain"
+              className="rounded-lg"
+            />
+            <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-4 w-full">
+              <h3 className="text-2xl">{selectedEvent.title}</h3>
+              <p>{selectedEvent.description}</p>
+            </div>
           </div>
-        </div>
-        <div className="mt-4 flex items-center">
-          <span className="h-1 w-4 bg-white"></span>
-          <div className="w-full flex justify-between items-center ml-4">
-            <div className="text-xl">2017</div>
-            <div className="text-xl">Géomètre Topographe</div>
-          </div>
-        </div>
-        <div className="mt-4 flex items-center">
-          <span className="h-1 w-4 bg-white"></span>
-          <div className="w-full flex justify-between items-center ml-4">
-            <div className="text-xl">2015</div>
-            <div className="text-xl">BTS Géomètre Topographe</div>
-          </div>
-        </div>
-        <div className="mt-4 flex items-center">
-          <span className="h-1 w-4 bg-white"></span>
-          <div className="w-full flex justify-between items-center ml-4">
-            <div className="text-xl">2014</div>
-            <div className="text-xl">BTS Paysagiste</div>
-          </div>
-        </div>
-        <div className="mt-4 flex items-center">
-          <span className="h-1 w-4 bg-white"></span>
-          <div className="w-full flex justify-between items-center ml-4">
-            <div className="text-xl">2013</div>
-            <div className="text-xl">Licence MIPI UPMC</div>
-          </div>
-        </div>
-        <div className="mt-4 flex items-center">
-          <span className="h-1 w-4 bg-white"></span>
-          <div className="w-full flex justify-between items-center ml-4">
-            <div className="text-xl">2009</div>
-            <div className="text-xl">Lycée Evariste Galois</div>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
