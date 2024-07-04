@@ -8,7 +8,7 @@ const Skills = () => {
         J'aime prendre la responsabilité de créer une expérience utilisateur
         esthétique en utilisant une architecture frontend moderne.
       </p>
-      <div className="mt-8 flex justify-center space-x-4">
+      <div className="mt-8 flex flex-wrap justify-around space-x-4 space-y-2 max-w-sm sm:max-w-md md:max-w-xl lg:max-w-5xl mx-auto">
         <img src="/img/logos/js.png" alt="JavaScript" className="w-16 h-16" />
         <img src="/img/logos/react.png" alt="React" className="w-16 h-14" />
         <img src="/img/logos/next-js.svg" alt="Next.js" className="w-16 h-16" />
@@ -26,7 +26,6 @@ const Skills = () => {
           className="w-14 h-14 my-auto"
         />
         <img src="/img/logos/nodejs.png" alt="Node js" className="w-16 h-16" />
-        {/* Ajoute d'autres icônes selon les compétences */}
       </div>
     </section>
   );
