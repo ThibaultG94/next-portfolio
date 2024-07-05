@@ -107,8 +107,8 @@ const Timeline = () => {
               </div>
               {selectedYear === event.year &&
                 (index === 0 || index === timelineEvents.length - 1) && (
-                  <div className="ml-6 w-1/2">
-                    <div className="relative h-full w-full">
+                  <div className="flex justify-end w-full mr-32">
+                    <div className="relative h-full w-[500px]">
                       <Image
                         src={event.image}
                         alt={event.title}
@@ -139,7 +139,7 @@ const Timeline = () => {
               : "hidden"
           }`}
         >
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-[500px]">
             <Image
               src={event.image}
               alt={event.title}
@@ -148,7 +148,7 @@ const Timeline = () => {
               objectFit="contain"
               className="rounded-lg"
             />
-            <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white w-full p-4 rounded-b-lg">
+            <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white w-[500px] p-4 rounded-b-lg">
               <h3 className="text-2xl">{event.title}</h3>
               <p>{event.description}</p>
             </div>
