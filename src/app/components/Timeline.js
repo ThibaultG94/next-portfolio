@@ -8,60 +8,66 @@ const timelineEvents = [
     year: "2022",
     title: "Formation autodidacte Développeur Web",
     description: "",
-    image: "/path/to/formation-image.jpg",
+    image: "/img/timeline/slider-developpeur-web.jpeg",
   },
   {
     year: "2020",
     title: "Monteur Freelance",
     description: "",
-    image: "/path/to/freelance-image.jpg",
+    image: "/img/timeline/montage.webp",
   },
   {
     year: "2017",
     title: "Géomètre Topographe",
     description: "",
-    image: "/path/to/topographe-image.jpg",
+    image: "/img/timeline/geometre.jpg",
   },
   {
     year: "2015",
     title: "BTS Géomètre Topographe",
     description: "",
-    image: "/path/to/bts-topographe-image.jpg",
+    image: "/img/timeline/doriancours.jpg",
   },
   {
     year: "2014",
     title: "BTS Paysagiste",
     description: "",
-    image: "/path/to/paysagiste-image.jpg",
+    image: "/img/timeline/paysagiste.jpg",
   },
   {
     year: "2013",
     title: "Licence MIPI UPMC",
     description: "",
-    image: "/path/to/licence-image.jpg",
+    image: "/img/timeline/upmc.jpg",
   },
   {
     year: "2009",
     title: "Lycée Evariste Galois",
     description: "",
-    image: "/path/to/lycee-image.jpg",
+    image: "/img/timeline/evariste.png",
   },
 ];
 
 const Timeline = () => {
-  const [selectedYear, setSelectedYear] = useState(timelineEvents[0].year);
+  const [selectedYear, setSelectedYear] = useState(null);
   const eventsRefs = useRef([]);
+  const timelineRef = useRef(null);
 
   const handleScroll = () => {
+    let found = false;
     for (let i = 0; i < eventsRefs.current.length; i++) {
       const eventElement = eventsRefs.current[i];
       if (eventElement) {
         const rect = eventElement.getBoundingClientRect();
         if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
           setSelectedYear(timelineEvents[i].year);
+          found = true;
           break;
         }
       }
+    }
+    if (!found) {
+      setSelectedYear(null);
     }
   };
 
@@ -72,12 +78,11 @@ const Timeline = () => {
     };
   }, []);
 
-  const selectedEvent = timelineEvents.find(
-    (event) => event.year === selectedYear
-  );
-
   return (
-    <section className="relative flex bg-dark py-10 sm:py-12 md:py-16 lg:py-20 px-3">
+    <section
+      ref={timelineRef}
+      className="relative flex bg-dark py-10 sm:py-12 md:py-16 lg:py-20 px-3"
+    >
       <div className="flex-1">
         <h2 className="text-3xl text-center">Mon Parcours</h2>
         <div className="relative mt-8 pl-10">
@@ -86,7 +91,7 @@ const Timeline = () => {
             <div
               key={index}
               ref={(el) => (eventsRefs.current[index] = el)}
-              className={`flex items-center mb-8 ${
+              className={`flex items-center mb-20 ${
                 selectedYear === event.year ? "text-dark" : "text-gray-400"
               }`}
             >
@@ -97,30 +102,59 @@ const Timeline = () => {
                 )}
               </div>
               <div className="ml-6">
-                <div className="text-xl font-bold">{event.year}</div>
+                <div className="text-4xl font-bold">{event.year}</div>
                 <div className="text-lg">{event.title}</div>
               </div>
+              {selectedYear === event.year &&
+                (index === 0 || index === timelineEvents.length - 1) && (
+                  <div className="ml-6 w-1/2">
+                    <div className="relative h-full w-full">
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        width={500}
+                        height={500}
+                        objectFit="contain"
+                        className="rounded-lg"
+                      />
+                      <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white w-full p-4 rounded-b-lg">
+                        <h3 className="text-2xl">{event.title}</h3>
+                        <p>{event.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
             </div>
           ))}
         </div>
       </div>
-      <div className="w-1/2 ml-8 hidden lg:block">
-        {selectedEvent && (
+      {timelineEvents.map((event, index) => (
+        <div
+          key={index}
+          className={`fixed top-1/2 right-0 transform -translate-y-1/2 w-1/2 p-4 ${
+            selectedYear === event.year &&
+            index !== 0 &&
+            index !== timelineEvents.length - 1
+              ? "block"
+              : "hidden"
+          }`}
+        >
           <div className="relative h-full w-full">
             <Image
-              src={selectedEvent.image}
-              alt={selectedEvent.title}
-              layout="fill"
+              src={event.image}
+              alt={event.title}
+              width={500}
+              height={500}
               objectFit="contain"
               className="rounded-lg"
             />
-            <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-4 w-full">
-              <h3 className="text-2xl">{selectedEvent.title}</h3>
-              <p>{selectedEvent.description}</p>
+            <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white w-full p-4 rounded-b-lg">
+              <h3 className="text-2xl">{event.title}</h3>
+              <p>{event.description}</p>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      ))}
     </section>
   );
 };
