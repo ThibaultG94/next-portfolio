@@ -19,9 +19,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider attribute="class" defaultTheme="system">
           <Header />
           <main>{children}</main>
-          <footer>
-            <Footer />
-          </footer>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
