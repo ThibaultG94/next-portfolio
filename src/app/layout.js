@@ -17,9 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="fr" className="text-foreground">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
-          <header className="fixed w-full">
-            <Header />
-          </header>
+          <Header />
           <main>{children}</main>
           <footer>
             <Footer />
