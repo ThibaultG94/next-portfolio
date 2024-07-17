@@ -99,7 +99,7 @@ const Projects = () => {
       : projets[currentProject].tabletImages || currentImages;
 
   return (
-    <section className="py-20 bg-dark text-light">
+    <section className="py-20 mt-0 sm:mt-20 md:mt-40 lg:mt-60 bg-dark text-light">
       <h2 className="text-5xl text-center font-bold">Mes Travaux</h2>
       <p className="text-xl text-center mt-4">
         J'ai développé plusieurs projets fullstack from scratch dont voici les
