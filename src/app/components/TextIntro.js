@@ -55,7 +55,7 @@ const TextIntro = () => {
         <p
           key={index}
           ref={(el) => (blocksRef.current[index] = el)}
-          className="text-xl xxs:text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-4 xxs:mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 2xl:mb-20 font-semibold transition-opacity duration-300"
+          className="text-xl xxs:text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold transition-opacity duration-300"
           style={{ opacity: getOpacity(blocksRef.current[index]) }}
         >
           {text}
