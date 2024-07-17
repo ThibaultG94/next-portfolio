@@ -30,9 +30,20 @@ const Contact = () => {
     });
 
     if (response.ok) {
-      setResponseMessage("Message sent successfully!");
+      setResponseMessage("Message envoyé avec succès !");
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+      setTimeout(() => {
+        setResponseMessage("");
+      }, 5000);
     } else {
-      setResponseMessage(response.error || "An error occurred.");
+      setResponseMessage(response.error || "Une erreur s'est produite.");
+      setTimeout(() => {
+        setResponseMessage("");
+      }, 5000);
     }
   };
 
