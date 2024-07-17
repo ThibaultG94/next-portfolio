@@ -46,7 +46,7 @@ const TextIntro = () => {
   };
 
   return (
-    <section className="h-screen pl-10 sm:pl-8 md:pl-6 lg:pl-4 max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl mt-10 xxs:mt-20 xs:mt-32 sm:mt-40 md:mt-52 lg:mt-60 mx-auto text-left flex flex-col justify-center bg-dark text-light">
+    <section className="pl-10 sm:pl-8 md:pl-6 lg:pl-4 max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto text-left flex flex-col justify-center bg-dark text-light">
       {[
         "Je suis un développeur web fullstack passionné.",
         "Créant des expériences utilisateur dynamiques.",
@@ -55,7 +55,7 @@ const TextIntro = () => {
         <p
           key={index}
           ref={(el) => (blocksRef.current[index] = el)}
-          className="text-2xl xxs:text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl mb-4 xxs:mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 2xl:mb-20 font-semibold transition-opacity duration-300"
+          className="text-xl xxs:text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-4 xxs:mb-6 xs:mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 2xl:mb-20 font-semibold transition-opacity duration-300"
           style={{ opacity: getOpacity(blocksRef.current[index]) }}
         >
           {text}
