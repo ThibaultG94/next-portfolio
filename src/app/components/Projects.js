@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 const projets = [
   {
@@ -102,8 +103,8 @@ const Projects = () => {
     <section className="py-20 mt-0 sm:mt-20 md:mt-40 lg:mt-60 bg-dark text-light">
       <h2 className="text-5xl text-center font-bold">Mes Travaux</h2>
       <p className="text-xl text-center mt-4">
-        J'ai développé plusieurs projets fullstack from scratch dont voici les
-        principaux.
+        J&apos;ai développé plusieurs projets fullstack from scratch dont voici
+        les principaux.
       </p>
       <div className="mt-12 flex flex-wrap justify-center items-center space-x-4">
         {/* Laptop view for larger screens */}
@@ -116,9 +117,11 @@ const Projects = () => {
               <FaArrowLeft />
             </button>
             <div className={`laptop__screen`}>
-              <img
+              <Image
                 src={currentImages[currentImage]}
                 alt={projets[currentProject].title}
+                width={800}
+                height={600}
               />
             </div>
             <div className="laptop__bottom">
@@ -143,9 +146,11 @@ const Projects = () => {
               <FaArrowLeft />
             </button>
             <div className="tablet__screen">
-              <img
+              <Image
                 src={tabletImages[currentImage]}
                 alt={projets[currentProject].title}
+                width={800}
+                height={600}
               />
             </div>
             <div className="tablet__shadow"></div>
