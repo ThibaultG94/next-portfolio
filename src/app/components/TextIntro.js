@@ -6,6 +6,15 @@ const TextIntro = () => {
   const blocksRef = useRef([]);
   const [maxDistance, setMaxDistance] = useState(100);
 
+  const getOpacity = (element) => {
+    if (!element) return 0.1;
+    const rect = element.getBoundingClientRect();
+    const elementCenter = rect.top + rect.height / 2;
+    const screenCenter = window.innerHeight / 2;
+    const distanceToCenter = Math.abs(screenCenter - elementCenter);
+    return distanceToCenter < maxDistance ? 1 : 0.1;
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       blocksRef.current.forEach((el) => {
@@ -34,16 +43,7 @@ const TextIntro = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
-
-  const getOpacity = (element) => {
-    if (!element) return 0.1;
-    const rect = element.getBoundingClientRect();
-    const elementCenter = rect.top + rect.height / 2;
-    const screenCenter = window.innerHeight / 2;
-    const distanceToCenter = Math.abs(screenCenter - elementCenter);
-    return distanceToCenter < maxDistance ? 1 : 0.1;
-  };
+  }, [getOpacity]);
 
   return (
     <section className="pl-10 sm:pl-8 md:pl-6 lg:pl-4 max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto text-left flex flex-col justify-center bg-dark text-light">

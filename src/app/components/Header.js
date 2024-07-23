@@ -35,7 +35,7 @@ const Header = () => {
         window.removeEventListener("scroll", controlHeader);
       };
     }
-  }, [lastScrollY]);
+  }, [lastScrollY, controlHeader]);
 
   return (
     <header
