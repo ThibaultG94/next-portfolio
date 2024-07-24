@@ -19,9 +19,6 @@ const createItem = async (data) => {
     },
   });
 
-  console.log(process.env.EMAIL_USER);
-  console.log(process.env.EMAIL_PASSWORD);
-
   // Configurer le mail
   let mailOptions = {
     from: process.env.EMAIL_USER,
@@ -33,10 +30,8 @@ const createItem = async (data) => {
   // Envoyer le mail
   try {
     let info = await transporter.sendMail(mailOptions);
-    console.log("Email sent: " + info.response);
     return "123";
   } catch (error) {
-    console.log(error);
     throw new Error("Email not sent");
   }
 };
