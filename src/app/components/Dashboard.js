@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
-import { FiChevronDown } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { handleSmoothScroll } from "../lib/scrollUtils";
 
 const Dashboard = () => {
@@ -19,8 +19,32 @@ const Dashboard = () => {
     delaySpeed: 1000,
   });
 
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > window.innerHeight / 2) {
+        setShowScrollToTop(true);
+      } else {
+        setShowScrollToTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <section className="h-screen flex flex-col justify-center items-center bg-dark text-center text-light">
+    <section className="h-screen flex flex-col justify-center items-center bg-dark text-center text-light relative">
       <h1 className="text-xl sm:text-2xl md:text-3xl">Bonjour 👋</h1>
       <h2 className="text-xl sm:text-2xl md:text-3xl mt-2 md:mt-3">
         Je suis Thibault Guilhem
@@ -55,12 +79,21 @@ const Dashboard = () => {
       </div>
       <div id="text"></div>
       <div className="absolute bottom-10">
-        <a href="#text" onClick={(e) => handleSmoothScroll(e, "text")}>
-          <FiChevronDown
-            size={50}
-            className="animate-bounce text-gray-600 dark:text-gray-300"
-          />
-        </a>
+        {showScrollToTop ? (
+          <a href="#top" onClick={scrollToTop}>
+            <FiChevronUp
+              size={50}
+              className="animate-bounce text-gray-600 dark:text-gray-300"
+            />
+          </a>
+        ) : (
+          <a href="#text" onClick={(e) => handleSmoothScroll(e, "text")}>
+            <FiChevronDown
+              size={50}
+              className="animate-bounce text-gray-600 dark:text-gray-300"
+            />
+          </a>
+        )}
       </div>
     </section>
   );
