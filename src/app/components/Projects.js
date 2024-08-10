@@ -5,66 +5,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-const projets = [
-  {
-    title: "Task Manager",
-    description:
-      "Application de gestion de tâches et de workspace conçue pour être performante et sécurisée.",
-    images: [
-      "/img/task-manager/min/01_task-manager-dashboard-min.webp",
-      "/img/task-manager/min/02_task-manager-dashboard-messagerie-min.webp",
-      "/img/task-manager/min/03_task-manager-taskspage-min.webp",
-      "/img/task-manager/min/04_task-manager-taskspage-messagerie-min.webp",
-      "/img/task-manager/min/05_task-manager-new-task-min.webp",
-      "/img/task-manager/min/06_task-manager-new-workspace-min.webp",
-      "/img/task-manager/min/07_task-manager-contacts-min.webp",
-      "/img/task-manager/min/08_task-manager-new-contact-min.webp",
-      "/img/task-manager/min/09_task-manager-workspaces-min.webp",
-      "/img/task-manager/min/10_task-manager-contact-min.webp",
-      "/img/task-manager/min/11_task-manager-task-min.webp",
-      "/img/task-manager/min/12_task-manager-messages-min.webp",
-      "/img/task-manager/min/13_task-manager-notifications-min.webp",
-      "/img/task-manager/min/14_task-manager-notifications-menu-min.webp",
-      "/img/task-manager/min/15_task-manager-workspace-min.webp",
-      "/img/task-manager/min/16_task-manager-invitation-received-min.webp",
-      "/img/task-manager/min/17_task-manager-invitation-send-min.webp",
-      "/img/task-manager/18_task-manager-home.jpg",
-    ],
-    github: "https://github.com/ThibaultG94/Task-manager-frontend",
-    url: "https://task-manager-front.admin.serv.ndplugins.com/",
-  },
-  {
-    title: "Thiblog",
-    description:
-      "Blog personnel pour partager mes expériences et mes projets de développeur web. Codé avec Quasar",
-    images: [
-      "/img/quasar-blog/thiblog-home.jpg",
-      "/img/quasar-blog/thiblog.jpg",
-      "/img/quasar-blog/thiblog-projects.jpg",
-      "/img/quasar-blog/thiblog-about.jpg",
-    ],
-    darkImages: [
-      "/img/quasar-blog/thiblog-home-dark.jpg",
-      "/img/quasar-blog/thiblog-dark.jpg",
-      "/img/quasar-blog/thiblog-projects-dark.jpg",
-      "/img/quasar-blog/thiblog-about-dark.jpg",
-    ],
-    tabletImages: [
-      "/img/quasar-blog/thiblog-home-tablet.jpg",
-      "/img/quasar-blog/thiblog-tablet.jpg",
-      "/img/quasar-blog/thiblog-projects-tablet.jpg",
-      "/img/quasar-blog/thiblog-about-tablet.jpg",
-    ],
-    tabletDarkImages: [
-      "/img/quasar-blog/thiblog-home-dark-tablet.jpg",
-      "/img/quasar-blog/thiblog-dark-tablet.jpg",
-      "/img/quasar-blog/thiblog-projects-dark-tablet.jpg",
-      "/img/quasar-blog/thiblog-about-dark-tablet.jpg",
-    ],
-    github: "https://github.com/ThibaultG94/quasar-blog",
-    url: "https://github.com/ThibaultG94/quasar-blog",
-  },
-];
+import projets from "../../../public/data/projects.json";
 
 const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0);
