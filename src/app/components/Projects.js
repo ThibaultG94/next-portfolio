@@ -11,23 +11,23 @@ const projets = [
     description:
       "Application de gestion de tâches et de workspace conçue pour être performante et sécurisée.",
     images: [
-      "/img/task-manager/01_task-manager-dashboard.webp",
-      "/img/task-manager/02_task-manager-dashboard-messagerie.webp",
-      "/img/task-manager/03_task-manager-taskspage.webp",
-      "/img/task-manager/04_task-manager-taskspage-messagerie.webp",
-      "/img/task-manager/05_task-manager-new-task.webp",
-      "/img/task-manager/06_task-manager-new-workspace.webp",
-      "/img/task-manager/07_task-manager-contacts.webp",
-      "/img/task-manager/08_task-manager-new-contact.webp",
-      "/img/task-manager/09_task-manager-workspaces.webp",
-      "/img/task-manager/10_task-manager-contact.webp",
-      "/img/task-manager/11_task-manager-task.webp",
-      "/img/task-manager/12_task-manager-messages.webp",
-      "/img/task-manager/13_task-manager-notifications.webp",
-      "/img/task-manager/14_task-manager-notifications-menu.webp",
-      "/img/task-manager/15_task-manager-workspace.webp",
-      "/img/task-manager/16_task-manager-invitation-received.webp",
-      "/img/task-manager/17_task-manager-invitation-send.webp",
+      "/img/task-manager/min/01_task-manager-dashboard-min.webp",
+      "/img/task-manager/min/02_task-manager-dashboard-messagerie-min.webp",
+      "/img/task-manager/min/03_task-manager-taskspage-min.webp",
+      "/img/task-manager/min/04_task-manager-taskspage-messagerie-min.webp",
+      "/img/task-manager/min/05_task-manager-new-task-min.webp",
+      "/img/task-manager/min/06_task-manager-new-workspace-min.webp",
+      "/img/task-manager/min/07_task-manager-contacts-min.webp",
+      "/img/task-manager/min/08_task-manager-new-contact-min.webp",
+      "/img/task-manager/min/09_task-manager-workspaces-min.webp",
+      "/img/task-manager/min/10_task-manager-contact-min.webp",
+      "/img/task-manager/min/11_task-manager-task-min.webp",
+      "/img/task-manager/min/12_task-manager-messages-min.webp",
+      "/img/task-manager/min/13_task-manager-notifications-min.webp",
+      "/img/task-manager/min/14_task-manager-notifications-menu-min.webp",
+      "/img/task-manager/min/15_task-manager-workspace-min.webp",
+      "/img/task-manager/min/16_task-manager-invitation-received-min.webp",
+      "/img/task-manager/min/17_task-manager-invitation-send-min.webp",
       "/img/task-manager/18_task-manager-home.jpg",
     ],
     github: "https://github.com/ThibaultG94/Task-manager-frontend",
@@ -129,8 +129,8 @@ const Projects = () => {
               <Image
                 src={currentImages[currentImage]}
                 alt={projets[currentProject].title}
-                width={800}
-                height={600}
+                width={640}
+                height={360}
               />
             </div>
             <div className="laptop__bottom">
