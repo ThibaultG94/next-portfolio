@@ -4,12 +4,14 @@ import React, { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import ProjectsModal from "./ProjectsModal";
 
 import projets from "../../../public/data/projects.json";
 
 const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
+  const [showModal, setShowModal] = useState(false);
   const [direction, setDirection] = useState("");
   const { theme } = useTheme();
 
@@ -66,7 +68,10 @@ const Projects = () => {
             >
               <FaArrowLeft />
             </button>
-            <div className={`laptop__screen`}>
+            <div
+              className={`laptop__screen`}
+              onClick={() => setShowModal(true)}
+            >
               <Image
                 src={currentImages[currentImage]}
                 alt={projets[currentProject].title}
@@ -152,6 +157,14 @@ const Projects = () => {
           </button>
         </div>
       </div>
+      {showModal && (
+        <ProjectsModal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          currentImage={currentImage}
+          currentProject={currentProject}
+        />
+      )}
     </section>
   );
 };
