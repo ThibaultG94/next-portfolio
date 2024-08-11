@@ -23,26 +23,45 @@ export default function ProjectsModal({
   }, [showModal, currentImage, currentProject, projets]);
 
   return (
-    <>
-      <div className="relative z-50 bg-white p-4 rounded-lg max-w-lg mx-auto mt-20">
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <button
-            onClick={() => setShowModal(false)}
-            className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
+    <div className="relative z-50">
+      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+        <button
+          onClick={() => setShowModal(false)}
+          className="absolute right-8 top-2 bg-white p-1 rounded-full shadow-lg text-gray-800 hover:text-gray-600"
+          style={{ zIndex: 51 }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="currentColor"
+            className="bi bi-x-lg"
+            viewBox="0 0 16 16"
           >
-            Close Modal
-          </button>
-          {fullSizeImage && (
+            <path d="M2.293 2.293a1 1 0 0 1 1.414 0L8 6.586l4.293-4.293a1 1 0 0 1 1.414 1.414L9.414 8l4.293 4.293a1 1 0 0 1-1.414 1.414L8 9.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L6.586 8 2.293 3.707a1 1 0 0 1 0-1.414z" />
+          </svg>
+        </button>
+        {fullSizeImage && (
+          <div
+            style={{
+              maxWidth: "80vw",
+              maxHeight: "80vh",
+              width: "auto",
+              height: "auto",
+            }}
+            className="flex items-center justify-center my-auto"
+          >
             <Image
               src={fullSizeImage}
               alt={projets[currentProject].title}
+              layout="responsive"
               width={1918}
               height={1079}
-              className="rounded-lg"
+              className="rounded-lg mt-0"
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }
