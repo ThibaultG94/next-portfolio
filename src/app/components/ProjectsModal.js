@@ -1,12 +1,15 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import projets from "../../../public/data/projects.json";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export default function ProjectsModal({
   showModal,
   setShowModal,
   currentImage,
   currentProject,
+  nextImage,
+  prevImage,
 }) {
   const [fullSizeImage, setFullSizeImage] = useState(null);
 
@@ -51,6 +54,12 @@ export default function ProjectsModal({
             }}
             className="flex items-center justify-center my-auto"
           >
+            <button
+              onClick={prevImage}
+              className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-200 hover:text-gray-800 transition duration-300 z-10"
+            >
+              <FaArrowLeft />
+            </button>
             <Image
               src={fullSizeImage}
               alt={projets[currentProject].title}
@@ -59,6 +68,12 @@ export default function ProjectsModal({
               height={1079}
               className="rounded-lg mt-0"
             />
+            <button
+              onClick={nextImage}
+              className="absolute right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-200 hover:text-gray-800 transition duration-300 z-10"
+            >
+              <FaArrowRight />
+            </button>
           </div>
         )}
       </div>

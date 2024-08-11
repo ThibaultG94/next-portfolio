@@ -163,6 +163,8 @@ const Projects = () => {
           setShowModal={setShowModal}
           currentImage={currentImage}
           currentProject={currentProject}
+          nextImage={nextImage}
+          prevImage={prevImage}
         />
       )}
     </section>
