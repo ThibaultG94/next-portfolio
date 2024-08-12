@@ -5,16 +5,16 @@ if [ ! -d "min" ]; then
     mkdir "min"
 fi
 
-# Parcourt chaque fichier WebP dans le répertoire courant
-for img in *.webp; do
+# Parcourt chaque fichier PNG dans le répertoire courant
+for img in *.png; do
     # Vérifie si le fichier est un fichier régulier
     if [ -f "$img" ]; then
         # Construit le nom du fichier de sortie avec le suffixe "-min"
-        base_name=$(basename "$img" .webp)
+        base_name=$(basename "$img" .png)
         output="min/${base_name}-min.webp"
 
-        # Redimensionne l'image
-        convert "$img" -resize 640x360 -quality 80 "$output"
+        # Convertit et redimensionne l'image en WebP
+        convert "$img" -resize 405x540 -quality 90 "$output"
 
         echo "Image convertie : $output"
     fi
