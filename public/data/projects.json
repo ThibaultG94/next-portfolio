@@ -50,32 +50,32 @@
       "title": "Thiblog",
       "description": "Blog personnel pour partager mes expériences et mes projets de développeur web. Codé avec Quasar",
       "images": [
-        "/img/quasar-blog/1-thiblog-home.png",
-        "/img/quasar-blog/2-thiblog.png",
-        "/img/quasar-blog/3-thiblog-article.png",
-        "/img/quasar-blog/4-thiblog-projects.png",
-        "/img/quasar-blog/5-thiblog-about.png"
+        "/img/quasar-blog/min/1-thiblog-home-min.webp",
+        "/img/quasar-blog/min/2-thiblog-min.webp",
+        "/img/quasar-blog/min/3-thiblog-article-min.webp",
+        "/img/quasar-blog/min/4-thiblog-projects-min.webp",
+        "/img/quasar-blog/min/5-thiblog-about-min.webp"
       ],
       "darkImages": [
-        "/img/quasar-blog/1-thiblog-home-dark.png",
-        "/img/quasar-blog/2-thiblog-dark.png",
-        "/img/quasar-blog/3-thiblog-article-dark.png",
-        "/img/quasar-blog/4-thiblog-projects-dark.png",
-        "/img/quasar-blog/5-thiblog-about-dark.png"
+        "/img/quasar-blog/min/1-thiblog-home-dark-min.webp",
+        "/img/quasar-blog/min/2-thiblog-dark-min.webp",
+        "/img/quasar-blog/min/3-thiblog-article-dark-min.webp",
+        "/img/quasar-blog/min/4-thiblog-projects-dark-min.webp",
+        "/img/quasar-blog/min/5-thiblog-about-dark-min.webp"
       ],
       "tabletImages": [
-        "/img/quasar-blog/1-thiblog-home-tablet.png",
-        "/img/quasar-blog/2-thiblog-tablet.png",
-        "/img/quasar-blog/3-thiblog-article-tablet.png",
-        "/img/quasar-blog/4-thiblog-projects-tablet.png",
-        "/img/quasar-blog/5-thiblog-about-tablet.png"
+        "/img/quasar-blog/tablet/min/1-thiblog-home-tablet-min.webp",
+        "/img/quasar-blog/tablet/min/2-thiblog-tablet-min.webp",
+        "/img/quasar-blog/tablet/min/3-thiblog-article-tablet-min.webp",
+        "/img/quasar-blog/tablet/min/4-thiblog-projects-tablet-min.webp",
+        "/img/quasar-blog/tablet/min/5-thiblog-about-tablet-min.webp"
       ],
       "tabletDarkImages": [
-        "/img/quasar-blog/1-thiblog-home-dark-tablet.png",
-        "/img/quasar-blog/2-thiblog-dark-tablet.png",
-        "/img/quasar-blog/3-thiblog-article-dark-tablet.png",
-        "/img/quasar-blog/4-thiblog-projects-dark-tablet.png",
-        "/img/quasar-blog/5-thiblog-about-dark-tablet.png"
+        "/img/quasar-blog/tablet/min/1-thiblog-home-dark-tablet-min.webp",
+        "/img/quasar-blog/tablet/min/2-thiblog-dark-tablet-min.webp",
+        "/img/quasar-blog/tablet/min/3-thiblog-article-dark-tablet-min.webp",
+        "/img/quasar-blog/tablet/min/4-thiblog-projects-dark-tablet-min.webp",
+        "/img/quasar-blog/tablet/min/5-thiblog-about-dark-tablet-min.webp"
       ],
       "github": "https://github.com/ThibaultG94/quasar-blog",
       "url": "https://github.com/ThibaultG94/quasar-blog"
