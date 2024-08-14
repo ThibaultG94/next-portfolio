@@ -50,28 +50,32 @@
       "title": "Thiblog",
       "description": "Blog personnel pour partager mes expériences et mes projets de développeur web. Codé avec Quasar",
       "images": [
-        "/img/quasar-blog/thiblog-home.jpg",
-        "/img/quasar-blog/thiblog.jpg",
-        "/img/quasar-blog/thiblog-projects.jpg",
-        "/img/quasar-blog/thiblog-about.jpg"
+        "/img/quasar-blog/1-thiblog-home.png",
+        "/img/quasar-blog/2-thiblog.png",
+        "/img/quasar-blog/3-thiblog-article.png",
+        "/img/quasar-blog/4-thiblog-projects.png",
+        "/img/quasar-blog/5-thiblog-about.png"
       ],
       "darkImages": [
-        "/img/quasar-blog/thiblog-home-dark.jpg",
-        "/img/quasar-blog/thiblog-dark.jpg",
-        "/img/quasar-blog/thiblog-projects-dark.jpg",
-        "/img/quasar-blog/thiblog-about-dark.jpg"
+        "/img/quasar-blog/1-thiblog-home-dark.png",
+        "/img/quasar-blog/2-thiblog-dark.png",
+        "/img/quasar-blog/3-thiblog-article-dark.png",
+        "/img/quasar-blog/4-thiblog-projects-dark.png",
+        "/img/quasar-blog/5-thiblog-about-dark.png"
       ],
       "tabletImages": [
-        "/img/quasar-blog/thiblog-home-tablet.jpg",
-        "/img/quasar-blog/thiblog-tablet.jpg",
-        "/img/quasar-blog/thiblog-projects-tablet.jpg",
-        "/img/quasar-blog/thiblog-about-tablet.jpg"
+        "/img/quasar-blog/1-thiblog-home-tablet.png",
+        "/img/quasar-blog/2-thiblog-tablet.png",
+        "/img/quasar-blog/3-thiblog-article-tablet.png",
+        "/img/quasar-blog/4-thiblog-projects-tablet.png",
+        "/img/quasar-blog/5-thiblog-about-tablet.png"
       ],
       "tabletDarkImages": [
-        "/img/quasar-blog/thiblog-home-dark-tablet.jpg",
-        "/img/quasar-blog/thiblog-dark-tablet.jpg",
-        "/img/quasar-blog/thiblog-projects-dark-tablet.jpg",
-        "/img/quasar-blog/thiblog-about-dark-tablet.jpg"
+        "/img/quasar-blog/1-thiblog-home-dark-tablet.png",
+        "/img/quasar-blog/2-thiblog-dark-tablet.png",
+        "/img/quasar-blog/3-thiblog-article-dark-tablet.png",
+        "/img/quasar-blog/4-thiblog-projects-dark-tablet.png",
+        "/img/quasar-blog/5-thiblog-about-dark-tablet.png"
       ],
       "github": "https://github.com/ThibaultG94/quasar-blog",
       "url": "https://github.com/ThibaultG94/quasar-blog"
