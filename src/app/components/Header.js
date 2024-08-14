@@ -52,6 +52,7 @@ const Header = () => {
               width={80}
               height={111}
               className="absolute top-0 left-0 transform translate-y-[-4px]"
+              priority
             />
           </div>
           <span className="text-sm sm:text-md md:text-lg lg:text-xl font-bold text-gray-900 dark:text-gray-100">

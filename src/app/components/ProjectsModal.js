@@ -67,6 +67,7 @@ export default function ProjectsModal({
               width={1918}
               height={1079}
               className="rounded-lg mt-0"
+              priority
             />
             <button
               onClick={nextImage}

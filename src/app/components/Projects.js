@@ -79,6 +79,7 @@ const Projects = () => {
                 alt={projets[currentProject].title}
                 width={640}
                 height={360}
+                priority
               />
             </div>
             <div className="laptop__bottom">
@@ -111,6 +112,7 @@ const Projects = () => {
                 alt={projets[currentProject].title}
                 width={270}
                 height={360}
+                priority
               />
             </div>
             <div className="tablet__shadow"></div>

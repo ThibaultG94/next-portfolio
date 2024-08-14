@@ -67,6 +67,7 @@ const ProjectsModalTablet = ({
               width={768}
               height={1024}
               className="rounded-lg mt-0"
+              priority
             />
             <button
               onClick={nextImage}
