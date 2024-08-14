@@ -18,10 +18,11 @@ const ProjectsModalTablet = ({
       // Fetch the current small image path
       const minImagePath = projets[currentProject].tabletImages[currentImage];
       // Remove '/min' from the path and '-min' from the file name
-      const fullImagePath = minImagePath
-        .replace("/min/", "/")
-        .replace("-min", "");
-      setFullSizeImage(fullImagePath);
+      // const fullImagePath = minImagePath
+      //   .replace("/min/", "/")
+      //   .replace("-min", "");
+      // setFullSizeImage(fullImagePath);
+      setFullSizeImage(minImagePath);
     }
   }, [showModal, currentImage, currentProject, projets]);
 
