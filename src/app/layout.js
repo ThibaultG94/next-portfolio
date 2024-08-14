@@ -3,6 +3,7 @@ import ThemeProvider from "./components/ThemeProvider";
 import "../style/app.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import preloadLinks from "../../preloadLinks.json";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,6 +11,7 @@ export const metadata = {
   title: "Thibault Guilhem - Développeur Web",
   description:
     "Le portfolio de Thibault Guilhem, un développeur web passionné par les technologies modernes et la création d'expériences utilisateur dynamiques.",
+  links: [...preloadLinks],
 };
 
 export default function RootLayout({ children }) {

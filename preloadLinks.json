@@ -1,0 +1,374 @@
+[
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/01_task-manager-dashboard.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/02_task-manager-dashboard-messagerie.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/03_task-manager-taskspage.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/04_task-manager-taskspage-messagerie.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/05_task-manager-new-task.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/06_task-manager-new-workspace.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/07_task-manager-contacts.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/08_task-manager-new-contact.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/09_task-manager-workspaces.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/10_task-manager-contact.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/11_task-manager-task.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/12_task-manager-messages.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/13_task-manager-notifications.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/14_task-manager-notifications-menu.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/15_task-manager-workspace.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/16_task-manager-invitation-received.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/17_task-manager-invitation-send.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/18_task-manager-home.jpg",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/01_task-manager-dashboard-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/02_task-manager-dashboard-messagerie-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/03_task-manager-taskspage-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/04_task-manager-taskspage-messagerie-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/05_task-manager-new-task-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/06_task-manager-new-workspace-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/07_task-manager-contacts-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/08_task-manager-new-contact-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/09_task-manager-workspaces-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/10_task-manager-contact-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/11_task-manager-task-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/12_task-manager-messages-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/13_task-manager-notifications-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/14_task-manager-notifications-menu-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/15_task-manager-workspace-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/16_task-manager-invitation-received-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/17_task-manager-invitation-send-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/18_task-manager-signup.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/19_task-manager-login.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/task-manager/tablet/resize2_webp.sh",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/1-thiblog-home-dark.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/1-thiblog-home.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/2-thiblog-dark.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/2-thiblog-tablet.png",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/2-thiblog-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/2-thiblog.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/3-thiblog-article-dark.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/3-thiblog-article.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/4-thiblog-projects-dark.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/4-thiblog-projects.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/5-thiblog-about-dark.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/5-thiblog-about.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/1-thiblog-home-dark-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/1-thiblog-home-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/2-thiblog-dark-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/3-thiblog-article-dark-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/3-thiblog-article-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/4-thiblog-projects-dark-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/4-thiblog-projects-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/5-thiblog-about-dark-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/5-thiblog-about-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/resize_webp.sh",
+    "as": "image",
+    "type": "image/webp"
+  }
+]
