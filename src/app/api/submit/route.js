@@ -21,8 +21,8 @@ const createItem = async (data) => {
 
   // Configurer le mail
   let mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: data.email,
+    from: data.email,
+    to: process.env.EMAIL_USER,
     subject: "Contact Form Submission",
     text: `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
   };
