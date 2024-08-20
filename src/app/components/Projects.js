@@ -5,7 +5,6 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import ProjectsModal from "./ProjectsModal";
-import ProjectsModalTablet from "./ProjectsModalTablet";
 
 import projets from "../../../public/data/projects.json";
 
@@ -13,7 +12,6 @@ const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [showModalTablet, setShowModalTablet] = useState(false);
   const [direction, setDirection] = useState("");
   const { theme } = useTheme();
 
@@ -103,7 +101,6 @@ const Projects = () => {
             </button>
             <div className="tablet__screen">
               <Image
-                onClick={() => setShowModalTablet(true)}
                 src={tabletImages[currentImage]}
                 alt={projets[currentProject].title}
                 width={270}
@@ -164,16 +161,6 @@ const Projects = () => {
         <ProjectsModal
           showModal={showModal}
           setShowModal={setShowModal}
-          currentImage={currentImage}
-          currentProject={currentProject}
-          nextImage={nextImage}
-          prevImage={prevImage}
-        />
-      )}
-      {showModalTablet && (
-        <ProjectsModalTablet
-          showModal={showModalTablet}
-          setShowModal={setShowModalTablet}
           currentImage={currentImage}
           currentProject={currentProject}
           nextImage={nextImage}
