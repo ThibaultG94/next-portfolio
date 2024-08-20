@@ -253,18 +253,6 @@
   },
   {
     "rel": "preload",
-    "href": "/img/public/img/quasar-blog/2-thiblog-tablet.png",
-    "as": "image",
-    "type": "image/webp"
-  },
-  {
-    "rel": "preload",
-    "href": "/img/public/img/quasar-blog/2-thiblog-tablet.webp",
-    "as": "image",
-    "type": "image/webp"
-  },
-  {
-    "rel": "preload",
     "href": "/img/public/img/quasar-blog/2-thiblog.webp",
     "as": "image",
     "type": "image/webp"
@@ -326,6 +314,12 @@
   {
     "rel": "preload",
     "href": "/img/public/img/quasar-blog/tablet/2-thiblog-dark-tablet.webp",
+    "as": "image",
+    "type": "image/webp"
+  },
+  {
+    "rel": "preload",
+    "href": "/img/public/img/quasar-blog/tablet/2-thiblog-tablet.webp",
     "as": "image",
     "type": "image/webp"
   },

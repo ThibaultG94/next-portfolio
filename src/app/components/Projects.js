@@ -1,14 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import ProjectsModal from "./ProjectsModal";
+import SwiperProjects from "./SwiperProjects";
 
 import projets from "../../../public/data/projects.json";
 
 const Projects = () => {
+  const swiperRef = useRef(null);
+
   const [currentProject, setCurrentProject] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -63,19 +66,19 @@ const Projects = () => {
         <div className="hidden md:block relative">
           <div className="laptop">
             <button
-              onClick={prevImage}
+              onClick={() => swiperRef.current.slidePrev()}
               className="absolute left-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowLeft />
             </button>
             <div className={`laptop__screen`}>
-              <Image
-                onClick={() => setShowModal(true)}
-                src={currentImages[currentImage]}
-                alt={projets[currentProject].title}
-                width={640}
-                height={360}
-                priority
+              <SwiperProjects
+                setShowModal={setShowModal}
+                currentImages={currentImages}
+                currentImage={currentImage}
+                projets={projets}
+                currentProject={currentProject}
+                swiperRef={swiperRef}
               />
             </div>
             <div className="laptop__bottom">
@@ -83,7 +86,7 @@ const Projects = () => {
             </div>
             <div className="laptop__shadow"></div>
             <button
-              onClick={nextImage}
+              onClick={() => swiperRef.current.slideNext()}
               className="absolute right-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowRight />
