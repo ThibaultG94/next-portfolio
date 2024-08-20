@@ -70,11 +70,9 @@ const Projects = () => {
             >
               <FaArrowLeft />
             </button>
-            <div
-              className={`laptop__screen`}
-              onClick={() => setShowModal(true)}
-            >
+            <div className={`laptop__screen`}>
               <Image
+                onClick={() => setShowModal(true)}
                 src={currentImages[currentImage]}
                 alt={projets[currentProject].title}
                 width={640}
@@ -103,11 +101,9 @@ const Projects = () => {
             >
               <FaArrowLeft />
             </button>
-            <div
-              className="tablet__screen"
-              onClick={() => setShowModalTablet(true)}
-            >
+            <div className="tablet__screen">
               <Image
+                onClick={() => setShowModalTablet(true)}
                 src={tabletImages[currentImage]}
                 alt={projets[currentProject].title}
                 width={270}
