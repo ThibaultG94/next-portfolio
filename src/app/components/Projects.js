@@ -3,7 +3,6 @@
 import React, { useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import ProjectsModal from "./ProjectsModal";
 import SwiperProjects from "./SwiperProjects";
 
@@ -15,7 +14,6 @@ const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [direction, setDirection] = useState("");
   const { theme } = useTheme();
 
   const nextProject = () => {
@@ -29,14 +27,12 @@ const Projects = () => {
   };
 
   const nextImage = () => {
-    setDirection("right");
     setCurrentImage(
       (prev) => (prev + 1) % projets[currentProject].images.length
     );
   };
 
   const prevImage = () => {
-    setDirection("left");
     setCurrentImage(
       (prev) =>
         (prev - 1 + projets[currentProject].images.length) %
@@ -79,6 +75,7 @@ const Projects = () => {
                 projets={projets}
                 currentProject={currentProject}
                 swiperRef={swiperRef}
+                widthScreen={640}
               />
             </div>
             <div className="laptop__bottom">
@@ -97,23 +94,25 @@ const Projects = () => {
         <div className="md:hidden relative">
           <div className="tablet">
             <button
-              onClick={prevImage}
+              onClick={() => swiperRef.current.slidePrev()}
               className="absolute left-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowLeft />
             </button>
             <div className="tablet__screen">
-              <Image
-                src={tabletImages[currentImage]}
-                alt={projets[currentProject].title}
-                width={270}
-                height={360}
-                priority
+              <SwiperProjects
+                setShowModal={setShowModal}
+                currentImages={tabletImages}
+                currentImage={currentImage}
+                projets={projets}
+                currentProject={currentProject}
+                swiperRef={swiperRef}
+                widthScreen={270}
               />
             </div>
             <div className="tablet__shadow"></div>
             <button
-              onClick={nextImage}
+              onClick={() => swiperRef.current.slideNext()}
               className="absolute right-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowRight />

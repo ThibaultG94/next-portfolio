@@ -11,6 +11,7 @@ const SwiperProjects = ({
   projets,
   currentProject,
   swiperRef,
+  widthScreen,
 }) => {
   return (
     <Swiper
@@ -27,7 +28,7 @@ const SwiperProjects = ({
           <Image
             src={currentImages[index]}
             alt={projets[currentProject].title}
-            width={640}
+            width={widthScreen}
             height={360}
             onClick={() => setShowModal(true)}
           />
