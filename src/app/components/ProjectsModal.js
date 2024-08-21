@@ -69,7 +69,7 @@ export default function ProjectsModal({
               priority
             /> */}
             <SwiperImage
-              setShowModal={true}
+              setShowModal={setShowModal}
               currentImages={currentImages}
               currentImage={currentImage}
               projets={projets}
