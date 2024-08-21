@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import ProjectsModal from "./ProjectsModal";
-import SwiperProjects from "./SwiperProjects";
+import SwiperImage from "./SwiperImage";
 
 import projets from "../../../public/data/projects.json";
 
@@ -68,7 +68,7 @@ const Projects = () => {
               <FaArrowLeft />
             </button>
             <div className={`laptop__screen`}>
-              <SwiperProjects
+              <SwiperImage
                 setShowModal={setShowModal}
                 currentImages={currentImages}
                 currentImage={currentImage}
@@ -100,7 +100,7 @@ const Projects = () => {
               <FaArrowLeft />
             </button>
             <div className="tablet__screen">
-              <SwiperProjects
+              <SwiperImage
                 setShowModal={setShowModal}
                 currentImages={tabletImages}
                 currentImage={currentImage}

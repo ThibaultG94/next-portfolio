@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import "swiper/css";
 
-const SwiperProjects = ({
+const SwiperImage = ({
   setShowModal,
   currentImages,
   currentImage,
@@ -38,4 +38,4 @@ const SwiperProjects = ({
   );
 };
 
-export default SwiperProjects;
+export default SwiperImage;
