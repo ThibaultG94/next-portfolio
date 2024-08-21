@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import ProjectsModal from "./ProjectsModal";
 import SwiperImage from "./SwiperImage";
-import SwiperProject from "./SwiperProject";
 
 import projets from "../../../public/data/projects.json";
 
@@ -13,7 +12,6 @@ const Projects = () => {
   const swiperRef = useRef(null);
   const swiperRefProject = useRef(null);
 
-  const [listProjects, setListProjects] = useState(null);
   const [currentProject, setCurrentProject] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -53,10 +51,6 @@ const Projects = () => {
       ? projets[currentProject].tabletDarkImages
       : projets[currentProject].tabletImages || currentImages;
 
-  useEffect(() => {
-    setListProjects(projets);
-  }, [projets]);
-
   return (
     <section className="py-20 mt-0 sm:mt-20 md:mt-40 lg:mt-60 bg-dark text-light">
       <h2 className="text-5xl text-center font-bold">Mes Travaux</h2>
@@ -83,6 +77,7 @@ const Projects = () => {
                 currentProject={currentProject}
                 swiperRef={swiperRef}
                 widthScreen={640}
+                isModal={true}
               />
             </div>
             <div className="laptop__bottom">
@@ -115,6 +110,7 @@ const Projects = () => {
                 currentProject={currentProject}
                 swiperRef={swiperRef}
                 widthScreen={270}
+                isModal={false}
               />
             </div>
             <div className="tablet__shadow"></div>
@@ -129,19 +125,37 @@ const Projects = () => {
         {/* Tablet view for project info */}
         <div className="relative tablet pt-10 xl:pt-0">
           <button
-            onClick={() => swiperRefProject.current.slidePrev()}
+            onClick={prevProject}
             className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowLeft />
           </button>
           <div className="tablet__screen bg-white dark:bg-black p-8">
-            <SwiperProject
-              listProjects={listProjects}
-              swiperRef={swiperRefProject}
-            />
+            <div className="tablet__content">
+              <h3 className="text-2xl font-semibold">
+                {projets[currentProject].title}
+              </h3>
+              <p className="mt-2">{projets[currentProject].description}</p>
+              <a
+                href={projets[currentProject].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 text-blue-500 hover:text-blue-400"
+              >
+                Voir le site
+              </a>
+              <a
+                href={projets[currentProject].github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 text-blue-500 hover:text-blue-400"
+              >
+                Voir sur GitHub
+              </a>
+            </div>
           </div>
           <button
-            onClick={() => swiperRefProject.current.slideNext()}
+            onClick={nextProject}
             className="absolute right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowRight />

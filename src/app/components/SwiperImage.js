@@ -12,6 +12,7 @@ const SwiperImage = ({
   currentProject,
   swiperRef,
   widthScreen,
+  isModal,
 }) => {
   return (
     <Swiper
@@ -22,17 +23,18 @@ const SwiperImage = ({
         swiperRef.current = swiper;
       }}
     >
-      {currentImages.map((currentImage, index) => (
-        <SwiperSlide key={index}>
-          <Image
-            src={currentImages[index]}
-            alt={projets[currentProject].title}
-            width={widthScreen}
-            height={360}
-            onClick={() => setShowModal(true)}
-          />
-        </SwiperSlide>
-      ))}
+      {currentImages &&
+        currentImages.map((currentImage, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              src={currentImages[index]}
+              alt={projets[currentProject].title}
+              width={widthScreen}
+              height={360}
+              onClick={() => setShowModal(isModal)}
+            />
+          </SwiperSlide>
+        ))}
     </Swiper>
   );
 };
