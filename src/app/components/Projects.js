@@ -109,7 +109,7 @@ const Projects = () => {
                 projets={projets}
                 currentProject={currentProject}
                 swiperRef={swiperRef}
-                widthScreen={270}
+                widthScreen={272}
                 isModal={false}
               />
             </div>
