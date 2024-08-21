@@ -1,17 +1,20 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import projets from "../../../public/data/projects.json";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import SwiperImage from "./SwiperImage";
 
 export default function ProjectsModal({
   showModal,
   setShowModal,
   currentImage,
+  currentImages,
   currentProject,
   nextImage,
   prevImage,
 }) {
   const [fullSizeImage, setFullSizeImage] = useState(null);
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     if (showModal && currentImage != null) {
@@ -51,12 +54,12 @@ export default function ProjectsModal({
             className="flex items-center justify-center my-auto"
           >
             <button
-              onClick={prevImage}
+              onClick={() => swiperRef.current.slidePrev()}
               className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-200 hover:text-gray-800 transition duration-300 z-10"
             >
               <FaArrowLeft />
             </button>
-            <Image
+            {/* <Image
               src={fullSizeImage}
               alt={projets[currentProject].title}
               layout="responsive"
@@ -64,9 +67,20 @@ export default function ProjectsModal({
               height={1079}
               className="rounded-lg mt-0"
               priority
+            /> */}
+            <SwiperImage
+              setShowModal={true}
+              currentImages={currentImages}
+              currentImage={currentImage}
+              projets={projets}
+              currentProject={currentProject}
+              swiperRef={swiperRef}
+              widthScreen={1918}
+              heightScreen={1079}
+              isModal={true}
             />
             <button
-              onClick={nextImage}
+              onClick={() => swiperRef.current.slideNext()}
               className="absolute right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-200 hover:text-gray-800 transition duration-300 z-10"
             >
               <FaArrowRight />

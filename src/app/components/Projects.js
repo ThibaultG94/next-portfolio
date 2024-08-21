@@ -76,6 +76,7 @@ const Projects = () => {
                 projets={projets}
                 currentProject={currentProject}
                 swiperRef={swiperRef}
+                heightScreen={360}
                 widthScreen={640}
                 isModal={true}
               />
@@ -110,6 +111,7 @@ const Projects = () => {
                 currentProject={currentProject}
                 swiperRef={swiperRef}
                 widthScreen={272}
+                heightScreen={360}
                 isModal={false}
               />
             </div>
@@ -167,7 +169,9 @@ const Projects = () => {
           showModal={showModal}
           setShowModal={setShowModal}
           currentImage={currentImage}
+          currentImages={currentImages}
           currentProject={currentProject}
+          swiperRef={swiperRef}
           nextImage={nextImage}
           prevImage={prevImage}
         />
