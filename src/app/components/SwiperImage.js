@@ -32,6 +32,7 @@ const SwiperImage = ({
               width={widthScreen}
               height={360}
               onClick={() => setShowModal(isModal)}
+              priority
             />
           </SwiperSlide>
         ))}
