@@ -17,7 +17,6 @@ const SwiperImage = ({
     <Swiper
       spaceBetween={0}
       slidesPerView={1}
-      onSlideChange={() => console.log(currentImages)}
       loop={true}
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
