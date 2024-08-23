@@ -57,6 +57,7 @@ const Contact = () => {
   };
 
   const handleFormChange = (e) => {
+    console.log(typeof process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
     const { name, value } = e.target;
     setFormData({
       ...formData,
