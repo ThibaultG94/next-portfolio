@@ -11,8 +11,8 @@ const Contact = () => {
   const recaptchaRef = useRef(null);
   const [isVerified, setIsVerified] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
-  const [isSuccess, setIsSuccess] = useState(null); // Pour gérer la couleur du message
-  const [isLoading, setIsLoading] = useState(false); // Pour gérer l'état de chargement
+  const [isSuccess, setIsSuccess] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [sitekey, setSitekey] = useState("");
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const Contact = () => {
       return;
     }
 
-    setIsLoading(true); // Début du chargement
+    setIsLoading(true);
 
     try {
       const response = await fetch("/api/submit", {
@@ -81,7 +81,7 @@ const Contact = () => {
           email: "",
           message: "",
         });
-        recaptchaRef.current.reset(); // Réinitialiser reCAPTCHA
+        recaptchaRef.current.reset();
         setIsVerified(false);
       } else {
         const errorData = await response.json();
@@ -93,7 +93,7 @@ const Contact = () => {
       setIsSuccess(false);
     }
 
-    setIsLoading(false); // Fin du chargement
+    setIsLoading(false);
 
     setTimeout(() => {
       setResponseMessage("");
