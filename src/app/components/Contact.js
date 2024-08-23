@@ -35,11 +35,22 @@ const Contact = () => {
     });
   };
 
+  const validateForm = () => {
+    if (!formData.name || !formData.email || !formData.message) {
+      setResponseMessage("Tous les champs doivent être remplis.");
+      return false;
+    }
+    if (!isVerified) {
+      setResponseMessage("Veuillez compléter le reCAPTCHA.");
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!isVerified) {
-      setResponseMessage("Veuillez compléter le reCAPTCHA.");
+    if (!validateForm()) {
       return;
     }
 
@@ -122,7 +133,7 @@ const Contact = () => {
           Envoyer
         </button>
         {responseMessage && (
-          <p className="text-center mt-4">{responseMessage}</p>
+          <p className="text-center mt-4 text-red-500">{responseMessage}</p>
         )}
       </form>
     </section>
