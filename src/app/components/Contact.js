@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
@@ -11,6 +11,11 @@ const Contact = () => {
   const recaptchaRef = useRef(null);
   const [isVerified, setIsVerified] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
+  const [sitekey, setSitekey] = useState("");
+
+  useEffect(() => {
+    setSitekey(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
+  }, []);
 
   const handleCaptchaSubmission = async (token) => {
     try {
@@ -57,7 +62,6 @@ const Contact = () => {
   };
 
   const handleFormChange = (e) => {
-    console.log(typeof process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -96,12 +100,14 @@ const Contact = () => {
           className="w-full p-2 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200"
           rows="5"
         ></textarea>
-        <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-          ref={recaptchaRef}
-          onChange={handleChange}
-          onExpired={handleExpired}
-        />
+        {sitekey && (
+          <ReCAPTCHA
+            sitekey={sitekey}
+            ref={recaptchaRef}
+            onChange={handleChange}
+            onExpired={handleExpired}
+          />
+        )}
         <button
           type="submit"
           className="w-full p-2 rounded-lg bg-blue-300 dark:bg-blue-600"

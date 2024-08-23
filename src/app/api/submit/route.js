@@ -15,7 +15,6 @@ export async function POST(req) {
   }
 
   try {
-    console.log(typeof secretKey);
     const recaptchaResponse = await axios.post(
       `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`
     );
