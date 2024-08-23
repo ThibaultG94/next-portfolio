@@ -11,6 +11,8 @@ const Contact = () => {
   const recaptchaRef = useRef(null);
   const [isVerified, setIsVerified] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(null); // Pour gérer la couleur du message
+  const [isLoading, setIsLoading] = useState(false); // Pour gérer l'état de chargement
   const [sitekey, setSitekey] = useState("");
 
   useEffect(() => {
@@ -38,10 +40,12 @@ const Contact = () => {
   const validateForm = () => {
     if (!formData.name || !formData.email || !formData.message) {
       setResponseMessage("Tous les champs doivent être remplis.");
+      setIsSuccess(false);
       return false;
     }
     if (!isVerified) {
       setResponseMessage("Veuillez compléter le reCAPTCHA.");
+      setIsSuccess(false);
       return false;
     }
     return true;
@@ -53,6 +57,8 @@ const Contact = () => {
     if (!validateForm()) {
       return;
     }
+
+    setIsLoading(true); // Début du chargement
 
     try {
       const response = await fetch("/api/submit", {
@@ -69,6 +75,7 @@ const Contact = () => {
 
       if (response.ok) {
         setResponseMessage("Message envoyé avec succès !");
+        setIsSuccess(true);
         setFormData({
           name: "",
           email: "",
@@ -79,10 +86,14 @@ const Contact = () => {
       } else {
         const errorData = await response.json();
         setResponseMessage(errorData.error || "Une erreur s'est produite.");
+        setIsSuccess(false);
       }
     } catch (error) {
       setResponseMessage("Échec de l'envoi du message.");
+      setIsSuccess(false);
     }
+
+    setIsLoading(false); // Fin du chargement
 
     setTimeout(() => {
       setResponseMessage("");
@@ -128,12 +139,43 @@ const Contact = () => {
         <button
           type="submit"
           className="w-full p-2 rounded-lg bg-blue-300 dark:bg-blue-600"
-          disabled={!isVerified}
+          disabled={!isVerified || isLoading}
         >
-          Envoyer
+          {isLoading ? (
+            <div className="flex justify-center items-center">
+              <svg
+                className="animate-spin h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                ></path>
+              </svg>
+            </div>
+          ) : (
+            "Envoyer"
+          )}
         </button>
         {responseMessage && (
-          <p className="text-center mt-4 text-red-500">{responseMessage}</p>
+          <p
+            className={`text-center mt-4 ${
+              isSuccess ? "text-green-500" : "text-red-500"
+            }`}
+          >
+            {responseMessage}
+          </p>
         )}
       </form>
     </section>
