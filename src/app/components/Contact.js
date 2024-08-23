@@ -17,44 +17,10 @@ const Contact = () => {
     setSitekey(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
   }, []);
 
-  const handleCaptchaSubmission = async (token) => {
-    try {
-      if (token) {
-        const response = await fetch("/api/submit", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ ...formData, token }),
-        });
-
-        if (response.ok) {
-          setIsVerified(true);
-          setResponseMessage("Message envoyé avec succès !");
-          setFormData({
-            name: "",
-            email: "",
-            message: "",
-          });
-          recaptchaRef.current.reset(); // Réinitialiser reCAPTCHA
-        } else {
-          const errorData = await response.json();
-          setResponseMessage(errorData.error || "Une erreur s'est produite.");
-        }
-      }
-    } catch (error) {
-      setIsVerified(false);
-      setResponseMessage("Échec de l'envoi du message.");
+  const handleCaptchaChange = (token) => {
+    if (token) {
+      setIsVerified(true);
     }
-
-    setTimeout(() => {
-      setResponseMessage("");
-    }, 5000);
-  };
-
-  const handleChange = (token) => {
-    handleCaptchaSubmission(token);
   };
 
   const handleExpired = () => {
@@ -69,13 +35,53 @@ const Contact = () => {
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!isVerified) {
+      setResponseMessage("Veuillez compléter le reCAPTCHA.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          token: recaptchaRef.current.getValue(),
+        }),
+      });
+
+      if (response.ok) {
+        setResponseMessage("Message envoyé avec succès !");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+        recaptchaRef.current.reset(); // Réinitialiser reCAPTCHA
+        setIsVerified(false);
+      } else {
+        const errorData = await response.json();
+        setResponseMessage(errorData.error || "Une erreur s'est produite.");
+      }
+    } catch (error) {
+      setResponseMessage("Échec de l'envoi du message.");
+    }
+
+    setTimeout(() => {
+      setResponseMessage("");
+    }, 5000);
+  };
+
   return (
     <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-3">
       <h2 className="text-3xl text-center">Contactez-moi</h2>
-      <form
-        className="mt-8 max-w-lg mx-auto space-y-4"
-        onSubmit={(e) => e.preventDefault()}
-      >
+      <form className="mt-8 max-w-lg mx-auto space-y-4" onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -104,7 +110,7 @@ const Contact = () => {
           <ReCAPTCHA
             sitekey={sitekey}
             ref={recaptchaRef}
-            onChange={handleChange}
+            onChange={handleCaptchaChange}
             onExpired={handleExpired}
           />
         )}
