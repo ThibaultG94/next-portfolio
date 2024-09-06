@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Thibault Guilhem - Développeur Web",
   description:
-    "Le portfolio de Thibault Guilhem, un développeur web passionné par les technologies modernes et la création d'expériences utilisateur dynamiques.",
+    "Développeur React et Node.js créant des expériences web dynamiques et innovantes. Passionné par les technologies de pointe et l'optimisation de l'expérience utilisateur.",
   links: [...preloadLinks],
 };
 
