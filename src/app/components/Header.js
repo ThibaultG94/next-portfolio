@@ -47,11 +47,10 @@ const Header = () => {
         <div className="flex items-center">
           <div className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 mr-3.5 sm:mr-4 md:mr-5 lg:mr-6 rounded-full overflow-hidden relative">
             <Image
-              src="/img/profil.jpg"
+              src="/img/profil.webp"
               alt="profil"
-              width={80}
-              height={111}
-              className="absolute top-0 left-0 transform translate-y-[-4px]"
+              width={100}
+              height={100}
               priority
             />
           </div>
