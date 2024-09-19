@@ -47,7 +47,7 @@
       "url": "https://www.tskmngr.fr/"
     },
     {
-      "title": "Thiblog",
+      "title": "Chroniques d'un dev",
       "description": "Blog personnel pour partager mes expériences et mes projets de développeur web. Codé avec Quasar",
       "images": [
         "/img/quasar-blog/1-thiblog-home.webp",
@@ -78,7 +78,7 @@
         "/img/quasar-blog/tablet/5-thiblog-about-dark-tablet.webp"
       ],
       "github": "https://github.com/ThibaultG94/quasar-blog",
-      "url": "https://www.thibaultguilhem.blog/"
+      "url": "https://www.chroniques-d-un-dev.com/"
     }
   ]
   
