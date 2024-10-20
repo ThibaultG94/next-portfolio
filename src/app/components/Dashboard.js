@@ -53,7 +53,7 @@ const Dashboard = () => {
         {text}
         <Cursor />
       </p>
-      <div className="mt-4 md:mt-5 flex space-x-6">
+      <address className="mt-4 md:mt-5 flex space-x-6">
         <a
           href="https://www.linkedin.com/in/thibault-g-10b37a271/"
           target="_blank"
@@ -76,7 +76,7 @@ const Dashboard = () => {
         >
           <FaEnvelope size={30} />
         </a>
-      </div>
+      </address>
       <div id="text"></div>
       <div className="absolute bottom-10">
         {showScrollToTop ? (

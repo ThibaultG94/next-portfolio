@@ -7,7 +7,7 @@ const ReseauxSociaux = () => {
       <h2 className="text-3xl text-center">
         Suivez-moi sur les réseaux sociaux
       </h2>
-      <div className="mt-8 flex justify-center space-x-6">
+      <address className="mt-8 flex justify-center space-x-6">
         <a
           href="https://www.linkedin.com/in/thibault-g-10b37a271/"
           target="_blank"
@@ -30,7 +30,7 @@ const ReseauxSociaux = () => {
         >
           <FaEnvelope size={30} />
         </a>
-      </div>
+      </address>
     </footer>
   );
 };
