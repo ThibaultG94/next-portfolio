@@ -1,4 +1,3 @@
-// src/config/seo.js
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://thibaultguilhem.com";
 
@@ -23,11 +22,11 @@ const defaultSEOConfig = {
       },
     ],
   },
-  twitter: {
-    handle: "@votrehandle",
-    site: "@votresite",
-    cardType: "summary_large_image",
-  },
+  //   twitter: {
+  //     handle: "@votrehandle",
+  //     site: "@votresite",
+  //     cardType: "summary_large_image",
+  //   },
   additionalMetaTags: [
     {
       name: "author",
