@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import { cn } from '@/lib/utils'
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const shimmer = (w, h) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -14,12 +15,12 @@ const shimmer = (w, h) => `
   <rect width="${w}" height="${h}" fill="#f6f7f8" />
   <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-</svg>`
+</svg>`;
 
 const toBase64 = (str) =>
-  typeof window === 'undefined'
-    ? Buffer.from(str).toString('base64')
-    : window.btoa(str)
+  typeof window === "undefined"
+    ? Buffer.from(str).toString("base64")
+    : window.btoa(str);
 
 export default function OptimizedImage({
   src,
@@ -30,18 +31,17 @@ export default function OptimizedImage({
   className,
   ...props
 }) {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Précharge l'image si priority est true
     if (priority && src) {
-      const img = new window.Image()
-      img.src = src
+      const img = new window.Image();
+      img.src = src;
     }
-  }, [src, priority])
+  }, [src, priority]);
 
   return (
-    <div className={cn('overflow-hidden relative', className)}>
+    <div className={`overflow-hidden relative ${className || ""}`}>
       <Image
         src={src}
         alt={alt}
@@ -50,16 +50,17 @@ export default function OptimizedImage({
         priority={priority}
         quality={90}
         placeholder="blur"
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(width, height))}`}
-        className={cn(
-          'duration-700 ease-in-out',
+        blurDataURL={`data:image/svg+xml;base64,${toBase64(
+          shimmer(width, height)
+        )}`}
+        className={`duration-700 ease-in-out ${
           isLoading
-            ? 'scale-110 blur-2xl grayscale'
-            : 'scale-100 blur-0 grayscale-0'
-        )}
+            ? "scale-110 blur-2xl grayscale"
+            : "scale-100 blur-0 grayscale-0"
+        }`}
         onLoadingComplete={() => setIsLoading(false)}
         {...props}
       />
     </div>
-  )
+  );
 }

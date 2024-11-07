@@ -4,6 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { handleSmoothScroll } from "../lib/scrollUtils";
+import OptimizedImage from "./OptimizedImage";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,12 +47,13 @@ const Header = () => {
       <div className="container opacity-100 mx-auto flex justify-between items-center p-4 bg-white dark:bg-[#121212]">
         <div className="flex items-center">
           <div className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 mr-3.5 sm:mr-4 md:mr-5 lg:mr-6 rounded-full overflow-hidden relative">
-            <Image
+            <OptimizedImage
               src="/img/profil.webp"
               alt="profil"
               width={100}
               height={100}
               priority
+              className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16"
             />
           </div>
           <span className="text-sm sm:text-md md:text-lg lg:text-xl font-bold text-gray-900 dark:text-gray-100">
