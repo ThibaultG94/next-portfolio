@@ -3,6 +3,7 @@ import ThemeProvider from "./components/ThemeProvider";
 import "../style/app.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import SkipLink from "./components/SkipLink";
 import preloadLinks from "../../preloadLinks.json";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,11 +17,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className="text-foreground">
+    <html lang="fr" className="text-foreground" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
+          <SkipLink />
           <Header />
-          <main>{children}</main>
+          <main id="main-content" tabIndex="-1">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
