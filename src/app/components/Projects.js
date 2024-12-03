@@ -168,7 +168,6 @@ const Projects = () => {
         <ProjectsModal
           showModal={showModal}
           setShowModal={setShowModal}
-          currentImage={currentImage}
           currentImages={currentImages}
           currentProject={currentProject}
           swiperRef={swiperRef}

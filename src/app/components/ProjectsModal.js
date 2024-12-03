@@ -1,92 +1,98 @@
-import Image from "next/image";
+"use client";
+
 import { useEffect, useRef, useState } from "react";
-import projets from "../../../public/data/projects.json";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import SwiperImage from "./SwiperImage";
+import projets from "../../../public/data/projects.json";
 
 export default function ProjectsModal({
   showModal,
   setShowModal,
-  currentImage,
   currentImages,
   currentProject,
-  nextImage,
-  prevImage,
 }) {
-  const [fullSizeImage, setFullSizeImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const swiperRef = useRef(null);
 
+  // Gestion de l'échap pour fermer le modal
   useEffect(() => {
-    if (showModal && currentImage != null) {
-      // Fetch the current small image path
-      const minImagePath = projets[currentProject].images[currentImage];
-      setFullSizeImage(minImagePath);
-    }
-  }, [showModal, currentImage, currentProject, projets]);
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        setShowModal(false);
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [setShowModal]);
+
+  // Bloquer le scroll quand le modal est ouvert
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
 
   return (
-    <div className="relative z-50">
-      <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 overflow-hidden">
+      <div className="absolute inset-0 bg-black bg-opacity-90 transition-opacity duration-300">
+        {/* Overlay pour fermer en cliquant en dehors */}
+        <div
+          className="absolute inset-0 cursor-pointer"
+          onClick={() => setShowModal(false)}
+        />
+
+        {/* Bouton fermer */}
         <button
           onClick={() => setShowModal(false)}
-          className="absolute right-8 top-2 bg-white p-1 rounded-full shadow-lg text-gray-800 hover:text-gray-600"
-          style={{ zIndex: 51 }}
+          className="absolute right-4 top-4 z-50 p-2 text-white hover:text-gray-300 transition-colors"
+          aria-label="Fermer"
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            className="bi bi-x-lg"
-            viewBox="0 0 16 16"
+            className="w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <path d="M2.293 2.293a1 1 0 0 1 1.414 0L8 6.586l4.293-4.293a1 1 0 0 1 1.414 1.414L9.414 8l4.293 4.293a1 1 0 0 1-1.414 1.414L8 9.414l-4.293 4.293a1 1 0 0 1-1.414-1.414L6.586 8 2.293 3.707a1 1 0 0 1 0-1.414z" />
+            <path d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        {fullSizeImage && (
-          <div
-            style={{
-              maxWidth: "80vw",
-              maxHeight: "80vh",
-              width: "auto",
-              height: "auto",
-            }}
-            className="flex items-center justify-center my-auto"
-          >
+
+        {/* Container image */}
+        <div className="flex items-center justify-center h-full p-4">
+          <div className="relative max-w-[90vw] max-h-[90vh]">
+            {/* Contrôles de navigation */}
             <button
-              onClick={() => swiperRef.current.slidePrev()}
-              className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-200 hover:text-gray-800 transition duration-300 z-10"
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all"
+              aria-label="Image précédente"
             >
-              <FaArrowLeft />
+              <FaArrowLeft size={24} />
             </button>
-            {/* <Image
-              src={fullSizeImage}
-              alt={projets[currentProject].title}
-              layout="responsive"
-              width={1918}
-              height={1079}
-              className="rounded-lg mt-0"
-              priority
-            /> */}
+
             <SwiperImage
               setShowModal={setShowModal}
               currentImages={currentImages}
-              currentImage={currentImage}
               projets={projets}
               currentProject={currentProject}
               swiperRef={swiperRef}
-              widthScreen={1918}
-              heightScreen={1079}
+              widthScreen={1920}
+              heightScreen={1080}
               isModal={true}
             />
+
             <button
-              onClick={() => swiperRef.current.slideNext()}
-              className="absolute right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-200 hover:text-gray-800 transition duration-300 z-10"
+              onClick={() => swiperRef.current?.slideNext()}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all"
+              aria-label="Image suivante"
             >
-              <FaArrowRight />
+              <FaArrowRight size={24} />
             </button>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
