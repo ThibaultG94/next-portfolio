@@ -62,6 +62,10 @@ const SwiperImage = ({
             swiper.update();
           }
         }}
+        onInit={(swiper) => {
+          swiper.loopCreate();
+        }}
+        watchSlidesProgress={true}
         className={`${
           isLoading ? "opacity-0" : "opacity-100"
         } transition-opacity duration-300`}
