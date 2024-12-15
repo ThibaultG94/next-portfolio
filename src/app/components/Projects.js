@@ -10,6 +10,8 @@ import projets from "../../../public/data/projects.json";
 
 const Projects = () => {
   const swiperRef = useRef(null);
+  const laptopSwiperRef = useRef(null);
+  const tabletSwiperRef = useRef(null);
   const swiperRefProject = useRef(null);
 
   const [currentProject, setCurrentProject] = useState(0);
@@ -41,6 +43,42 @@ const Projects = () => {
     );
   };
 
+  const handlePrev = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
+
+  const handlePrevLaptop = () => {
+    if (laptopSwiperRef.current) {
+      laptopSwiperRef.current.slidePrev();
+    }
+  };
+
+  const handlePrevTablet = () => {
+    if (tabletSwiperRef.current) {
+      tabletSwiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNextLaptop = () => {
+    if (laptopSwiperRef.current) {
+      laptopSwiperRef.current.slideNext();
+    }
+  };
+
+  const handleNextTablet = () => {
+    if (tabletSwiperRef.current) {
+      tabletSwiperRef.current.slideNext();
+    }
+  };
+
   const currentImages =
     theme === "dark" && projets[currentProject].darkImages
       ? projets[currentProject].darkImages
@@ -63,7 +101,7 @@ const Projects = () => {
         <div className="hidden md:block relative">
           <div className="laptop">
             <button
-              onClick={() => swiperRef.current.slidePrev()}
+              onClick={handlePrevLaptop}
               className="absolute left-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowLeft />
@@ -75,7 +113,7 @@ const Projects = () => {
                 currentImage={currentImage}
                 projets={projets}
                 currentProject={currentProject}
-                swiperRef={swiperRef}
+                swiperRef={laptopSwiperRef}
                 heightScreen={360}
                 widthScreen={640}
                 isModal={true}
@@ -86,7 +124,7 @@ const Projects = () => {
             </div>
             <div className="laptop__shadow"></div>
             <button
-              onClick={() => swiperRef.current.slideNext()}
+              onClick={handleNextLaptop}
               className="absolute right-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowRight />
@@ -97,7 +135,7 @@ const Projects = () => {
         <div className="md:hidden relative">
           <div className="tablet">
             <button
-              onClick={() => swiperRef.current.slidePrev()}
+              onClick={handlePrevTablet}
               className="absolute left-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowLeft />
@@ -109,7 +147,7 @@ const Projects = () => {
                 currentImage={currentImage}
                 projets={projets}
                 currentProject={currentProject}
-                swiperRef={swiperRef}
+                swiperRef={tabletSwiperRef}
                 widthScreen={272}
                 heightScreen={360}
                 isModal={false}
@@ -117,7 +155,7 @@ const Projects = () => {
             </div>
             <div className="tablet__shadow"></div>
             <button
-              onClick={() => swiperRef.current.slideNext()}
+              onClick={handleNextTablet}
               className="absolute right-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowRight />
@@ -170,7 +208,7 @@ const Projects = () => {
           setShowModal={setShowModal}
           currentImages={currentImages}
           currentProject={currentProject}
-          swiperRef={swiperRef}
+          swiperRef={tabletSwiperRef}
           nextImage={nextImage}
           prevImage={prevImage}
         />

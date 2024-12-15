@@ -56,7 +56,11 @@ const SwiperImage = ({
           nextEl: ".swiper-button-next",
         }}
         onSwiper={(swiper) => {
-          swiperRef.current = swiper;
+          if (swiperRef.current !== swiper) {
+            swiperRef.current = swiper;
+            // Force une mise à jour initiale
+            swiper.update();
+          }
         }}
         className={`${
           isLoading ? "opacity-0" : "opacity-100"
