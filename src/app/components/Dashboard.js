@@ -20,6 +20,8 @@ const Dashboard = () => {
   });
 
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [name, setName] = useState("Thibault");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,11 +45,16 @@ const Dashboard = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  useEffect(() => {
+    setName(process.env.NEXT_PUBLIC_USERNAME || "Thibault");
+    setEmail(process.env.NEXT_PUBLIC_EMAIL || "");
+  }, []);
+
   return (
     <section className="h-screen flex flex-col justify-center items-center bg-dark text-center text-light relative">
       <h1 className="text-xl sm:text-2xl md:text-3xl">Bonjour 👋</h1>
       <h2 className="text-xl sm:text-2xl md:text-3xl mt-2 md:mt-3">
-        Je suis Thibault Guilhem
+        Je suis {name}
       </h2>
       <p className="text-2xl sm:text-3xl md:text-4xl my-4 md:my-5">
         {text}
@@ -71,7 +78,7 @@ const Dashboard = () => {
           <FaGithub size={30} />
         </a>
         <a
-          href="mailto:contact@thibaultguilhem.com"
+          href={`mailto:${email}`}
           className="text-gray-900 dark:text-gray-100"
         >
           <FaEnvelope size={30} />

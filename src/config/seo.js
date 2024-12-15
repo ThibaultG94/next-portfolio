@@ -1,10 +1,10 @@
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://thibaultguilhem.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const name = process.env.NEXT_PUBLIC_USERNAME || "Thibault";
 
 const defaultSEOConfig = {
-  title: "Thibault Guilhem - Développeur Web Fullstack",
-  titleTemplate: "%s | Thibault Guilhem",
-  defaultTitle: "Thibault Guilhem - Développeur Web Fullstack React & Node.js",
+  title: `${name} - Développeur Web Fullstack`,
+  titleTemplate: `%s | ${name}`,
+  defaultTitle: `${name} - Développeur Web Fullstack React & Node.js`,
   description:
     "Développeur React et Node.js créant des expériences web dynamiques et innovantes.",
   canonical: siteUrl,
@@ -12,13 +12,13 @@ const defaultSEOConfig = {
     type: "website",
     locale: "fr_FR",
     url: siteUrl,
-    siteName: "Thibault Guilhem Portfolio",
+    siteName: `${name} Portfolio`,
     images: [
       {
         url: `${siteUrl}/img/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Thibault Guilhem - Développeur Web Fullstack",
+        alt: `${name} - Développeur Web Fullstack`,
       },
     ],
   },
@@ -30,7 +30,7 @@ const defaultSEOConfig = {
   additionalMetaTags: [
     {
       name: "author",
-      content: "Thibault Guilhem",
+      content: name,
     },
     {
       name: "viewport",

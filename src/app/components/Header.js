@@ -11,6 +11,8 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const menuRef = useRef(null);
 
+  const [name, setName] = useState("Thibault");
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -51,6 +53,10 @@ const Header = () => {
     { href: "#contact", label: "Contact" },
   ];
 
+  useEffect(() => {
+    setName(process.env.NEXT_PUBLIC_USERNAME || "Thibault");
+  }, []);
+
   return (
     <header
       role="banner"
@@ -71,7 +77,7 @@ const Header = () => {
             />
           </div>
           <span className="text-sm sm:text-md md:text-lg lg:text-xl font-bold text-gray-900 dark:text-gray-100 ml-3.5 sm:ml-4 md:ml-5 lg:ml-6">
-            Thibault Guilhem
+            {name}
           </span>
         </div>
         <nav

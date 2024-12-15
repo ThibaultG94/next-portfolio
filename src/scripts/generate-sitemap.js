@@ -2,8 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const prettier = require("prettier");
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://thibaultguilhem.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 // Liste des pages statiques
 const pages = ["", "/projects", "/skills", "/contact"];

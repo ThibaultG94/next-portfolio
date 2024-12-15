@@ -9,7 +9,7 @@ import preloadLinks from "../../preloadLinks.json";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: `${process.env.USERNAME} - Développeur Web`,
+  title: `${process.env.NEXT_PUBLIC_USERNAME} - Développeur Web`,
   description:
     "Développeur React et Node.js créant des expériences web dynamiques et innovantes. Passionné par les technologies de pointe et l'optimisation de l'expérience utilisateur.",
   links: [...preloadLinks],
