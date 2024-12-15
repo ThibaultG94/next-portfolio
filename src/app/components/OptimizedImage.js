@@ -58,7 +58,7 @@ export default function OptimizedImage({
             ? "scale-110 blur-2xl grayscale"
             : "scale-100 blur-0 grayscale-0"
         }`}
-        onLoadingComplete={() => setIsLoading(false)}
+        onLoad={() => setIsLoading(false)}
         {...props}
       />
     </div>
