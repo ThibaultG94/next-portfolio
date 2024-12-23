@@ -5,6 +5,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import ProjectsModal from "./ProjectsModal";
 import SwiperImage from "./SwiperImage";
+import dynamic from "next/dynamic";
 
 import projets from "../../../public/data/projects.json";
 
@@ -12,7 +13,6 @@ const Projects = () => {
   const swiperRef = useRef(null);
   const laptopSwiperRef = useRef(null);
   const tabletSwiperRef = useRef(null);
-  const swiperRefProject = useRef(null);
 
   const [currentProject, setCurrentProject] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
@@ -41,18 +41,6 @@ const Projects = () => {
         (prev - 1 + projets[currentProject].images.length) %
         projets[currentProject].images.length
     );
-  };
-
-  const handlePrev = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slidePrev();
-    }
-  };
-
-  const handleNext = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slideNext();
-    }
   };
 
   const handlePrevLaptop = () => {
