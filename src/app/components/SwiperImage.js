@@ -88,6 +88,7 @@ const SwiperImage = ({
                 height={heightScreen} // Utilisé uniquement pour le calcul du ratio
                 onClick={() => isModal && setShowModal(true)}
                 priority={index === 0}
+                isModal={isModal}
                 className="swiper-slide-image" // Classe personnalisée si nécessaire
               />
             </div>

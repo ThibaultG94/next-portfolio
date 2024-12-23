@@ -5,12 +5,10 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import ProjectsModal from "./ProjectsModal";
 import SwiperImage from "./SwiperImage";
-import dynamic from "next/dynamic";
 
 import projets from "../../../public/data/projects.json";
 
 const Projects = () => {
-  const swiperRef = useRef(null);
   const laptopSwiperRef = useRef(null);
   const tabletSwiperRef = useRef(null);
 

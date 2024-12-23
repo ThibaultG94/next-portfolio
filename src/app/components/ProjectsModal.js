@@ -62,8 +62,8 @@ export default function ProjectsModal({
         </button>
 
         {/* Container image */}
-        <div className="flex items-center justify-center h-full p-4">
-          <div className="relative max-w-[90vw] max-h-[90vh]">
+        <div className="flex items-center justify-center h-screen p-4">
+          <div className="relative w-full h-[80vh]">
             {/* Contrôles de navigation */}
             <button
               onClick={() => swiperRef.current?.slidePrev()}
