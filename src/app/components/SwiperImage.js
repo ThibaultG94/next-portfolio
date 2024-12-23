@@ -21,6 +21,9 @@ const SwiperImage = ({
   const [isLoading, setIsLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Ajoute un état pour tracker si le Swiper est initialisé
+  const [isInitialized, setIsInitialized] = useState(false);
+
   useEffect(() => {
     if (currentImages) {
       Promise.all(
@@ -31,9 +34,17 @@ const SwiperImage = ({
             img.onload = resolve;
           });
         })
-      ).then(() => setIsLoading(false));
+      ).then(() => {
+        setIsLoading(false);
+        // Si le Swiper est déjà initialisé, force une mise à jour
+        if (swiperRef.current) {
+          swiperRef.current.update();
+          swiperRef.current.loopDestroy();
+          swiperRef.current.loopCreate();
+        }
+      });
     }
-  }, [currentImages]);
+  }, [currentImages, swiperRef]);
 
   return (
     <div className="relative" aria-busy={isLoading}>
@@ -47,35 +58,20 @@ const SwiperImage = ({
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
-        keyboard={{
-          enabled: true,
-          onlyInViewport: true,
-        }}
-        navigation={{
-          prevEl: ".swiper-button-prev",
-          nextEl: ".swiper-button-next",
-        }}
+        speed={500}
         onSwiper={(swiper) => {
           if (swiperRef.current !== swiper) {
             swiperRef.current = swiper;
-            // Force une mise à jour initiale
-            swiper.update();
+            // On attend que tout soit chargé avant d'initialiser
+            requestAnimationFrame(() => {
+              swiper.update();
+            });
           }
         }}
-        onInit={(swiper) => {
-          swiper.loopCreate();
+        onSlideChange={(swiper) => {
+          setCurrentSlide(swiper.realIndex);
         }}
         watchSlidesProgress={true}
-        className={`${
-          isLoading ? "opacity-0" : "opacity-100"
-        } transition-opacity duration-300`}
-        a11y={{
-          prevSlideMessage: "Image précédente",
-          nextSlideMessage: "Image suivante",
-          firstSlideMessage: "Première image",
-          lastSlideMessage: "Dernière image",
-          paginationBulletMessage: "Aller à l'image {{index}}",
-        }}
       >
         {currentImages?.map((image, index) => (
           <SwiperSlide key={index}>
@@ -87,13 +83,11 @@ const SwiperImage = ({
               <OptimizedImage
                 src={currentImages[index]}
                 alt={`${projets[currentProject].title} - Vue ${index + 1}`}
-                width={widthScreen}
-                height={heightScreen}
+                width={widthScreen} // Utilisé uniquement pour le calcul du ratio
+                height={heightScreen} // Utilisé uniquement pour le calcul du ratio
                 onClick={() => isModal && setShowModal(true)}
                 priority={index === 0}
-                className={`w-full h-auto cursor-${
-                  isModal ? "pointer" : "default"
-                }`}
+                className="swiper-slide-image" // Classe personnalisée si nécessaire
               />
             </div>
           </SwiperSlide>

@@ -3,26 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const shimmer = (w, h) => `
-<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <linearGradient id="g">
-      <stop stop-color="#f6f7f8" offset="20%" />
-      <stop stop-color="#edeef1" offset="50%" />
-      <stop stop-color="#f6f7f8" offset="70%" />
-    </linearGradient>
-  </defs>
-  <rect width="${w}" height="${h}" fill="#f6f7f8" />
-  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
-  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-</svg>`;
-
-const toBase64 = (str) =>
-  typeof window === "undefined"
-    ? Buffer.from(str).toString("base64")
-    : window.btoa(str);
-
-export default function OptimizedImage({
+const OptimizedImage = ({
   src,
   alt,
   width,
@@ -30,37 +11,48 @@ export default function OptimizedImage({
   priority = false,
   className,
   ...props
-}) {
+}) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (priority && src) {
-      const img = new window.Image();
-      img.src = src;
-    }
-  }, [src, priority]);
+  // Calcul du ratio d'aspect pour maintenir les proportions
+  const aspectRatio = height ? (height / width) * 100 : 56.25; // 56.25% est le ratio 16:9 par défaut
 
   return (
-    <div className={`overflow-hidden relative ${className || ""}`}>
+    <div
+      className={`relative overflow-hidden ${className || ""}`}
+      style={{
+        // Utilisation de la technique du padding pour maintenir le ratio d'aspect
+        paddingTop: `${aspectRatio}%`,
+      }}
+    >
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
-        priority={priority}
+        fill={true} // Utilisation de fill au lieu de width/height spécifiques
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         quality={90}
-        placeholder="blur"
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(
-          shimmer(width, height)
-        )}`}
-        className={`duration-700 ease-in-out ${
-          isLoading
-            ? "scale-110 blur-2xl grayscale"
-            : "scale-100 blur-0 grayscale-0"
-        }`}
+        priority={priority}
+        style={{
+          objectFit: "cover", // Assure que l'image couvre tout l'espace disponible
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+        }}
+        className={`
+          duration-700 ease-in-out
+          ${
+            isLoading
+              ? "scale-110 blur-2xl grayscale"
+              : "scale-100 blur-0 grayscale-0"
+          }
+        `}
         onLoad={() => setIsLoading(false)}
         {...props}
       />
     </div>
   );
-}
+};
+
+export default OptimizedImage;
