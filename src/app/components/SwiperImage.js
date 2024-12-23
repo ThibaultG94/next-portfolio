@@ -57,7 +57,7 @@ const SwiperImage = ({
         modules={[Navigation, A11y, Keyboard]}
         spaceBetween={0}
         slidesPerView={1}
-        loop={true}
+        loop={!isLoading && isInitialized}
         speed={500}
         onSwiper={(swiper) => {
           if (swiperRef.current !== swiper) {
@@ -65,6 +65,7 @@ const SwiperImage = ({
             // On attend que tout soit chargé avant d'initialiser
             requestAnimationFrame(() => {
               swiper.update();
+              setIsInitialized(true);
             });
           }
         }}
