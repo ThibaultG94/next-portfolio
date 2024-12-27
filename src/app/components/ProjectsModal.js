@@ -14,7 +14,31 @@ export default function ProjectsModal({
   const [isLoading, setIsLoading] = useState(true);
   const swiperRef = useRef(null);
 
-  // Gestion de l'échap pour fermer le modal
+  // Ajout d'un état pour les dimensions du viewport
+  const [viewportDimensions, setViewportDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    // Fonction pour mettre à jour les dimensions
+    const updateDimensions = () => {
+      setViewportDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Mise à jour initiale
+    updateDimensions();
+
+    // Écouteur pour le redimensionnement
+    window.addEventListener("resize", updateDimensions);
+
+    // Nettoyage
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") {
@@ -25,7 +49,6 @@ export default function ProjectsModal({
     return () => window.removeEventListener("keydown", handleEsc);
   }, [setShowModal]);
 
-  // Bloquer le scroll quand le modal est ouvert
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -36,16 +59,9 @@ export default function ProjectsModal({
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
       <div className="absolute inset-0 bg-black bg-opacity-90 transition-opacity duration-300">
-        {/* Overlay pour fermer en cliquant en dehors */}
-        <div
-          className="absolute inset-0 cursor-pointer"
-          onClick={() => setShowModal(false)}
-        />
-
-        {/* Bouton fermer */}
         <button
           onClick={() => setShowModal(false)}
-          className="absolute right-4 top-4 z-50 p-2 text-white hover:text-gray-300 transition-colors"
+          className="absolute right-4 top-4 z-[60] p-2 text-white hover:text-gray-300 transition-colors"
           aria-label="Fermer"
         >
           <svg
@@ -61,32 +77,34 @@ export default function ProjectsModal({
           </svg>
         </button>
 
-        {/* Container image */}
-        <div className="flex items-center justify-center h-screen p-4">
-          <div className="relative w-full h-[80vh]">
-            {/* Contrôles de navigation */}
+        {/* Container modifié pour une meilleure gestion du centrage */}
+        <div className="flex items-center justify-center h-screen">
+          <div className="relative w-full h-full flex items-center justify-center px-12">
             <button
               onClick={() => swiperRef.current?.slidePrev()}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all"
+              className="absolute left-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all"
               aria-label="Image précédente"
             >
               <FaArrowLeft size={24} />
             </button>
 
-            <SwiperImage
-              setShowModal={setShowModal}
-              currentImages={currentImages}
-              projets={projets}
-              currentProject={currentProject}
-              swiperRef={swiperRef}
-              widthScreen={1920}
-              heightScreen={1080}
-              isModal={true}
-            />
+            {/* Conteneur pour SwiperImage avec gestion dynamique de la taille */}
+            <div className="max-w-[90vw] max-h-[90vh] w-full">
+              <SwiperImage
+                setShowModal={setShowModal}
+                currentImages={currentImages}
+                projets={projets}
+                currentProject={currentProject}
+                swiperRef={swiperRef}
+                widthScreen={viewportDimensions.width * 0.9}
+                heightScreen={viewportDimensions.height * 0.9}
+                isModal={true}
+              />
+            </div>
 
             <button
               onClick={() => swiperRef.current?.slideNext()}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all"
+              className="absolute right-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all"
               aria-label="Image suivante"
             >
               <FaArrowRight size={24} />
