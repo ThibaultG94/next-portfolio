@@ -33,7 +33,7 @@ const OptimizedImage = ({
       <Image
         src={src}
         alt={alt}
-        fill={true} // Utilisation de fill au lieu de width/height spécifiques
+        fill="none"
         sizes={imageSizes}
         quality={90}
         priority={priority}

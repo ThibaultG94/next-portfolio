@@ -2,8 +2,6 @@
 
 ## Optimisations de Performance
 
-- [ ] Mettre en place les Server Components pour les sections non interactives
-- [ ] Ajouter le fractionnement du code au niveau des composants
 - [ ] Optimiser la stratégie de chargement des images
 - [ ] Implémenter le préchargement des ressources critiques
 
