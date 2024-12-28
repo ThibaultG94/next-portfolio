@@ -7,7 +7,7 @@
     "generate:preload": "node generatePreloadLinks.js",
     "build": "npm run generate:preload && npm run generate:sitemap && next build",
     "generate:sitemap": "node src/scripts/generate-sitemap.js",
-    "start": "next start",
+    "start": "npm run generate:preload && next start",
     "lint": "next lint"
   },
   "dependencies": {

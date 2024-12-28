@@ -12,7 +12,7 @@ const nextConfig = {
   logging: {
     fetches: {
       // Ne log pas les fetches d'images en production
-      fullUrl: process.env.NEXT_PUBLIC_NODE_ENV === "production" ? false : true,
+      fullUrl: process.env.NODE_ENV === "production" ? false : true,
     },
   },
 };
