@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import SwiperImage from "./SwiperImage";
 import projets from "../../../public/data/projects.json";
@@ -11,50 +11,45 @@ export default function ProjectsModal({
   currentImages,
   currentProject,
 }) {
-  const [isLoading, setIsLoading] = useState(true);
   const swiperRef = useRef(null);
+  const containerRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  // Ajout d'un état pour les dimensions du viewport
-  const [viewportDimensions, setViewportDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
+  const updateDimensions = useCallback(() => {
+    const padding = 32; // 2rem padding on each side
+    const maxWidth = Math.min(window.innerWidth - padding * 2, 1200);
+    const maxHeight = window.innerHeight - padding * 2;
+
+    // Calculer la hauteur basée sur le ratio 16:9
+    const heightFromWidth = (maxWidth * 9) / 16;
+
+    // Si la hauteur calculée est trop grande, on part de la hauteur max
+    if (heightFromWidth > maxHeight) {
+      const width = (maxHeight * 16) / 9;
+      setDimensions({ width, height: maxHeight });
+    } else {
+      setDimensions({ width: maxWidth, height: heightFromWidth });
+    }
+  }, []);
 
   useEffect(() => {
-    // Fonction pour mettre à jour les dimensions
-    const updateDimensions = () => {
-      setViewportDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    // Mise à jour initiale
     updateDimensions();
-
-    // Écouteur pour le redimensionnement
     window.addEventListener("resize", updateDimensions);
-
-    // Nettoyage
     return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
+  }, [updateDimensions]);
 
   useEffect(() => {
     const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        setShowModal(false);
-      }
+      if (e.key === "Escape") setShowModal(false);
     };
     window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [setShowModal]);
-
-  useEffect(() => {
     document.body.style.overflow = "hidden";
+
     return () => {
+      window.removeEventListener("keydown", handleEsc);
       document.body.style.overflow = "unset";
     };
-  }, []);
+  }, [setShowModal]);
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
@@ -77,38 +72,49 @@ export default function ProjectsModal({
           </svg>
         </button>
 
-        {/* Container modifié pour une meilleure gestion du centrage */}
-        <div className="flex items-center justify-center h-screen">
-          <div className="relative w-full h-full flex items-center justify-center px-12">
-            <button
-              onClick={() => swiperRef.current?.slidePrev()}
-              className="absolute left-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all"
-              aria-label="Image précédente"
-            >
-              <FaArrowLeft size={24} />
-            </button>
+        <div className="flex items-center justify-center h-screen p-8">
+          <div
+            ref={containerRef}
+            className="relative"
+            style={{
+              width: dimensions.width,
+              height: dimensions.height,
+            }}
+          >
+            <div className="laptop-modal">
+              <div className="laptop-modal__screen">
+                <button
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  className="absolute left-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all transform -translate-y-1/2 top-1/2"
+                  aria-label="Image précédente"
+                >
+                  <FaArrowLeft size={24} />
+                </button>
 
-            {/* Conteneur pour SwiperImage avec gestion dynamique de la taille */}
-            <div className="max-w-[90vw] max-h-[90vh] w-full">
-              <SwiperImage
-                setShowModal={setShowModal}
-                currentImages={currentImages}
-                projets={projets}
-                currentProject={currentProject}
-                swiperRef={swiperRef}
-                widthScreen={viewportDimensions.width * 0.9}
-                heightScreen={viewportDimensions.height * 0.9}
-                isModal={true}
-              />
+                <SwiperImage
+                  setShowModal={setShowModal}
+                  currentImages={currentImages}
+                  projets={projets}
+                  currentProject={currentProject}
+                  swiperRef={swiperRef}
+                  widthScreen={dimensions.width}
+                  heightScreen={dimensions.height}
+                  isModal={true}
+                />
+
+                <button
+                  onClick={() => swiperRef.current?.slideNext()}
+                  className="absolute right-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all transform -translate-y-1/2 top-1/2"
+                  aria-label="Image suivante"
+                >
+                  <FaArrowRight size={24} />
+                </button>
+              </div>
+              <div className="laptop-modal__bottom">
+                <div className="laptop-modal__under"></div>
+              </div>
+              <div className="laptop-modal__shadow"></div>
             </div>
-
-            <button
-              onClick={() => swiperRef.current?.slideNext()}
-              className="absolute right-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all"
-              aria-label="Image suivante"
-            >
-              <FaArrowRight size={24} />
-            </button>
           </div>
         </div>
       </div>
