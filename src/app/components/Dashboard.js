@@ -52,11 +52,13 @@ const Dashboard = () => {
 
   return (
     <section className="h-screen flex flex-col justify-center items-center bg-dark text-center text-light relative">
-      <h1 className="text-xl sm:text-2xl md:text-3xl">Bonjour 👋</h1>
-      <h2 className="text-xl sm:text-2xl md:text-3xl mt-2 md:mt-3">
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+        Bonjour 👋
+      </h1>
+      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-2 md:mt-3">
         Je suis {name}
       </h2>
-      <p className="text-2xl sm:text-3xl md:text-4xl my-4 md:my-5">
+      <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl my-4 md:my-5">
         {text}
         <Cursor />
       </p>
@@ -65,7 +67,7 @@ const Dashboard = () => {
           href="https://www.linkedin.com/in/thibault-g-10b37a271/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600"
+          className="text-blue-600 dark:text-blue-400"
         >
           <FaLinkedin size={30} />
         </a>
