@@ -24,7 +24,7 @@ const Dashboard = () => {
   const [email, setEmail] = useState("");
 
   const iconClass =
-    "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 xl:w-10 xl:h-10";
+    "w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-9 xl:h-9 2xl:w-10 2xl:h-10";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,13 +55,13 @@ const Dashboard = () => {
 
   return (
     <section className="h-screen flex flex-col justify-center items-center bg-dark text-center text-light relative">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+      <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
         Bonjour 👋
       </h1>
-      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-2 md:mt-4 lg:mt-6 xl:mt-8">
+      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl mt-2 md:mt-4 lg:mt-6 xl:mt-8">
         Je suis {name}
       </h2>
-      <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl my-4 md:my-5 lg:my-6 xl:my-8">
+      <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl my-4 md:my-5 lg:my-6 xl:my-8">
         {text}
         <Cursor />
       </p>
