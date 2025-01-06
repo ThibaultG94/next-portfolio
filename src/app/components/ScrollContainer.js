@@ -63,21 +63,58 @@ const ScrollContainer = ({ children, sections }) => {
 
     const handleTouchEnd = () => {
       if (isScrollingRef.current) return;
+
+      const swipeDistance = touchStart - touchEnd;
+      if (Math.abs(swipeDistance) > 50) {
+        const direction = swipeDistance > 0 ? 1 : -1;
+        scrollToSection(activeSection + direction);
+      }
     };
 
     const container = containerRef.current;
     if (container) {
       container.addEventListener("wheel", handleScroll, { passive: false });
+      container.addEventListener("touchstart", handleTouchStart);
+      container.addEventListener("touchmove", handleTouchMove);
+      container.addEventListener("touchend", handleTouchEnd);
+      window.addEventListener("keydown", handleKeyDown);
     }
 
     return () => {
-      if (container) container.removeEventListener("wheel", handleScroll);
+      if (container) {
+        container.removeEventListener("wheel", handleScroll);
+        container.removeEventListener("touchstart", handleTouchStart);
+        container.removeEventListener("touchmove", handleTouchMove);
+        container.removeEventListener("touchend", handleTouchEnd);
+        window.removeEventListener("keydown", handleKeyDown);
+      }
     };
   }, [activeSection, sections.length]);
 
   return (
-    <ScrollContext.Provider value={{ activeSection, setActiveSection }}>
-      <div ref={containerRef} className="h-screen overflow-hidden">
+    <ScrollContext.Provider
+      value={{
+        activeSection,
+        setActiveSection,
+        totalSections: sections.length,
+      }}
+    >
+      <div ref={containerRef} className="h-screen overflow-hidden relative">
+        {/* Progress Bar */}
+        <div className="fixed right-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2 z-50">
+          {sections.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer
+                ${
+                  activeSection === index
+                    ? "bg-blue-500 scale-150"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              onClick={() => scrollToSection(index)}
+            />
+          ))}
+        </div>
         {children}
       </div>
     </ScrollContext.Provider>

@@ -1,23 +1,43 @@
 "use client";
-
 import React from "react";
-import ScrollContainer from "./components/ScrollContainer";
+import { motion } from "framer-motion";
+import ScrollContainer, { useScroll } from "./components/ScrollContainer";
 import Dashboard from "./components/Dashboard";
-import TextIntro from "./components/TextIntro";
+import TextSection from "./components/TextSection";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-import Timeline from "./components/Timeline";
 import Contact from "./components/Contact";
-import { motion } from "framer-motion";
-import { useScroll } from "./components/ScrollContainer";
+import Footer from "./components/Footer";
+
+const introTexts = [
+  "Je suis un développeur web fullstack passionné.",
+  "Créant des expériences utilisateur dynamiques.",
+  "Utilisant une architecture frontend moderne et réactive.",
+];
 
 const sections = [
   { id: "dashboard", Component: Dashboard },
-  { id: "text-intro", Component: TextIntro },
+  ...introTexts.map((text, index) => ({
+    id: `intro-${index}`,
+    Component: () => <TextSection text={text} />,
+  })),
   { id: "projects", Component: Projects },
-  { id: "skills", Component: Skills },
-  // { id: "timeline", Component: Timeline },
-  { id: "contact", Component: Contact },
+  {
+    id: "skills",
+    Component: () => (
+      <div className="h-screen flex items-center justify-center">
+        <Skills />
+      </div>
+    ),
+  },
+  {
+    id: "contact",
+    Component: () => (
+      <div className="h-screen flex items-center justify-center">
+        <Contact />
+      </div>
+    ),
+  },
 ];
 
 const Home = () => {
@@ -29,6 +49,9 @@ const Home = () => {
             <Component />
           </Section>
         ))}
+      </div>
+      <div className="fixed bottom-0 w-full z-50">
+        <Footer />
       </div>
     </ScrollContainer>
   );
