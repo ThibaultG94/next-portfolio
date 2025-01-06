@@ -1,39 +1,7 @@
 "use client";
-
-import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const TextIntro = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRefs = useRef([]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const middle = window.innerHeight / 2;
-
-      // Trouve l'élément le plus proche du centre
-      let closest = { distance: Infinity, index: 0 };
-
-      sectionRefs.current.forEach((section, index) => {
-        if (!section) return;
-
-        const rect = section.getBoundingClientRect();
-        const center = rect.top + rect.height / 2;
-        const distance = Math.abs(middle - center);
-
-        if (distance < closest.distance) {
-          closest = { distance, index };
-        }
-      });
-
-      setActiveIndex(closest.index);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const phrases = [
     "Je suis un développeur web fullstack passionné.",
     "Créant des expériences utilisateur dynamiques.",
@@ -41,25 +9,20 @@ const TextIntro = () => {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col justify-center space-y-24 px-4 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto">
+    <section className="h-screen flex flex-col justify-center px-4">
       {phrases.map((text, index) => (
-        <div
+        <motion.p
           key={index}
-          ref={(el) => (sectionRefs.current[index] = el)}
-          className="flex items-center"
+          className="text-xl xxs:text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{ delay: index * 0.2 }}
         >
-          <p
-            className={`
-              text-xl xxs:text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 
-              font-semibold transition-all duration-500
-            `}
-            style={{
-              opacity: activeIndex === index ? 1 : 0.1,
-            }}
-          >
-            {text}
-          </p>
-        </div>
+          {text}
+        </motion.p>
       ))}
     </section>
   );
