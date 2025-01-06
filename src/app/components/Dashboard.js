@@ -66,14 +66,14 @@ const Dashboard = () => {
         <Cursor />
       </p>
       <address className="mt-4 md:mt-5 lg:mt-6 xl:mt-8 flex space-x-6 md:space-x-8 lg:space-x-10 xl:space-x-12">
-        <a
+        {/* <a
           href="https://www.linkedin.com/in/thibault-g-10b37a271/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-400"
         >
           <FaLinkedin className={iconClass} />
-        </a>
+        </a> */}
         <a
           href="https://github.com/ThibaultG94"
           target="_blank"
