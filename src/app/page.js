@@ -43,6 +43,18 @@ const sections = [
 const Home = () => {
   return (
     <ScrollContainer sections={sections}>
+      <HomeContent />
+    </ScrollContainer>
+  );
+};
+
+// On crée un composant séparé pour le contenu qui utilisera useScroll
+const HomeContent = () => {
+  const { activeSection } = useScroll();
+  const isLastSection = activeSection === sections.length - 1;
+
+  return (
+    <>
       <div className="relative">
         {sections.map(({ id, Component }, index) => (
           <Section key={id} index={index}>
@@ -50,10 +62,16 @@ const Home = () => {
           </Section>
         ))}
       </div>
-      <div className="fixed bottom-0 w-full z-50">
+      {/* Le footer ne s'affiche que sur la dernière section */}
+      <motion.div
+        className="w-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLastSection ? 1 : 0 }}
+        style={{ display: isLastSection ? "block" : "none" }}
+      >
         <Footer />
-      </div>
-    </ScrollContainer>
+      </motion.div>
+    </>
   );
 };
 

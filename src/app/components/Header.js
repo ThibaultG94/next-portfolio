@@ -4,6 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
 import { handleSmoothScroll } from "../lib/scrollUtils";
 import OptimizedImage from "./OptimizedImage";
+import { useScroll } from "./ScrollContainer";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +40,12 @@ const Header = () => {
       setIsVisible(true);
     }
     setLastScrollY(window.scrollY); // remember current page position
+  };
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const { scrollToId } = useScroll();
+    scrollToId(targetId.replace("#", ""));
   };
 
   useEffect(() => {
@@ -89,7 +96,7 @@ const Header = () => {
             <a
               key={index}
               href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors md:text-md lg:text-lg xl:text-xl font-semibold"
             >
               {item.label}

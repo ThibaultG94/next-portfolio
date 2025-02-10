@@ -1,5 +1,7 @@
 "use client";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
 const ScrollContext = createContext();
 
@@ -11,111 +13,96 @@ const ScrollContainer = ({ children, sections }) => {
   const containerRef = useRef(null);
 
   const scrollToSection = (index) => {
-    if (index >= 0 && index < sections.length) {
+    if (index >= 0 && index < sections.length && !isScrollingRef.current) {
       isScrollingRef.current = true;
       setActiveSection(index);
 
-      // Smooth scroll
-      containerRef.current?.children[index]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
       setTimeout(() => {
         isScrollingRef.current = false;
-      }, 800);
+      }, 1000);
     }
   };
 
   useEffect(() => {
-    const handleScroll = (e) => {
-      e.preventDefault();
-
+    const handleWheel = (e) => {
       if (isScrollingRef.current) return;
 
       const direction = e.deltaY > 0 ? 1 : -1;
-      scrollToSection(activeSection + direction);
+      const newIndex = activeSection + direction;
+
+      if (newIndex >= 0 && newIndex < sections.length) {
+        e.preventDefault();
+        scrollToSection(newIndex);
+      }
     };
 
     const handleKeyDown = (e) => {
       if (isScrollingRef.current) return;
 
-      if (e.key === "ArrowDown") {
+      if (
+        (e.key === "ArrowDown" || e.key === "PageDown") &&
+        activeSection < sections.length - 1
+      ) {
         e.preventDefault();
         scrollToSection(activeSection + 1);
-      } else if (e.key === "ArrowUp") {
+      } else if (
+        (e.key === "ArrowUp" || e.key === "PageUp") &&
+        activeSection > 0
+      ) {
         e.preventDefault();
         scrollToSection(activeSection - 1);
       }
     };
 
-    // Touch events
-    let touchStart = 0;
-    let touchEnd = 0;
-
-    const handleTouchStart = (e) => {
-      touchStart = e.touches[0].clientY();
-    };
-
-    const handleTouchMove = (e) => {
-      touchEnd = e.touches[0].clientY;
-    };
-
-    const handleTouchEnd = () => {
-      if (isScrollingRef.current) return;
-
-      const swipeDistance = touchStart - touchEnd;
-      if (Math.abs(swipeDistance) > 50) {
-        const direction = swipeDistance > 0 ? 1 : -1;
-        scrollToSection(activeSection + direction);
-      }
-    };
-
+    window.addEventListener("keydown", handleKeyDown);
     const container = containerRef.current;
     if (container) {
-      container.addEventListener("wheel", handleScroll, { passive: false });
-      container.addEventListener("touchstart", handleTouchStart);
-      container.addEventListener("touchmove", handleTouchMove);
-      container.addEventListener("touchend", handleTouchEnd);
-      window.addEventListener("keydown", handleKeyDown);
+      container.addEventListener("wheel", handleWheel, { passive: false });
     }
 
     return () => {
+      window.removeEventListener("keydown", handleKeyDown);
       if (container) {
-        container.removeEventListener("wheel", handleScroll);
-        container.removeEventListener("touchstart", handleTouchStart);
-        container.removeEventListener("touchmove", handleTouchMove);
-        container.removeEventListener("touchend", handleTouchEnd);
-        window.removeEventListener("keydown", handleKeyDown);
+        container.removeEventListener("wheel", handleWheel);
       }
     };
   }, [activeSection, sections.length]);
 
   return (
     <ScrollContext.Provider
-      value={{
-        activeSection,
-        setActiveSection,
-        totalSections: sections.length,
-      }}
+      value={{ activeSection, scrollToSection, sections }}
     >
       <div ref={containerRef} className="h-screen overflow-hidden relative">
-        {/* Progress Bar */}
-        <div className="fixed right-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2 z-50">
-          {sections.map((_, index) => (
-            <div
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer
-                ${
-                  activeSection === index
-                    ? "bg-blue-500 scale-150"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
-              onClick={() => scrollToSection(index)}
-            />
-          ))}
-        </div>
         {children}
+
+        {/* Navigation arrows with better positioning and visibility */}
+        {activeSection > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed bottom-32 left-1/2 transform -translate-x-1/2 z-50 cursor-pointer hover:scale-110 transition-transform"
+            onClick={() => scrollToSection(activeSection - 1)}
+          >
+            <FiChevronUp
+              size={40}
+              className="text-gray-600 dark:text-gray-300 animate-bounce"
+            />
+          </motion.div>
+        )}
+
+        {activeSection < sections.length - 1 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed bottom-16 left-1/2 transform -translate-x-1/2 z-50 cursor-pointer hover:scale-110 transition-transform"
+            onClick={() => scrollToSection(activeSection + 1)}
+          >
+            <FiChevronDown
+              size={40}
+              className="text-gray-600 dark:text-gray-300 animate-bounce"
+            />
+          </motion.div>
+        )}
       </div>
     </ScrollContext.Provider>
   );
