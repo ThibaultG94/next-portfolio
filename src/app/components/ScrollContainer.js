@@ -19,52 +19,42 @@ const ScrollContainer = ({ children, sections }) => {
 
       setTimeout(() => {
         isScrollingRef.current = false;
-      }, 1000);
+      }, 250);
     }
   };
 
   useEffect(() => {
+    let scrollTimeout;
+
     const handleWheel = (e) => {
-      if (isScrollingRef.current) return;
+      e.preventDefault();
+
+      if (isScrollingRef.current) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isScrollingRef.current = false;
+        }, 500);
+        return;
+      }
 
       const direction = e.deltaY > 0 ? 1 : -1;
       const newIndex = activeSection + direction;
 
       if (newIndex >= 0 && newIndex < sections.length) {
-        e.preventDefault();
         scrollToSection(newIndex);
       }
     };
 
-    const handleKeyDown = (e) => {
-      if (isScrollingRef.current) return;
-
-      if (
-        (e.key === "ArrowDown" || e.key === "PageDown") &&
-        activeSection < sections.length - 1
-      ) {
-        e.preventDefault();
-        scrollToSection(activeSection + 1);
-      } else if (
-        (e.key === "ArrowUp" || e.key === "PageUp") &&
-        activeSection > 0
-      ) {
-        e.preventDefault();
-        scrollToSection(activeSection - 1);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
     const container = containerRef.current;
     if (container) {
       container.addEventListener("wheel", handleWheel, { passive: false });
     }
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
       if (container) {
         container.removeEventListener("wheel", handleWheel);
       }
+      clearTimeout(scrollTimeout);
     };
   }, [activeSection, sections.length]);
 
@@ -75,34 +65,31 @@ const ScrollContainer = ({ children, sections }) => {
       <div ref={containerRef} className="h-screen overflow-hidden relative">
         {children}
 
-        {/* Navigation arrows with better positioning and visibility */}
-        {activeSection > 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="fixed bottom-32 left-1/2 transform -translate-x-1/2 z-50 cursor-pointer hover:scale-110 transition-transform"
-            onClick={() => scrollToSection(activeSection - 1)}
-          >
-            <FiChevronUp
-              size={40}
-              className="text-gray-600 dark:text-gray-300 animate-bounce"
-            />
-          </motion.div>
-        )}
-
-        {activeSection < sections.length - 1 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="fixed bottom-16 left-1/2 transform -translate-x-1/2 z-50 cursor-pointer hover:scale-110 transition-transform"
-            onClick={() => scrollToSection(activeSection + 1)}
-          >
-            <FiChevronDown
-              size={40}
-              className="text-gray-600 dark:text-gray-300 animate-bounce"
-            />
-          </motion.div>
-        )}
+        {/* Navigation arrows avec meilleur positionnement */}
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col gap-4">
+          {activeSection > 0 && (
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="p-2 rounded-full bg-gray-800/50 hover:bg-gray-800/70 transition-colors"
+              onClick={() => scrollToSection(activeSection - 1)}
+              aria-label="Section précédente"
+            >
+              <FiChevronUp className="text-white w-6 h-6" />
+            </motion.button>
+          )}
+          {activeSection < sections.length - 1 && (
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="p-2 rounded-full bg-gray-800/50 hover:bg-gray-800/70 transition-colors"
+              onClick={() => scrollToSection(activeSection + 1)}
+              aria-label="Section suivante"
+            >
+              <FiChevronDown className="text-white w-6 h-6" />
+            </motion.button>
+          )}
+        </div>
       </div>
     </ScrollContext.Provider>
   );

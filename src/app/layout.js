@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import ThemeProvider from "./components/ThemeProvider";
 import "../style/app.scss";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import SkipLink from "./components/SkipLink";
 import preloadLinks from "../../preloadLinks.json";
 
@@ -25,7 +24,6 @@ export default function RootLayout({ children }) {
           <main id="main-content" tabIndex="-1">
             {children}
           </main>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

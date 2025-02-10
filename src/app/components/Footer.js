@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
-const ReseauxSociaux = () => {
+const Footer = () => {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
@@ -43,4 +43,4 @@ const ReseauxSociaux = () => {
   );
 };
 
-export default ReseauxSociaux;
+export default Footer;
