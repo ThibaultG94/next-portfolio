@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Header from "./components/Header";
+import useViewportType from "./hooks/useViewportType";
 
 const introTexts = [
   "Je suis un développeur web fullstack passionné.",
@@ -73,14 +74,48 @@ const Section = ({ children, index }) => {
   );
 };
 
-const Home = () => {
+const MobileSection = ({ children, id }) => {
   return (
-    <ScrollContainer sections={sections}>
+    <motion.section
+      id={id}
+      className="min-h-screen w-full py-16"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.5 }}
+    >
+      {children}
+    </motion.section>
+  );
+};
+
+const Home = () => {
+  const viewportType = useViewportType();
+
+  if (viewportType === "desktop") {
+    return (
+      <ScrollContainer sections={sections}>
+        <Header />
+        <main id="main-content" tabIndex="-1">
+          <MainContent />
+        </main>
+      </ScrollContainer>
+    );
+  }
+
+  return (
+    <>
       <Header />
       <main id="main-content" tabIndex="-1">
-        <MainContent />
+        <div className="overflow-auto">
+          {sections.map(({ id, Component }) => (
+            <section key={id} id={id} className="min-h-screen w-full py-16">
+              <Component />
+            </section>
+          ))}
+        </div>
       </main>
-    </ScrollContainer>
+    </>
   );
 };
 
