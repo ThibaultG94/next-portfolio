@@ -7,7 +7,7 @@ import TextSection from "./components/TextSection";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 const introTexts = [
   "Je suis un développeur web fullstack passionné.",
@@ -40,25 +40,15 @@ const sections = [
   },
 ];
 
-const Home = () => {
+const MainContent = () => {
   return (
-    <ScrollContainer sections={sections}>
-      <HomeContent />
-    </ScrollContainer>
-  );
-};
-
-const HomeContent = () => {
-  return (
-    <>
-      <div className="relative">
-        {sections.map(({ id, Component }, index) => (
-          <Section key={id} index={index}>
-            <Component />
-          </Section>
-        ))}
-      </div>
-    </>
+    <div className="relative">
+      {sections.map(({ id, Component }, index) => (
+        <Section key={id} index={index} id={id}>
+          <Component />
+        </Section>
+      ))}
+    </div>
   );
 };
 
@@ -80,6 +70,17 @@ const Section = ({ children, index }) => {
     >
       {children}
     </motion.div>
+  );
+};
+
+const Home = () => {
+  return (
+    <ScrollContainer sections={sections}>
+      <Header />
+      <main id="main-content" tabIndex="-1">
+        <MainContent />
+      </main>
+    </ScrollContainer>
   );
 };
 

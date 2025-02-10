@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
-import { handleSmoothScroll } from "../lib/scrollUtils";
 import OptimizedImage from "./OptimizedImage";
 import { useScroll } from "./ScrollContainer";
 
@@ -11,8 +10,32 @@ const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const menuRef = useRef(null);
-
   const [name, setName] = useState("Thibault");
+
+  const context = useScroll();
+
+  const navItems = [
+    { href: "#dashboard", label: "Accueil" },
+    { href: "#projects", label: "Projets" },
+    { href: "#skills", label: "Compétences" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+  const handleNavClick = async (e, href) => {
+    e.preventDefault();
+    const sectionId = href.replace("#", "");
+
+    if (typeof context.scrollToSection !== "function") {
+      console.error("scrollToSection n'est pas une fonction !", context);
+      return;
+    }
+
+    try {
+      context.scrollToSection(sectionId);
+    } catch (error) {
+      console.error("Erreur lors du scroll:", error);
+    }
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -33,32 +56,17 @@ const Header = () => {
 
   const controlHeader = () => {
     if (window.scrollY > lastScrollY) {
-      // if scroll down hide the header
       setIsVisible(false);
     } else {
-      // if scroll up show the header
       setIsVisible(true);
     }
-    setLastScrollY(window.scrollY); // remember current page position
-  };
-
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault();
-    const { scrollToId } = useScroll();
-    scrollToId(targetId.replace("#", ""));
+    setLastScrollY(window.scrollY);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", controlHeader);
     return () => window.removeEventListener("scroll", controlHeader);
-  }, [lastScrollY, controlHeader]);
-
-  const navItems = [
-    { href: "#home", label: "Accueil" },
-    { href: "#projects", label: "Projets" },
-    { href: "#skills", label: "Compétences" },
-    { href: "#contact", label: "Contact" },
-  ];
+  }, [lastScrollY]);
 
   useEffect(() => {
     setName(process.env.NEXT_PUBLIC_USERNAME || "Thibault");
@@ -87,14 +95,12 @@ const Header = () => {
             {name}
           </span>
         </div>
-        <nav
-          className="hidden md:flex items-center md:space-x-4 lg:space-x-10 xl:space-x-12"
-          role="navigation"
-          aria-label="Navigation principale"
-        >
-          {navItems.map((item, index) => (
+
+        {/* Navigation desktop */}
+        <nav className="hidden md:flex items-center md:space-x-4 lg:space-x-10 xl:space-x-12">
+          {navItems.map((item) => (
             <a
-              key={index}
+              key={item.href}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
               className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors md:text-md lg:text-lg xl:text-xl font-semibold"
@@ -103,7 +109,9 @@ const Header = () => {
             </a>
           ))}
         </nav>
-        <div className=" flex items-center gap-2">
+
+        {/* Theme toggle et bouton menu mobile */}
+        <div className="flex items-center gap-2">
           <ThemeToggle />
           <button
             onClick={toggleMenu}
@@ -115,6 +123,8 @@ const Header = () => {
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
+
+        {/* Menu mobile */}
         {isOpen && (
           <div
             id="mobile-menu"
@@ -134,19 +144,15 @@ const Header = () => {
                   <X className="h-7 w-7" />
                 </button>
               </div>
-              <nav
-                className="flex flex-col items-center mt-10 space-y-6 text-2xl"
-                role="navigation"
-                aria-label="Menu mobile"
-              >
-                {navItems.map(({ href, label }) => (
+              <nav className="flex flex-col items-center mt-10 space-y-6 text-2xl">
+                {navItems.map((item) => (
                   <a
-                    key={href}
-                    href={href}
-                    onClick={toggleMenu}
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className="text-2xl text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors"
                   >
-                    {label}
+                    {item.label}
                   </a>
                 ))}
               </nav>

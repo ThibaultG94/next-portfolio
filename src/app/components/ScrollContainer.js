@@ -3,7 +3,12 @@ import { createContext, useContext, useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 
-const ScrollContext = createContext();
+const ScrollContext = createContext({
+  activeSection: 0,
+  scrollToSection: () => {},
+  sections: [],
+  sectionIds: [],
+});
 
 export const useScroll = () => useContext(ScrollContext);
 
@@ -12,14 +17,23 @@ const ScrollContainer = ({ children, sections }) => {
   const isScrollingRef = useRef(false);
   const containerRef = useRef(null);
 
-  const scrollToSection = (index) => {
-    if (index >= 0 && index < sections.length && !isScrollingRef.current) {
+  const sectionIds = sections.map((section) => section.id);
+
+  const scrollToSection = (indexOrId) => {
+    let targetIndex =
+      typeof indexOrId === "number" ? indexOrId : sectionIds.indexOf(indexOrId);
+
+    if (
+      targetIndex >= 0 &&
+      targetIndex < sections.length &&
+      !isScrollingRef.current
+    ) {
       isScrollingRef.current = true;
-      setActiveSection(index);
+      setActiveSection(targetIndex);
 
       setTimeout(() => {
         isScrollingRef.current = false;
-      }, 250);
+      }, 500);
     }
   };
 
@@ -58,14 +72,18 @@ const ScrollContainer = ({ children, sections }) => {
     };
   }, [activeSection, sections.length]);
 
+  const contextValue = {
+    activeSection,
+    scrollToSection,
+    sections,
+    sectionIds,
+  };
+
   return (
-    <ScrollContext.Provider
-      value={{ activeSection, scrollToSection, sections }}
-    >
+    <ScrollContext.Provider value={contextValue}>
       <div ref={containerRef} className="h-screen overflow-hidden relative">
         {children}
 
-        {/* Navigation arrows avec meilleur positionnement */}
         <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col gap-4">
           {activeSection > 0 && (
             <motion.button

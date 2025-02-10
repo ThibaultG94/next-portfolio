@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import ThemeProvider from "./components/ThemeProvider";
 import "../style/app.scss";
-import Header from "./components/Header";
 import SkipLink from "./components/SkipLink";
 import preloadLinks from "../../preloadLinks.json";
 
@@ -19,11 +18,10 @@ export default function RootLayout({ children }) {
     <html lang="fr" className="text-foreground" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system">
-          <SkipLink />
-          <Header />
-          <main id="main-content" tabIndex="-1">
+          <div className="relative">
+            <SkipLink />
             {children}
-          </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>
