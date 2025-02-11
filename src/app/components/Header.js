@@ -91,7 +91,7 @@ const Header = () => {
               className="w-10 h-auto sm:w-11 md:w-12 lg:w-14 xl:w-16 2xl:w-20"
             />
           </div>
-          <span className="text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl font-bold text-gray-900 dark:text-gray-100 ml-3.5 sm:ml-4 md:ml-5 lg:ml-6">
+          <span className="text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl font-light text-gray-900 dark:text-gray-100 ml-3.5 sm:ml-4 md:ml-5 lg:ml-6">
             {name}
           </span>
         </div>
@@ -103,7 +103,7 @@ const Header = () => {
               key={item.href}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
-              className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors md:text-md lg:text-lg xl:text-xl font-semibold"
+              className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors md:text-md lg:text-lg xl:text-xl font-medium"
             >
               {item.label}
             </a>
