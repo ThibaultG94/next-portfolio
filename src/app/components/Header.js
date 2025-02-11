@@ -75,7 +75,7 @@ const Header = () => {
   return (
     <header
       role="banner"
-      className={`fixed z-50 w-full transition-transform duration-300 ${
+      className={`fixed z-50 w-full transition-transform duration-300 backdrop-blur-sm bg-white/70 dark:bg-[#121212]/70 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -88,7 +88,7 @@ const Header = () => {
               width={100}
               height={100}
               priority
-              className="w-7 h-auto xs:w-8 sm:w-9 md:w-10 lg:w-11 xl:w-12 2xl:w-13"
+              className="w-8 h-auto xs:w-9 sm:w-10 md:w-11 lg:w-12 xl:w-13 2xl:w-14"
             />
           </div>
           <span className="text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl font-light text-gray-900 dark:text-gray-100 ml-3.5 sm:ml-4 md:ml-5 lg:ml-6">
@@ -96,21 +96,21 @@ const Header = () => {
           </span>
         </div>
 
-        {/* Navigation desktop */}
+        {/* Desktop navigation */}
         <nav className="hidden md:flex items-center md:space-x-4 lg:space-x-10 xl:space-x-12">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
-              className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors md:text-md lg:text-lg xl:text-xl font-medium"
+              className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Theme toggle et bouton menu mobile */}
+        {/* Theme toggle and mobile menu button */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <button
@@ -124,7 +124,7 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Menu mobile */}
+        {/* Mobile menu */}
         {isOpen && (
           <div
             id="mobile-menu"
