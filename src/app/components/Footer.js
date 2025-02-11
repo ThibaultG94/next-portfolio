@@ -5,95 +5,111 @@ import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  const quote = "Créer des expériences web dynamiques et innovantes";
+
+  useEffect(() => {
+    setEmail(process.env.NEXT_PUBLIC_EMAIL || "");
+  }, []);
 
   return (
-    <footer className="pt-10 pb-5 sm:pt-12 sm:pb-6 md:pt-16 md:pb-8 lg:pt-20 lg:pb-10 px-3 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Colonne 1 - À propos */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4">À propos</h3>
-          <p className="text-gray-600 dark:text-gray-300">{quote}</p>
-          <div className="mt-4 space-x-4">
+    <footer className="min-h-screen flex flex-col justify-end items-center dark:bg-gray-900 py-20">
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 px-6">
+        <div className="text-center md:text-left">
+          <h3 className="text-xl font-semibold mb-6">À propos</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
+            Je développe des sites web modernes en utilisant une architecture
+            frontend moderne et réactive.
+          </p>
+          <div className="flex justify-center md:justify-start space-x-6">
             <a
               href="https://www.linkedin.com/in/thibault-g-10b37a271/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600"
+              className="text-blue-600 hover:text-blue-700 transition-colors"
+              aria-label="LinkedIn"
             >
-              <FaLinkedin size={24} />
+              <FaLinkedin className="w-6 h-6" />
             </a>
             <a
               href="https://github.com/ThibaultG94"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-800 dark:text-white"
+              className="text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+              aria-label="GitHub"
             >
-              <FaGithub size={24} />
+              <FaGithub className="w-6 h-6" />
             </a>
             <a
               href={`mailto:${email}`}
-              className="text-gray-900 dark:text-gray-100"
+              className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+              aria-label="Email"
             >
-              <FaEnvelope size={24} />
+              <FaEnvelope className="w-6 h-6" />
             </a>
           </div>
         </div>
 
-        {/* Colonne 2 - Navigation */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4">Navigation</h3>
-          <nav className="space-y-2">
+        {/* Navigation */}
+        <div className="text-center md:text-left">
+          <h3 className="text-xl font-semibold mb-6">Navigation</h3>
+          <nav className="flex flex-col space-y-4">
             <a
               href="#dashboard"
-              className="block text-gray-600 dark:text-gray-300 hover:text-blue-500"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors"
             >
               Accueil
             </a>
             <a
               href="#projects"
-              className="block text-gray-600 dark:text-gray-300 hover:text-blue-500"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors"
             >
               Projets
             </a>
             <a
               href="#skills"
-              className="block text-gray-600 dark:text-gray-300 hover:text-blue-500"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors"
             >
               Compétences
             </a>
             <a
               href="#contact"
-              className="block text-gray-600 dark:text-gray-300 hover:text-blue-500"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors"
             >
               Contact
             </a>
           </nav>
         </div>
 
-        {/* Colonne 3 - Technologies */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4">Technologies</h3>
-          <div className="grid grid-cols-4 gap-4">
-            <img src="/img/logos/js.png" alt="JavaScript" className="w-8 h-8" />
-            <img src="/img/logos/react.png" alt="React" className="w-8 h-8" />
+        {/* Technologies */}
+        <div className="text-center md:text-left">
+          <h3 className="text-xl font-semibold mb-6">Technologies</h3>
+          <div className="flex justify-center md:justify-start items-center space-x-8">
+            <img
+              src="/img/logos/js.png"
+              alt="JavaScript"
+              className="w-10 h-10 object-contain"
+            />
+            <img
+              src="/img/logos/react.png"
+              alt="React"
+              className="w-10 h-10 object-contain"
+            />
             <img
               src="/img/logos/next-js.svg"
               alt="Next.js"
-              className="w-8 h-8"
+              className="w-10 h-10 object-contain"
             />
             <img
               src="/img/logos/nodejs.png"
               alt="Node.js"
-              className="w-8 h-8"
+              className="w-10 h-10 object-contain"
             />
           </div>
         </div>
       </div>
 
       {/* Copyright */}
-      <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-500 dark:text-gray-400">
-        <p>
+      <div className="w-3/4 mt-20 pt-8 border-t border-gray-200 dark:border-gray-700">
+        <p className="text-center text-gray-500 dark:text-gray-400">
           © {new Date().getFullYear()} Thibault Guilhem. Tous droits réservés.
         </p>
       </div>

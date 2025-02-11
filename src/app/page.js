@@ -23,7 +23,14 @@ const sections = [
     id: `intro-${index}`,
     Component: () => <TextSection text={text} />,
   })),
-  { id: "projects", Component: Projects },
+  {
+    id: "projects",
+    Component: () => (
+      <div className="h-screen flex items-center justify-center">
+        <Projects />
+      </div>
+    ),
+  },
   {
     id: "skills",
     Component: () => (
@@ -43,7 +50,7 @@ const sections = [
   {
     id: "footer",
     Component: () => (
-      <div className="h-screen flex items-center justify-center">
+      <div>
         <Footer />
       </div>
     ),
