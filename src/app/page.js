@@ -9,6 +9,7 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Header from "./components/Header";
 import useViewportType from "./hooks/useViewportType";
+import Footer from "./components/Footer";
 
 const introTexts = [
   "Je suis un développeur web fullstack passionné.",
@@ -36,6 +37,14 @@ const sections = [
     Component: () => (
       <div className="h-screen flex items-center justify-center">
         <Contact />
+      </div>
+    ),
+  },
+  {
+    id: "footer",
+    Component: () => (
+      <div className="h-screen flex items-center justify-center">
+        <Footer />
       </div>
     ),
   },
@@ -94,12 +103,14 @@ const Home = () => {
 
   if (viewportType === "desktop") {
     return (
-      <ScrollContainer sections={sections}>
-        <Header />
-        <main id="main-content" tabIndex="-1">
-          <MainContent />
-        </main>
-      </ScrollContainer>
+      <>
+        <ScrollContainer sections={sections}>
+          <Header />
+          <main id="main-content" tabIndex="-1">
+            <MainContent />
+          </main>
+        </ScrollContainer>
+      </>
     );
   }
 

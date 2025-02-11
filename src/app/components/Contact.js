@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import Footer from "./Footer";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -102,13 +101,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between">
-      <section className="pt-10 sm:pt-12 md:pt-16 lg:pt-20 px-3">
+    <section className="min-h-screen flex items-center justify-center px-3">
+      <div className="w-full max-w-lg">
         <h2 className="text-3xl text-center">Contactez-moi</h2>
-        <form
-          className="mt-8 max-w-lg mx-auto space-y-4"
-          onSubmit={handleSubmit}
-        >
+        <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
@@ -132,14 +128,16 @@ const Contact = () => {
             onChange={handleFormChange}
             className="w-full p-2 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-200"
             rows="5"
-          ></textarea>
+          />
           {sitekey && (
-            <ReCAPTCHA
-              sitekey={sitekey}
-              ref={recaptchaRef}
-              onChange={handleCaptchaChange}
-              onExpired={handleExpired}
-            />
+            <div className="flex justify-center">
+              <ReCAPTCHA
+                sitekey={sitekey}
+                ref={recaptchaRef}
+                onChange={handleCaptchaChange}
+                onExpired={handleExpired}
+              />
+            </div>
           )}
           <button
             type="submit"
@@ -167,7 +165,7 @@ const Contact = () => {
                     fill="currentColor"
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                   ></path>
-                </svg>
+                </svg>{" "}
               </div>
             ) : (
               "Envoyer"
@@ -183,9 +181,8 @@ const Contact = () => {
             </p>
           )}
         </form>
-      </section>
-      <Footer />
-    </div>
+      </div>
+    </section>
   );
 };
 
