@@ -79,7 +79,7 @@ const Header = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container opacity-100 mx-auto flex justify-between items-center p-1 lg:p-2 xl:p-3 2xl:p-4 bg-white dark:bg-[#121212]">
+      <div className="container opacity-100 mx-auto flex justify-between items-center p-1 xs:p-1.5 sm:p-2 md:p-2.5 lg:p-3 xl:p-3.5 2xl:p-4 bg-white dark:bg-[#121212]">
         <div className="flex items-center">
           <div className="rounded-full overflow-hidden relative">
             <OptimizedImage
@@ -88,7 +88,7 @@ const Header = () => {
               width={100}
               height={100}
               priority
-              className="w-10 h-auto sm:w-11 md:w-12 lg:w-14 xl:w-16 2xl:w-20"
+              className="w-7 h-auto xs:w-8 sm:w-9 md:w-10 lg:w-11 xl:w-12 2xl:w-13"
             />
           </div>
           <span className="text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl font-light text-gray-900 dark:text-gray-100 ml-3.5 sm:ml-4 md:ml-5 lg:ml-6">
