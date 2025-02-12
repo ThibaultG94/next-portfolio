@@ -107,7 +107,7 @@ const Contact = () => {
 
         <form onSubmit={handleSubmit} className="mt-6 2xl:mt-10">
           {/* Flex container for two-column layout */}
-          <div className="md:flex md:gap-6 space-y-4 md:space-y-0">
+          <div className="md:flex-1 2xl:w-full space-y-4">
             {/* Left column */}
             <div className="md:flex-1 space-y-4">
               <input
@@ -129,7 +129,7 @@ const Contact = () => {
             </div>
 
             {/* Right column */}
-            <div className="md:flex-1">
+            <div className="md:flex-1 2xl:w-full">
               <textarea
                 placeholder="Message"
                 name="message"
