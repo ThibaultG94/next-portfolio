@@ -24,7 +24,7 @@ const Skills = () => {
           height={75}
           className="w-auto h-16"
         />
-        <Image
+        {/* <Image
           src="/img/logos/next-js.svg"
           alt="Next.js"
           width={64}
@@ -37,7 +37,7 @@ const Skills = () => {
           width={64}
           height={64}
           className="w-auto h-16"
-        />
+        /> */}
         <Image
           src="/img/logos/tailwind-css.svg"
           alt="Tailwind CSS"
@@ -57,21 +57,21 @@ const Skills = () => {
           alt="CSS3"
           width={64}
           height={64}
-          className="w-auto h-16"
+          className="w-auto h-20"
         />
         <Image
           src="/img/logos/html.png"
           alt="HTML5"
           width={56}
           height={56}
-          className="w-auto h-14"
+          className="w-auto h-16"
         />
         <Image
           src="/img/logos/nodejs.png"
           alt="Node js"
           width={64}
           height={64}
-          className="w-auto h-18"
+          className="w-auto h-19"
         />
       </div>
     </section>
