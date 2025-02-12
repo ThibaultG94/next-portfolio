@@ -11,7 +11,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex flex-col justify-end py-20 sm:py-24 md:py-28 lg:py-32 2xl:py-36">
+    <footer className="min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex flex-col justify-end py-20 sm:py-24 md:py-28 lg:py-32 2xl:py-36 max-w-7xl mx-auto">
       <div className="w-full max-w-[90rem] 2xl:max-w-[100rem] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 2xl:gap-16 p-4 sm:p-6 md:p-8 lg:p-10 2xl:p-12">
         {/* About */}
         <div className="text-center md:text-left space-y-3 sm:space-y-4 md:space-y-5 2xl:space-y-6">

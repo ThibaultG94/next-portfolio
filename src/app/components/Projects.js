@@ -84,9 +84,9 @@ const Projects = () => {
         J&apos;ai développé plusieurs projets fullstack from scratch dont voici
         les principaux.
       </p>
-      <div className="mt-2 lg:mt-4 2xl:mt-6 flex flex-wrap justify-center items-center space-x-4">
+      <div className="mt-2 lg:mt-4 2xl:mt-6 flex justify-center items-center space-x-4">
         {/* Laptop view for larger screens */}
-        <div className="hidden md:block relative">
+        <div className="hidden lg:block relative">
           <div className="laptop">
             <button
               onClick={handlePrevLaptop}
@@ -120,7 +120,7 @@ const Projects = () => {
           </div>
         </div>
         {/* Tablet view for smaller screens */}
-        <div className="md:hidden relative">
+        <div className="lg:hidden relative">
           <div className="tablet">
             <button
               onClick={handlePrevTablet}
