@@ -8,8 +8,6 @@ import { handleSmoothScroll } from "../lib/scrollUtils";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const menuRef = useRef(null);
   const [name, setName] = useState("Thibault");
 
@@ -60,20 +58,6 @@ const Header = () => {
     };
   }, [isOpen]);
 
-  const controlHeader = () => {
-    if (window.scrollY > lastScrollY) {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-    setLastScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", controlHeader);
-    return () => window.removeEventListener("scroll", controlHeader);
-  }, [lastScrollY]);
-
   useEffect(() => {
     setName(process.env.NEXT_PUBLIC_USERNAME || "Thibault");
   }, []);
@@ -81,9 +65,7 @@ const Header = () => {
   return (
     <header
       role="banner"
-      className={`fixed z-50 w-full transition-transform duration-300 backdrop-blur-md bg-white/50 dark:bg-[#121212]/50 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className="fixed z-50 w-full transition-transform duration-300 backdrop-blur-md bg-white/50 dark:bg-[#121212]/50"
     >
       <div className="md:container opacity-100 mx-auto flex justify-between items-center p-4 md:p-2.5 lg:p-3 xl:p-3.5 2xl:p-4">
         <div className="flex items-center">
@@ -94,10 +76,10 @@ const Header = () => {
               width={100}
               height={100}
               priority
-              className="w-10 lg:w-12 xl:w-13 2xl:w-14"
+              className="w-12 sm:w-14 md:w-10 lg:w-12 xl:w-13 2xl:w-14"
             />
           </div>
-          <span className="text-md sm:text-lg lg:text-xl xl:text-2xl font-light text-gray-900 dark:text-gray-100 ml-3.5 sm:ml-4 md:ml-5 lg:ml-6">
+          <span className="text-lg xs:text-xl sm:text-2xl md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-light text-gray-900 dark:text-gray-100 ml-5 sm:ml-6 md:ml-4 lg:ml-6 2xl:ml-8">
             {name}
           </span>
         </div>
@@ -126,7 +108,7 @@ const Header = () => {
             aria-controls="mobile-menu"
             aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </button>
         </div>
 
@@ -135,12 +117,17 @@ const Header = () => {
           <div
             id="mobile-menu"
             ref={menuRef}
-            className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50 md:hidden"
+            className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center md:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Menu mobile"
           >
-            <div className="right-0 top-0 h-screen w-screen bg-white bg-opacity-90 dark:bg-[#121212] p-4">
+            <div
+              className="absolute inset-0 bg-black/30"
+              onClick={toggleMenu}
+            />
+
+            <div className="relative right-0 top-0 h-screen w-screen bg-white/75 dark:bg-[#121212]/75 p-4 backdrop-blur-sm">
               <div className="flex justify-end">
                 <button
                   onClick={toggleMenu}
