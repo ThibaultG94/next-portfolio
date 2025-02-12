@@ -75,11 +75,11 @@ const Header = () => {
   return (
     <header
       role="banner"
-      className={`fixed z-50 w-full transition-transform duration-300 backdrop-blur-sm bg-white/70 dark:bg-[#121212]/70 ${
+      className={`fixed z-50 w-full transition-transform duration-300 backdrop-blur-md bg-white/50 dark:bg-[#121212]/50 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container opacity-100 mx-auto flex justify-between items-center p-1 xs:p-1.5 sm:p-2 md:p-2.5 lg:p-3 xl:p-3.5 2xl:p-4 bg-white dark:bg-[#121212]">
+      <div className="container opacity-100 mx-auto flex justify-between items-center p-1 xs:p-1.5 sm:p-2 md:p-2.5 lg:p-3 xl:p-3.5 2xl:p-4">
         <div className="flex items-center">
           <div className="rounded-full overflow-hidden relative">
             <OptimizedImage
