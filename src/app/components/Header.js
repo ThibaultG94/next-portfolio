@@ -85,7 +85,7 @@ const Header = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container opacity-100 mx-auto flex justify-between items-center p-2.5 lg:p-3 xl:p-3.5 2xl:p-4">
+      <div className="md:container opacity-100 mx-auto flex justify-between items-center p-4 md:p-2.5 lg:p-3 xl:p-3.5 2xl:p-4">
         <div className="flex items-center">
           <div className="rounded-full overflow-hidden relative">
             <OptimizedImage
