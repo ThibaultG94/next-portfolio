@@ -84,7 +84,7 @@ const Projects = () => {
         J&apos;ai développé plusieurs projets fullstack from scratch dont voici
         les principaux.
       </p>
-      <div className="mt-2 lg:mt-4 2xl:mt-6 flex justify-center items-center space-x-4">
+      <div className="mt-2 lg:mt-4 2xl:mt-6 flex justify-center items-center space-x-4 scale-100 lg:scale-75 xl:scale-90 2xl:scale-100">
         {/* Laptop view for larger screens */}
         <div className="hidden lg:block relative">
           <div className="laptop">
