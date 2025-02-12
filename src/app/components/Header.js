@@ -4,6 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
 import OptimizedImage from "./OptimizedImage";
 import { useScroll } from "./ScrollContainer";
+import { handleSmoothScroll } from "../lib/scrollUtils";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,15 +26,20 @@ const Header = () => {
     e.preventDefault();
     const sectionId = href.replace("#", "");
 
-    if (typeof context.scrollToSection !== "function") {
-      console.error("scrollToSection n'est pas une fonction !", context);
-      return;
+    if (isOpen) {
+      setIsOpen(false);
     }
 
-    try {
-      context.scrollToSection(sectionId);
-    } catch (error) {
-      console.error("Erreur lors du scroll:", error);
+    if (window.innerWidth < 768) {
+      handleSmoothScroll(e, sectionId);
+    } else {
+      if (typeof context.scrollToSection === "function") {
+        try {
+          context.scrollToSection(sectionId);
+        } catch (error) {
+          console.error("Erreur lors du scroll:", error);
+        }
+      }
     }
   };
 
@@ -79,7 +85,7 @@ const Header = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container opacity-100 mx-auto flex justify-between items-center p-1 xs:p-1.5 sm:p-2 md:p-2.5 lg:p-3 xl:p-3.5 2xl:p-4">
+      <div className="container opacity-100 mx-auto flex justify-between items-center p-2.5 lg:p-3 xl:p-3.5 2xl:p-4">
         <div className="flex items-center">
           <div className="rounded-full overflow-hidden relative">
             <OptimizedImage
@@ -88,10 +94,10 @@ const Header = () => {
               width={100}
               height={100}
               priority
-              className="w-8 h-auto xs:w-9 sm:w-10 md:w-11 lg:w-12 xl:w-13 2xl:w-14"
+              className="w-10 lg:w-12 xl:w-13 2xl:w-14"
             />
           </div>
-          <span className="text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl font-light text-gray-900 dark:text-gray-100 ml-3.5 sm:ml-4 md:ml-5 lg:ml-6">
+          <span className="text-md sm:text-lg lg:text-xl xl:text-2xl font-light text-gray-900 dark:text-gray-100 ml-3.5 sm:ml-4 md:ml-5 lg:ml-6">
             {name}
           </span>
         </div>
