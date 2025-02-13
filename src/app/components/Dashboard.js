@@ -8,7 +8,7 @@ const Dashboard = () => {
     words: [
       "Je développe des sites web modernes",
       "Je conçois des expériences utilisateur dynamiques",
-      "Je crée des interfaces intuitives",
+      "Je créer des interfaces intuitives",
     ],
     loop: {},
     typeSpeed: 40,
@@ -27,14 +27,14 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <section className="container mx-auto min-h-96 lg:h-screen flex flex-col justify-center items-center bg-dark text-light relative">
-      <h1 className="text-2xl xs:text-3xl xl:text-4xl 2xl:text-5xl">
+    <section className="container min-h-96 flex flex-col justify-center items-center bg-dark text-light relative px-6">
+      <h1 className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl">
         Bonjour 👋
       </h1>
-      <h2 className="text-3xl xs:text-4xl xl:text-5xl 2xl:text-6xl mt-5 md:mt-6 lg:mt-7 xl:mt-8 2xl:mt-9">
+      <h2 className="text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl mt-5 md:mt-6 lg:mt-7 xl:mt-8 2xl:mt-9 3xl:mt-10">
         Je suis {name}
       </h2>
-      <p className="text-center text-2xl xs:text-3xl xl:text-4xl 2xl:text-5xl my-6 md:my-7 lg:my-8 xl:my-9 2xl:my-10">
+      <p className="text-center h-28 text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl my-6 md:my-7 lg:my-8 xl:my-9 2xl:my-10">
         {text}
         <Cursor />
       </p>
