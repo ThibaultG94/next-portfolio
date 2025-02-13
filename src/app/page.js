@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ScrollContainer, { useScroll } from "./components/ScrollContainer";
 import Dashboard from "./components/Dashboard";
 import TextSection from "./components/TextSection";
+import TextIntro from "./components/TextIntro";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
@@ -17,12 +18,21 @@ const introTexts = [
   "Utilisant une architecture frontend moderne et réactive.",
 ];
 
-const sections = [
+const baseSections = [
   { id: "dashboard", Component: Dashboard },
-  ...introTexts.map((text, index) => ({
-    id: `intro-${index}`,
-    Component: () => <TextSection text={text} />,
-  })),
+  {
+    id: "intro",
+    Component: ({ isDesktop }) =>
+      isDesktop ? (
+        <>
+          {introTexts.map((text, index) => (
+            <TextSection key={index} text={text} />
+          ))}
+        </>
+      ) : (
+        <TextIntro texts={introTexts} />
+      ),
+  },
   {
     id: "projects",
     Component: () => (
@@ -57,12 +67,12 @@ const sections = [
   },
 ];
 
-const MainContent = () => {
+const MainContent = ({ isDesktop }) => {
   return (
     <div className="relative">
-      {sections.map(({ id, Component }, index) => (
+      {baseSections.map(({ id, Component }, index) => (
         <Section key={id} index={index} id={id}>
-          <Component />
+          <Component isDesktop={isDesktop} />
         </Section>
       ))}
     </div>
@@ -94,7 +104,7 @@ const MobileSection = ({ children, id }) => {
   return (
     <motion.section
       id={id}
-      className="min-h-screen w-full py-16"
+      className="w-full py-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.3 }}
@@ -107,17 +117,16 @@ const MobileSection = ({ children, id }) => {
 
 const Home = () => {
   const viewportType = useViewportType();
+  const isDesktop = viewportType === "desktop";
 
-  if (viewportType === "desktop") {
+  if (isDesktop) {
     return (
-      <>
-        <ScrollContainer sections={sections}>
-          <Header />
-          <main id="main-content" tabIndex="-1">
-            <MainContent />
-          </main>
-        </ScrollContainer>
-      </>
+      <ScrollContainer sections={baseSections}>
+        <Header />
+        <main id="main-content" tabIndex="-1">
+          <MainContent isDesktop={isDesktop} />
+        </main>
+      </ScrollContainer>
     );
   }
 
@@ -125,11 +134,11 @@ const Home = () => {
     <>
       <Header />
       <main id="main-content" tabIndex="-1">
-        <div className="overflow-auto">
-          {sections.map(({ id, Component }) => (
-            <section key={id} id={id} className="w-full py-16">
-              <Component />
-            </section>
+        <div className="overflow-hidden">
+          {baseSections.map(({ id, Component }) => (
+            <MobileSection key={id} id={id}>
+              <Component isDesktop={isDesktop} />
+            </MobileSection>
           ))}
         </div>
       </main>
