@@ -36,7 +36,7 @@ const ScrollContainer = ({ children, sections }) => {
 
       setTimeout(() => {
         isScrollingRef.current = false;
-      }, 800);
+      }, 400);
     }
   };
 
