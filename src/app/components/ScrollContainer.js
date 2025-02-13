@@ -41,13 +41,21 @@ const ScrollContainer = ({ children, sections }) => {
   };
 
   const handleTouchStart = (e) => {
-    if (isScrollingRef.current) return;
+    if (isScrollingRef.current) {
+      e.preventDefault();
+      return;
+    }
     touchStartY.current = e.touches[0].clientY;
+    e.preventDefault(); // Prevent pull-to-refresh
   };
 
   const handleTouchMove = (e) => {
-    if (isScrollingRef.current) return;
+    if (isScrollingRef.current) {
+      e.preventDefault();
+      return;
+    }
 
+    e.preventDefault(); // Prevent pull-to-refresh
     const currentY = e.touches[0].clientY;
     const diff = touchStartY.current - currentY;
     const threshold = 50;
@@ -110,10 +118,10 @@ const ScrollContainer = ({ children, sections }) => {
     if (container) {
       container.addEventListener("wheel", handleWheel, { passive: false });
       container.addEventListener("touchstart", handleTouchStart, {
-        passive: true,
+        passive: false,
       });
       container.addEventListener("touchmove", handleTouchMove, {
-        passive: true,
+        passive: false,
       });
       container.addEventListener("mousedown", handleMouseDown);
       window.addEventListener("mousemove", handleMouseMove);
