@@ -4,7 +4,6 @@ import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
 import OptimizedImage from "./OptimizedImage";
 import { useScroll } from "./ScrollContainer";
-import { handleSmoothScroll } from "../lib/scrollUtils";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +19,7 @@ const Header = () => {
     { href: "#contact", label: "Contact" },
   ];
 
-  const handleNavClick = async (e, href) => {
+  const handleNavClick = (e, href) => {
     e.preventDefault();
     const sectionId = href.replace("#", "");
 
@@ -28,15 +27,12 @@ const Header = () => {
       setIsOpen(false);
     }
 
-    if (window.innerWidth < 768) {
-      handleSmoothScroll(e, sectionId);
-    } else {
-      if (typeof context.scrollToSection === "function") {
-        try {
-          context.scrollToSection(sectionId);
-        } catch (error) {
-          console.error("Erreur lors du scroll:", error);
-        }
+    // Use scrollToSection for all viewport sizes
+    if (typeof context.scrollToSection === "function") {
+      try {
+        context.scrollToSection(sectionId);
+      } catch (error) {
+        console.error("Error during scroll:", error);
       }
     }
   };

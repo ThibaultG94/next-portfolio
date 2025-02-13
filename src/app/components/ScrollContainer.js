@@ -36,11 +36,23 @@ const ScrollContainer = ({ children, sections }) => {
 
       setTimeout(() => {
         isScrollingRef.current = false;
-      }, 400);
+      }, 400); // Délai réduit à 400ms
     }
   };
 
   const handleTouchStart = (e) => {
+    // Check if the touch event is on any interactive element (buttons, links, menu items)
+    if (
+      e.target.tagName.toLowerCase() === "button" ||
+      e.target.tagName.toLowerCase() === "a" ||
+      e.target.closest("button") ||
+      e.target.closest("a") ||
+      e.target.closest('[role="dialog"]') || // For mobile menu
+      e.target.closest('[role="navigation"]') // For nav elements
+    ) {
+      return;
+    }
+
     if (isScrollingRef.current) {
       e.preventDefault();
       return;
@@ -50,6 +62,18 @@ const ScrollContainer = ({ children, sections }) => {
   };
 
   const handleTouchMove = (e) => {
+    // Check if the touch event is on any interactive element
+    if (
+      e.target.tagName.toLowerCase() === "button" ||
+      e.target.tagName.toLowerCase() === "a" ||
+      e.target.closest("button") ||
+      e.target.closest("a") ||
+      e.target.closest('[role="dialog"]') || // For mobile menu
+      e.target.closest('[role="navigation"]') // For nav elements
+    ) {
+      return;
+    }
+
     if (isScrollingRef.current) {
       e.preventDefault();
       return;
@@ -119,7 +143,7 @@ const ScrollContainer = ({ children, sections }) => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Touch event management
+    // Gestion des événements tactiles
     container.addEventListener("touchstart", handleTouchStart, {
       passive: false,
     });
@@ -127,15 +151,15 @@ const ScrollContainer = ({ children, sections }) => {
       passive: false,
     });
 
-    // Mouse event management
+    // Gestion des événements souris
     container.addEventListener("mousedown", handleMouseDown);
     container.addEventListener("mousemove", handleMouseMove);
     container.addEventListener("mouseup", handleMouseUp);
 
-    // Wheel management
+    // Gestion de la molette
     container.addEventListener("wheel", handleWheel, { passive: false });
 
-    // Uninstalling events
+    // Désinstallation des événements
     return () => {
       container.removeEventListener("touchstart", handleTouchStart);
       container.removeEventListener("touchmove", handleTouchMove);
@@ -144,7 +168,7 @@ const ScrollContainer = ({ children, sections }) => {
       container.removeEventListener("mouseup", handleMouseUp);
       container.removeEventListener("wheel", handleWheel);
     };
-  }, [activeSection, sections.length, isDragging]);
+  }, [activeSection, sections.length, isDragging]); // Ajout de isDragging dans les dépendances
 
   return (
     <ScrollContext.Provider
