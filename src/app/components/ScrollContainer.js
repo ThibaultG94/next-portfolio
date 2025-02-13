@@ -46,7 +46,7 @@ const ScrollContainer = ({ children, sections }) => {
       return;
     }
     touchStartY.current = e.touches[0].clientY;
-    e.preventDefault(); // Prevent pull-to-refresh
+    e.preventDefault();
   };
 
   const handleTouchMove = (e) => {
@@ -55,7 +55,7 @@ const ScrollContainer = ({ children, sections }) => {
       return;
     }
 
-    e.preventDefault(); // Prevent pull-to-refresh
+    e.preventDefault();
     const currentY = e.touches[0].clientY;
     const diff = touchStartY.current - currentY;
     const threshold = 50;
@@ -81,20 +81,23 @@ const ScrollContainer = ({ children, sections }) => {
 
     const currentY = e.clientY;
     const diff = mouseStartY.current - currentY;
-    const threshold = 50;
+    const threshold = 30;
 
     if (Math.abs(diff) > threshold) {
       if (diff > 0 && activeSection < sections.length - 1) {
         scrollToSection(activeSection + 1);
+        setIsDragging(false);
       } else if (diff < 0 && activeSection > 0) {
         scrollToSection(activeSection - 1);
+        setIsDragging(false);
       }
+      mouseStartY.current = currentY;
     }
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
-    document.body.style.cursor = "default";
+    document.body.style.cursor = "ns-resize";
   };
 
   const handleWheel = (e) => {
@@ -114,46 +117,43 @@ const ScrollContainer = ({ children, sections }) => {
 
   useEffect(() => {
     const container = containerRef.current;
+    if (!container) return;
 
-    if (container) {
-      container.addEventListener("wheel", handleWheel, { passive: false });
-      container.addEventListener("touchstart", handleTouchStart, {
-        passive: false,
-      });
-      container.addEventListener("touchmove", handleTouchMove, {
-        passive: false,
-      });
-      container.addEventListener("mousedown", handleMouseDown);
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
-    }
+    // Touch event management
+    container.addEventListener("touchstart", handleTouchStart, {
+      passive: false,
+    });
+    container.addEventListener("touchmove", handleTouchMove, {
+      passive: false,
+    });
 
+    // Mouse event management
+    container.addEventListener("mousedown", handleMouseDown);
+    container.addEventListener("mousemove", handleMouseMove);
+    container.addEventListener("mouseup", handleMouseUp);
+
+    // Wheel management
+    container.addEventListener("wheel", handleWheel, { passive: false });
+
+    // Uninstalling events
     return () => {
-      if (container) {
-        container.removeEventListener("wheel", handleWheel);
-        container.removeEventListener("touchstart", handleTouchStart);
-        container.removeEventListener("touchmove", handleTouchMove);
-        container.removeEventListener("mousedown", handleMouseDown);
-        window.removeEventListener("mousemove", handleMouseMove);
-        window.removeEventListener("mouseup", handleMouseUp);
-      }
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchmove", handleTouchMove);
+      container.removeEventListener("mousedown", handleMouseDown);
+      container.removeEventListener("mousemove", handleMouseMove);
+      container.removeEventListener("mouseup", handleMouseUp);
+      container.removeEventListener("wheel", handleWheel);
     };
-  }, [activeSection, sections.length]);
-
-  const contextValue = {
-    activeSection,
-    scrollToSection,
-    sections,
-    sectionIds,
-  };
+  }, [activeSection, sections.length, isDragging]);
 
   return (
-    <ScrollContext.Provider value={contextValue}>
+    <ScrollContext.Provider
+      value={{ activeSection, scrollToSection, sections, sectionIds }}
+    >
       <div
         ref={containerRef}
-        className={`h-screen overflow-hidden relative ${
-          isDragging ? "cursor-grabbing" : "cursor-grab"
-        }`}
+        className="h-screen overflow-hidden relative select-none"
+        style={{ cursor: isDragging ? "grabbing" : "ns-resize" }}
       >
         {children}
 
