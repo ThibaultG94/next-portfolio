@@ -79,7 +79,7 @@ const Header = () => {
               className="w-12 sm:w-14 md:w-10 lg:w-12 xl:w-13 2xl:w-14"
             />
           </div>
-          <span className="text-lg xs:text-xl sm:text-2xl md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-light text-gray-900 dark:text-gray-100 ml-5 sm:ml-6 md:ml-4 lg:ml-6 2xl:ml-8">
+          <span className="hidden md:block text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-light text-gray-900 dark:text-gray-100 ml-5 sm:ml-6 md:ml-4 lg:ml-6 2xl:ml-8">
             {name}
           </span>
         </div>

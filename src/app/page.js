@@ -127,7 +127,7 @@ const Home = () => {
       <main id="main-content" tabIndex="-1">
         <div className="overflow-auto">
           {sections.map(({ id, Component }) => (
-            <section key={id} id={id} className="min-h-screen w-full py-16">
+            <section key={id} id={id} className="w-full py-16">
               <Component />
             </section>
           ))}

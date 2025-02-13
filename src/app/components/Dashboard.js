@@ -19,8 +19,7 @@ const Dashboard = () => {
   const [name, setName] = useState("Thibault");
   const [email, setEmail] = useState("");
 
-  const iconClass =
-    "w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-9 xl:h-9 2xl:w-10 2xl:h-10";
+  const iconClass = "w-6 h-auto md:w-7 lg:w-8 xl:w-9 2xl:w-10";
 
   useEffect(() => {
     setName(process.env.NEXT_PUBLIC_USERNAME || "Thibault");
@@ -28,18 +27,18 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <section className="h-screen flex flex-col justify-center items-center bg-dark text-light relative">
-      <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+    <section className="container mx-auto min-h-96 lg:h-screen flex flex-col justify-center items-center bg-dark text-light relative">
+      <h1 className="text-2xl xs:text-3xl xl:text-4xl 2xl:text-5xl">
         Bonjour 👋
       </h1>
-      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl mt-2 md:mt-4 lg:mt-6 xl:mt-8">
+      <h2 className="text-3xl xs:text-4xl xl:text-5xl 2xl:text-6xl mt-5 md:mt-6 lg:mt-7 xl:mt-8 2xl:mt-9">
         Je suis {name}
       </h2>
-      <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl my-4 md:my-5 lg:my-6 xl:my-8">
+      <p className="text-center text-2xl xs:text-3xl xl:text-4xl 2xl:text-5xl my-6 md:my-7 lg:my-8 xl:my-9 2xl:my-10">
         {text}
         <Cursor />
       </p>
-      <address className="mt-4 md:mt-5 lg:mt-6 xl:mt-8 flex space-x-6 md:space-x-8 lg:space-x-10 xl:space-x-12">
+      <address className="mt-6 md:mt-7 lg:mt-8 xl:mt-9 2xl:mt-10 flex space-x-6 md:space-x-8 lg:space-x-10 xl:space-x-12">
         <a
           href="https://www.linkedin.com/in/thibault-g-10b37a271/"
           target="_blank"
