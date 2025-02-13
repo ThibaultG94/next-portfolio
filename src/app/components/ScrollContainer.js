@@ -14,8 +14,11 @@ export const useScroll = () => useContext(ScrollContext);
 
 const ScrollContainer = ({ children, sections }) => {
   const [activeSection, setActiveSection] = useState(0);
-  const isScrollingRef = useRef(false);
+  const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef(null);
+  const isScrollingRef = useRef(false);
+  const touchStartY = useRef(0);
+  const mouseStartY = useRef(0);
 
   const sectionIds = sections.map((section) => section.id);
 
@@ -33,42 +36,99 @@ const ScrollContainer = ({ children, sections }) => {
 
       setTimeout(() => {
         isScrollingRef.current = false;
-      }, 500);
+      }, 800);
+    }
+  };
+
+  const handleTouchStart = (e) => {
+    if (isScrollingRef.current) return;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e) => {
+    if (isScrollingRef.current) return;
+
+    const currentY = e.touches[0].clientY;
+    const diff = touchStartY.current - currentY;
+    const threshold = 50;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0 && activeSection < sections.length - 1) {
+        scrollToSection(activeSection + 1);
+      } else if (diff < 0 && activeSection > 0) {
+        scrollToSection(activeSection - 1);
+      }
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    if (isScrollingRef.current) return;
+    setIsDragging(true);
+    mouseStartY.current = e.clientY;
+    document.body.style.cursor = "grabbing";
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging || isScrollingRef.current) return;
+
+    const currentY = e.clientY;
+    const diff = mouseStartY.current - currentY;
+    const threshold = 50;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0 && activeSection < sections.length - 1) {
+        scrollToSection(activeSection + 1);
+      } else if (diff < 0 && activeSection > 0) {
+        scrollToSection(activeSection - 1);
+      }
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    document.body.style.cursor = "default";
+  };
+
+  const handleWheel = (e) => {
+    if (isScrollingRef.current) {
+      e.preventDefault();
+      return;
+    }
+
+    e.preventDefault();
+    const direction = e.deltaY > 0 ? 1 : -1;
+    const newIndex = activeSection + direction;
+
+    if (newIndex >= 0 && newIndex < sections.length) {
+      scrollToSection(newIndex);
     }
   };
 
   useEffect(() => {
-    let scrollTimeout;
-
-    const handleWheel = (e) => {
-      e.preventDefault();
-
-      if (isScrollingRef.current) {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          isScrollingRef.current = false;
-        }, 500);
-        return;
-      }
-
-      const direction = e.deltaY > 0 ? 1 : -1;
-      const newIndex = activeSection + direction;
-
-      if (newIndex >= 0 && newIndex < sections.length) {
-        scrollToSection(newIndex);
-      }
-    };
-
     const container = containerRef.current;
+
     if (container) {
       container.addEventListener("wheel", handleWheel, { passive: false });
+      container.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
+      container.addEventListener("touchmove", handleTouchMove, {
+        passive: true,
+      });
+      container.addEventListener("mousedown", handleMouseDown);
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
     }
 
     return () => {
       if (container) {
         container.removeEventListener("wheel", handleWheel);
+        container.removeEventListener("touchstart", handleTouchStart);
+        container.removeEventListener("touchmove", handleTouchMove);
+        container.removeEventListener("mousedown", handleMouseDown);
+        window.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("mouseup", handleMouseUp);
       }
-      clearTimeout(scrollTimeout);
     };
   }, [activeSection, sections.length]);
 
@@ -81,10 +141,15 @@ const ScrollContainer = ({ children, sections }) => {
 
   return (
     <ScrollContext.Provider value={contextValue}>
-      <div ref={containerRef} className="h-screen overflow-hidden relative">
+      <div
+        ref={containerRef}
+        className={`h-screen overflow-hidden relative ${
+          isDragging ? "cursor-grabbing" : "cursor-grab"
+        }`}
+      >
         {children}
 
-        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col gap-4">
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col gap-4 md:flex">
           {activeSection > 0 && (
             <motion.button
               initial={{ opacity: 0 }}
