@@ -20,7 +20,7 @@ const baseSections = [
   {
     id: "dashboard",
     Component: () => (
-      <div className="h-screen flex items-center justify-center">
+      <div className="min-h-[85vh] sm:min-h-[90vh] md:min-h-[95vh] lg:min-h-screen flex items-center justify-center">
         <Dashboard />
       </div>
     ),

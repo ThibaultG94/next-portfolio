@@ -27,7 +27,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <section className="container min-h-96 flex flex-col justify-center items-center bg-dark text-light relative px-6">
+    <section className="h-full flex flex-col justify-between items-center bg-dark text-light relative px-6">
       <h1 className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl">
         Bonjour 👋
       </h1>
