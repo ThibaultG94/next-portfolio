@@ -84,7 +84,7 @@ const Projects = () => {
         J&apos;ai développé plusieurs projets fullstack from scratch dont voici
         les principaux.
       </p>
-      <div className="mt-2 lg:mt-4 2xl:mt-6 flex justify-center items-center space-x-4 scale-100 lg:scale-75 xl:scale-90 2xl:scale-100">
+      <div className="mt-2 lg:mt-4 2xl:mt-6 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 scale-100 lg:scale-75 xl:scale-90 2xl:scale-100">
         {/* Laptop view for larger screens */}
         <div className="hidden lg:block relative">
           <div className="laptop">
@@ -141,7 +141,6 @@ const Projects = () => {
                 isModal={false}
               />
             </div>
-            <div className="tablet__shadow"></div>
             <button
               onClick={handleNextTablet}
               className="absolute right-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
@@ -151,35 +150,39 @@ const Projects = () => {
           </div>
         </div>
         {/* Tablet view for project info */}
-        <div className="relative tablet pt-10 xl:pt-0">
+        <div className="relative tablet tablet--horizontal">
           <button
             onClick={prevProject}
             className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowLeft />
           </button>
-          <div className="tablet__screen bg-white dark:bg-black p-8">
+          <div className="tablet__screen bg-white dark:bg-black">
             <div className="tablet__content">
-              <h3 className="text-2xl font-semibold">
+              <h3 className="text-xl font-semibold mb-2">
                 {projets[currentProject].title}
               </h3>
-              <p className="mt-2">{projets[currentProject].description}</p>
-              <a
-                href={projets[currentProject].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 text-blue-500 hover:text-blue-400"
-              >
-                Voir le site
-              </a>
-              <a
-                href={projets[currentProject].github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 text-blue-500 hover:text-blue-400"
-              >
-                Voir sur GitHub
-              </a>
+              <p className="text-sm mb-3">
+                {projets[currentProject].description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href={projets[currentProject].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-400 text-sm"
+                >
+                  Voir le site
+                </a>
+                <a
+                  href={projets[currentProject].github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-400 text-sm"
+                >
+                  Voir sur GitHub
+                </a>
+              </div>
             </div>
           </div>
           <button
