@@ -40,7 +40,7 @@ const baseSections = [
   {
     id: "skills",
     Component: () => (
-      <div className="p-2 flex items-center justify-center">
+      <div className="min-h-[96vh] xs:min-h-[97vh] sm:min-h-[98vh] md:min-h-[99vh] lg:min-h-screen p-2 flex items-center justify-center">
         <Skills />
       </div>
     ),
@@ -48,14 +48,18 @@ const baseSections = [
   {
     id: "contact",
     Component: () => (
-      <div className="p-2 flex items-center justify-center">
+      <div className="min-h-[96vh] xs:min-h-[97vh] sm:min-h-[98vh] md:min-h-[99vh] lg:min-h-screen p-3 flex items-center justify-center">
         <Contact />
       </div>
     ),
   },
   {
     id: "footer",
-    Component: Footer,
+    Component: () => (
+      <div className="min-h-[96vh] xs:min-h-[97vh] sm:min-h-[98vh] md:min-h-[99vh] lg:min-h-screen p-2 flex items-end justify-center">
+        <Footer />
+      </div>
+    ),
   },
 ];
 
