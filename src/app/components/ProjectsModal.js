@@ -14,23 +14,38 @@ export default function ProjectsModal({
   const swiperRef = useRef(null);
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [deviceType, setDeviceType] = useState("laptop");
 
   const updateDimensions = useCallback(() => {
+    const width = window.innerWidth;
     const padding = 32; // 2rem padding on each side
-    const maxWidth = Math.min(window.innerWidth - padding * 2, 1200);
+
+    // Determine device type based on screen width
+    if (width >= 1024) {
+      setDeviceType("laptop");
+    } else if (width >= 768) {
+      setDeviceType("tablet");
+    } else {
+      setDeviceType("mobile");
+    }
+
+    // Adjust max width based on device type
+    const maxDeviceWidth =
+      deviceType === "laptop" ? 1200 : deviceType === "tablet" ? 800 : 600;
+
+    const maxWidth = Math.min(width - padding * 2, maxDeviceWidth);
     const maxHeight = window.innerHeight - padding * 2;
 
-    // Calculer la hauteur basée sur le ratio 16:9
+    // Calculate height based on 16:9 ratio
     const heightFromWidth = (maxWidth * 9) / 16;
 
-    // Si la hauteur calculée est trop grande, on part de la hauteur max
     if (heightFromWidth > maxHeight) {
       const width = (maxHeight * 16) / 9;
       setDimensions({ width, height: maxHeight });
     } else {
       setDimensions({ width: maxWidth, height: heightFromWidth });
     }
-  }, []);
+  }, [deviceType]);
 
   useEffect(() => {
     updateDimensions();
@@ -81,14 +96,14 @@ export default function ProjectsModal({
               height: dimensions.height,
             }}
           >
-            <div className="laptop-modal">
-              <div className="laptop-modal__screen">
+            <div className={`${deviceType}-modal`}>
+              <div className={`${deviceType}-modal__screen`}>
                 <button
                   onClick={() => swiperRef.current?.slidePrev()}
                   className="absolute left-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all transform -translate-y-1/2 top-1/2"
                   aria-label="Image précédente"
                 >
-                  <FaArrowLeft size={24} />
+                  <FaArrowLeft size={deviceType === "mobile" ? 16 : 24} />
                 </button>
 
                 <SwiperImage
@@ -107,13 +122,19 @@ export default function ProjectsModal({
                   className="absolute right-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all transform -translate-y-1/2 top-1/2"
                   aria-label="Image suivante"
                 >
-                  <FaArrowRight size={24} />
+                  <FaArrowRight size={deviceType === "mobile" ? 16 : 24} />
                 </button>
               </div>
-              <div className="laptop-modal__bottom">
-                <div className="laptop-modal__under"></div>
-              </div>
-              <div className="laptop-modal__shadow"></div>
+              {deviceType === "laptop" ? (
+                <>
+                  <div className="laptop-modal__bottom">
+                    <div className="laptop-modal__under"></div>
+                  </div>
+                  <div className="laptop-modal__shadow"></div>
+                </>
+              ) : (
+                <div className={`${deviceType}-modal__shadow`}></div>
+              )}
             </div>
           </div>
         </div>

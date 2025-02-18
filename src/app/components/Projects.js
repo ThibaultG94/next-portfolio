@@ -195,13 +195,9 @@ const Projects = () => {
       </div>
       {showModal && (
         <ProjectsModal
-          showModal={showModal}
           setShowModal={setShowModal}
           currentImages={currentImages}
           currentProject={currentProject}
-          swiperRef={tabletSwiperRef}
-          nextImage={nextImage}
-          prevImage={prevImage}
         />
       )}
     </section>
