@@ -101,7 +101,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-3">
+    <section className="flex items-center justify-center px-3">
       <div className="w-full max-w-7xl">
         <h2 className="text-3xl 2xl:text-4xl text-center">Contactez-moi</h2>
 

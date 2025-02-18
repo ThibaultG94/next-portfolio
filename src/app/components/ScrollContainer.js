@@ -181,29 +181,35 @@ const ScrollContainer = ({ children, sections }) => {
       >
         {children}
 
-        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col gap-4 md:flex">
-          {activeSection > 0 && (
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="p-2 rounded-full bg-gray-800/50 hover:bg-gray-800/70 transition-colors"
-              onClick={() => scrollToSection(activeSection - 1)}
-              aria-label="Section précédente"
-            >
-              <FiChevronUp className="text-white w-6 h-6" />
-            </motion.button>
-          )}
-          {activeSection < sections.length - 1 && (
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="p-2 rounded-full bg-gray-800/50 hover:bg-gray-800/70 transition-colors"
-              onClick={() => scrollToSection(activeSection + 1)}
-              aria-label="Section suivante"
-            >
-              <FiChevronDown className="text-white w-6 h-6" />
-            </motion.button>
-          )}
+        {/* Navigation Buttons Container */}
+        <div className="fixed w-full bottom-12 left-0 z-50 pointer-events-none">
+          <div className="relative max-w-[100px] mx-auto">
+            {/* Up Button */}
+            {activeSection > 0 && (
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute left-1/2 -translate-x-1/2 -translate-y-[130%] p-2 rounded-full bg-gray-800/50 hover:bg-gray-800/70 transition-colors pointer-events-auto"
+                onClick={() => scrollToSection(activeSection - 1)}
+                aria-label="Section précédente"
+              >
+                <FiChevronUp className="text-white w-6 h-6" />
+              </motion.button>
+            )}
+
+            {/* Down Button */}
+            {activeSection < sections.length - 1 && (
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute left-1/2 -translate-x-1/2 p-2 rounded-full bg-gray-800/50 hover:bg-gray-800/70 transition-colors pointer-events-auto"
+                onClick={() => scrollToSection(activeSection + 1)}
+                aria-label="Section suivante"
+              >
+                <FiChevronDown className="text-white w-6 h-6" />
+              </motion.button>
+            )}
+          </div>
         </div>
       </div>
     </ScrollContext.Provider>
