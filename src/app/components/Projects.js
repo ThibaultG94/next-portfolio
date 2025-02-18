@@ -138,7 +138,7 @@ const Projects = () => {
                 swiperRef={tabletSwiperRef}
                 widthScreen={272}
                 heightScreen={360}
-                isModal={false}
+                isModal={true}
               />
             </div>
             <button

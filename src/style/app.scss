@@ -157,6 +157,14 @@ $primary-yellow: #F9F871;
         border: 25px solid #2b2b2b;
         overflow: hidden;
 
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            background: #000;
+            cursor: pointer;
+        }
+
         .tablet__content {
             display: flex;
             flex-direction: column;
