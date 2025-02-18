@@ -300,15 +300,17 @@ $primary-yellow: #F9F871;
             }
 
             .tablet__content {
-                padding: 0 2rem;
+                padding: 0 3rem;
 
                 h3 {
                     font-size: 1rem;
                     margin-bottom: 0.5rem;
                 }
 
-                p {
-                    display: none;
+                @media (max-height: 700px) {
+                    p {
+                        display: none;
+                    }
                 }
 
                 a {

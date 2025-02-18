@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Skills = () => {
   return (
-    <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-3">
+    <section className="section-container py-10 sm:py-12 md:py-16 lg:py-20 px-3">
       <h2 className="text-3xl 2xl:text-4xl text-center">Mes Compétences</h2>
       <p className="text-xl 2xl:text-2xl text-center mt-4 xl:mt-5 2xl:mt-6">
         J&apos;aime prendre la responsabilité de créer une expérience
