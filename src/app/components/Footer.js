@@ -1,14 +1,19 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { useScroll } from "./ScrollContainer";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const { scrollToSection } = useScroll();
 
   useEffect(() => {
     setEmail(process.env.NEXT_PUBLIC_EMAIL || "");
   }, []);
+
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
 
   return (
     <footer className="flex flex-col justify-end py-20 sm:py-24 md:py-28 lg:py-32 2xl:py-36 max-w-7xl mx-auto">
@@ -59,24 +64,28 @@ const Footer = () => {
           <nav className="flex flex-col space-y-2 sm:space-y-3 md:space-y-4 2xl:space-y-5">
             <a
               href="#dashboard"
+              onClick={(e) => handleNavClick(e, "dashboard")}
               className="text-sm sm:text-base md:text-lg 2xl:text-xl text-gray-600 dark:text-gray-300 hover:text-blue-500"
             >
               Accueil
             </a>
             <a
               href="#projects"
+              onClick={(e) => handleNavClick(e, "projects")}
               className="text-sm sm:text-base md:text-lg 2xl:text-xl text-gray-600 dark:text-gray-300 hover:text-blue-500"
             >
               Projets
             </a>
             <a
               href="#skills"
+              onClick={(e) => handleNavClick(e, "skills")}
               className="text-sm sm:text-base md:text-lg 2xl:text-xl text-gray-600 dark:text-gray-300 hover:text-blue-500"
             >
               Compétences
             </a>
             <a
               href="#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
               className="text-sm sm:text-base md:text-lg 2xl:text-xl text-gray-600 dark:text-gray-300 hover:text-blue-500"
             >
               Contact
