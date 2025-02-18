@@ -56,7 +56,7 @@ const baseSections = [
   {
     id: "footer",
     Component: () => (
-      <div className="min-h-[96vh] xs:min-h-[97vh] sm:min-h-[98vh] md:min-h-[99vh] lg:min-h-screen p-2 flex items-end justify-center">
+      <div className="min-h-[96vh] xs:min-h-[97vh] sm:min-h-[98vh] md:min-h-[99vh] lg:min-h-screen p-3 flex items-center justify-center">
         <Footer />
       </div>
     ),

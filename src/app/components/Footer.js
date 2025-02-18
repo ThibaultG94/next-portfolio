@@ -11,10 +11,10 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-screen flex flex-col justify-end py-20 sm:py-24 md:py-28 lg:py-32 2xl:py-36 max-w-7xl mx-auto">
-      <div className="w-full max-w-[90rem] 2xl:max-w-[100rem] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 2xl:gap-16 p-4 sm:p-6 md:p-8 lg:p-10 2xl:p-12">
+    <footer className="flex flex-col justify-end py-20 sm:py-24 md:py-28 lg:py-32 2xl:py-36 max-w-7xl mx-auto">
+      <div className="w-full max-w-[90rem] 2xl:max-w-[100rem] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 2xl:gap-16 p-4 sm:p-6 md:p-8 lg:p-10 2xl:p-12">
         {/* About */}
-        <div className="text-center md:text-left space-y-3 sm:space-y-4 md:space-y-5 2xl:space-y-6">
+        <div className="text-center lg:text-left space-y-3 sm:space-y-4 md:space-y-5 2xl:space-y-6">
           <h3 className="text-lg sm:text-xl md:text-2xl 2xl:text-3xl font-semibold">
             À propos
           </h3>
@@ -22,7 +22,7 @@ const Footer = () => {
             Je développe des sites web modernes en utilisant une architecture
             frontend moderne et réactive.
           </p>
-          <div className="flex justify-center md:justify-start space-x-4 md:space-x-6 2xl:space-x-8">
+          <div className="flex justify-center lg:justify-start space-x-4 md:space-x-6 2xl:space-x-8">
             <a
               href="https://www.linkedin.com/in/thibault-g-10b37a271/"
               target="_blank"
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
 
         {/* Navigation */}
-        <div className="text-center md:text-left">
+        <div className="text-center lg:text-left">
           <h3 className="text-lg sm:text-xl md:text-2xl 2xl:text-3xl font-semibold mb-3 sm:mb-4 md:mb-5 2xl:mb-6">
             Navigation
           </h3>
@@ -85,11 +85,11 @@ const Footer = () => {
         </div>
 
         {/* Technologies */}
-        <div className="text-center md:text-left">
+        <div className="text-center lg:text-left">
           <h3 className="text-lg sm:text-xl md:text-2xl 2xl:text-3xl font-semibold mb-3 sm:mb-4 md:mb-5 2xl:mb-6">
             Technologies
           </h3>
-          <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 2xl:gap-6 justify-items-center md:justify-items-start">
+          <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 2xl:gap-6 justify-items-center lg:justify-items-start">
             <img
               src="/img/logos/js.png"
               alt="JavaScript"
