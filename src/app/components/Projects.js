@@ -77,14 +77,14 @@ const Projects = () => {
 
   return (
     <section className="py-20 bg-dark text-light">
-      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-center font-bold">
+      <h2 className="text-md xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-center font-bold">
         Mes Travaux
       </h2>
-      <p className="text-md lg:text-lg 2xl:text-xl text-center mt-1 2xl:mt-2">
+      <p className="text-sm xs:text-md lg:text-lg 2xl:text-xl text-center mt-1 2xl:mt-2">
         J&apos;ai développé plusieurs projets fullstack from scratch dont voici
         les principaux.
       </p>
-      <div className="mt-2 lg:mt-4 2xl:mt-6 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 scale-100 lg:scale-75 xl:scale-90 2xl:scale-100">
+      <div className="mt-0.5 xs:mt-1 sm:mt-2 md:mt-3 lg:mt-4 2xl:mt-6 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 scale-90 md:scale-100 lg:scale-75 xl:scale-90 2xl:scale-100">
         {/* Laptop view for larger screens */}
         <div className="hidden lg:block relative">
           <div className="laptop">

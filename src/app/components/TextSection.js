@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const TextSection = ({ text }) => {
   return (
-    <div className="h-screen flex items-center justify-center px-10 sm:px-12 md:px-14 lg:px-16">
+    <div className="section-container flex items-center justify-center px-10 sm:px-12 md:px-14 lg:px-16">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -164,6 +164,7 @@ $primary-yellow: #F9F871;
             align-items: center;
             height: 100%;
             text-align: center;
+            padding: 0 2rem;
         }
 
         img {
@@ -295,30 +296,31 @@ $primary-yellow: #F9F871;
 
             .tablet__screen {
                 height: auto;
-                aspect-ratio: 16/9;
-                padding: 0.5rem;
                 border-width: 15px;
             }
 
             .tablet__content {
-                padding: 1rem;
+                padding: 0 2rem;
 
                 h3 {
-                    font-size: 1.25rem;
+                    font-size: 1rem;
                     margin-bottom: 0.5rem;
                 }
 
                 p {
-                    font-size: 0.875rem;
-                    margin-bottom: 0.5rem;
+                    display: none;
                 }
 
                 a {
-                    font-size: 0.875rem;
+                    font-size: 0.75rem;
                     display: inline-block;
                     margin-right: 1rem;
                 }
             }
         }
     }
+}
+
+.section-container {
+    height: 90vh;
 }

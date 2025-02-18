@@ -32,7 +32,7 @@ const baseSections = [
   {
     id: "projects",
     Component: () => (
-      <div className="h-screen flex items-center justify-center">
+      <div className="p-2 flex items-center justify-center">
         <Projects />
       </div>
     ),
