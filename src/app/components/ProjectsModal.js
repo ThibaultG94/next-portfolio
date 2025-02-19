@@ -23,7 +23,8 @@ export default function ProjectsModal({
 
   const updateDimensions = useCallback(() => {
     const width = window.innerWidth;
-    const padding = 32;
+    const height = window.innerHeight;
+    const padding = 32; // 2rem padding on each side
 
     // Determine device type based on screen width
     if (width >= 1024) {
@@ -34,21 +35,32 @@ export default function ProjectsModal({
       setDeviceType("mobile");
     }
 
-    // Adjust max width based on device type
-    const maxDeviceWidth =
-      deviceType === "laptop" ? 1200 : deviceType === "tablet" ? 800 : 600;
+    if (deviceType === "laptop") {
+      // Pour le laptop, on garde le ratio 16:9
+      const maxWidth = Math.min(width - padding * 2, 1200);
+      const maxHeight = height - padding * 2;
+      const heightFromWidth = (maxWidth * 9) / 16;
 
-    const maxWidth = Math.min(width - padding * 2, maxDeviceWidth);
-    const maxHeight = window.innerHeight - padding * 2;
-
-    // Calculate height based on 16:9 ratio
-    const heightFromWidth = (maxWidth * 9) / 16;
-
-    if (heightFromWidth > maxHeight) {
-      const width = (maxHeight * 16) / 9;
-      setDimensions({ width, height: maxHeight });
+      if (heightFromWidth > maxHeight) {
+        const width = (maxHeight * 16) / 9;
+        setDimensions({ width, height: maxHeight });
+      } else {
+        setDimensions({ width: maxWidth, height: heightFromWidth });
+      }
     } else {
-      setDimensions({ width: maxWidth, height: heightFromWidth });
+      // Pour tablette et mobile, on utilise un ratio 3:4 (vertical)
+      const maxHeight = height - padding * 2;
+      // La largeur est calculée en fonction de la hauteur pour maintenir le ratio 3:4
+      const width = (maxHeight * 3) / 4;
+
+      // Si la largeur est trop grande, on recalcule à partir de la largeur max
+      const maxWidth = Math.min(width - padding * 2, width * 0.75);
+      if (width > maxWidth) {
+        const height = (maxWidth * 4) / 3;
+        setDimensions({ width: maxWidth, height });
+      } else {
+        setDimensions({ width, height: maxHeight });
+      }
     }
   }, [deviceType]);
 
