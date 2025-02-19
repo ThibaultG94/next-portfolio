@@ -84,12 +84,13 @@ const SwiperImage = ({
               <OptimizedImage
                 src={currentImages[index]}
                 alt={`${projets[currentProject].title} - Vue ${index + 1}`}
-                width={widthScreen} // Utilisé uniquement pour le calcul du ratio
-                height={heightScreen} // Utilisé uniquement pour le calcul du ratio
-                onClick={() => isModal && setShowModal(true)}
+                width={widthScreen}
+                height={heightScreen}
+                onClick={() => setShowModal(true)}
+                onTouchStart={() => setShowModal(true)}
                 priority={index === 0}
                 isModal={isModal}
-                className="swiper-slide-image" // Classe personnalisée si nécessaire
+                className="swiper-slide-image"
               />
             </div>
           </SwiperSlide>

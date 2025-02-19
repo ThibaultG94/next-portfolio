@@ -6,7 +6,6 @@ import SwiperImage from "./SwiperImage";
 import projets from "../../../public/data/projects.json";
 
 export default function ProjectsModal({
-  showModal,
   setShowModal,
   currentImages,
   currentProject,
