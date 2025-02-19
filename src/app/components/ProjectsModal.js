@@ -7,17 +7,23 @@ import projets from "../../../public/data/projects.json";
 
 export default function ProjectsModal({
   setShowModal,
-  currentImages,
+  desktopImages,
+  tabletImages,
   currentProject,
 }) {
   const swiperRef = useRef(null);
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [deviceType, setDeviceType] = useState("laptop");
+  const [displayImages, setDisplayImages] = useState([]);
+
+  useEffect(() => {
+    setDisplayImages(deviceType === "laptop" ? desktopImages : tabletImages);
+  }, [deviceType, desktopImages, tabletImages]);
 
   const updateDimensions = useCallback(() => {
     const width = window.innerWidth;
-    const padding = 32; // 2rem padding on each side
+    const padding = 32;
 
     // Determine device type based on screen width
     if (width >= 1024) {
@@ -107,7 +113,7 @@ export default function ProjectsModal({
 
                 <SwiperImage
                   setShowModal={setShowModal}
-                  currentImages={currentImages}
+                  currentImages={displayImages}
                   projets={projets}
                   currentProject={currentProject}
                   swiperRef={swiperRef}

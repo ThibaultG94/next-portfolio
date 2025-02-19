@@ -196,7 +196,8 @@ const Projects = () => {
       {showModal && (
         <ProjectsModal
           setShowModal={setShowModal}
-          currentImages={currentImages}
+          desktopImages={currentImages}
+          tabletImages={tabletImages}
           currentProject={currentProject}
         />
       )}

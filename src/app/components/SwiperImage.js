@@ -21,7 +21,7 @@ const SwiperImage = ({
   const [isLoading, setIsLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Ajoute un état pour tracker si le Swiper est initialisé
+  // Adds a tracker state if the Swiper is initialized
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const SwiperImage = ({
         })
       ).then(() => {
         setIsLoading(false);
-        // Si le Swiper est déjà initialisé, force une mise à jour
+        // If Swiper is already initialized, force an update
         if (swiperRef.current) {
           swiperRef.current.update();
           swiperRef.current.loopDestroy();
@@ -62,7 +62,7 @@ const SwiperImage = ({
         onSwiper={(swiper) => {
           if (swiperRef.current !== swiper) {
             swiperRef.current = swiper;
-            // On attend que tout soit chargé avant d'initialiser
+            // We wait until everything is loaded before initializing
             requestAnimationFrame(() => {
               swiper.update();
               setIsInitialized(true);
@@ -97,7 +97,7 @@ const SwiperImage = ({
         ))}
       </Swiper>
 
-      {/* Indicateur de progression */}
+      {/* Progress indicator */}
       <div
         className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full text-sm"
         aria-live="polite"
