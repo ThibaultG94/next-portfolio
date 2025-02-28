@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className="text-foreground" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="relative">
             <SkipLink />
             {children}
