@@ -1,7 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss";
 @import 'fonts.scss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 $primary-white: #FBF8FF;
 $primary-blue: #6D4FFF;

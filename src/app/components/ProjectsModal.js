@@ -85,7 +85,7 @@ export default function ProjectsModal({
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
-      <div className="absolute inset-0 bg-black bg-opacity-90 transition-opacity duration-300">
+      <div className="absolute inset-0 bg-black/90 transition-colors">
         <button
           onClick={() => setShowModal(false)}
           className="absolute right-4 top-4 z-[60] p-2 text-white hover:text-gray-300 transition-colors"
@@ -117,7 +117,7 @@ export default function ProjectsModal({
               <div className={`${deviceType}-modal__screen`}>
                 <button
                   onClick={() => swiperRef.current?.slidePrev()}
-                  className="absolute left-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all transform -translate-y-1/2 top-1/2"
+                  className="absolute cursor-pointer left-4 z-50 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all transform -translate-y-1/2 top-1/2"
                   aria-label="Image précédente"
                 >
                   <FaArrowLeft size={deviceType === "mobile" ? 16 : 24} />
@@ -136,7 +136,7 @@ export default function ProjectsModal({
 
                 <button
                   onClick={() => swiperRef.current?.slideNext()}
-                  className="absolute right-4 z-50 p-2 bg-black bg-opacity-50 rounded-full text-white hover:bg-opacity-75 transition-all transform -translate-y-1/2 top-1/2"
+                  className="absolute cursor-pointer right-4 z-50 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all transform -translate-y-1/2 top-1/2"
                   aria-label="Image suivante"
                 >
                   <FaArrowRight size={deviceType === "mobile" ? 16 : 24} />

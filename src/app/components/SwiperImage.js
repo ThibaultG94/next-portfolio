@@ -99,7 +99,7 @@ const SwiperImage = ({
 
       {/* Progress indicator */}
       <div
-        className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full text-sm"
+        className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-2 py-1 rounded-full text-sm"
         aria-live="polite"
       >
         {currentSlide + 1} / {currentImages?.length}

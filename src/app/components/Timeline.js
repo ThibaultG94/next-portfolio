@@ -98,7 +98,7 @@ const Timeline = () => {
               <div className="flex flex-col items-center">
                 <div className="w-4 h-4 rounded-full bg-black dark:bg-white"></div>
                 {index < timelineEvents.length - 1 && (
-                  <div className="flex-grow w-px bg-black dark:bg-white"></div>
+                  <div className="grow w-px bg-black dark:bg-white"></div>
                 )}
               </div>
               <div className="ml-6">
@@ -117,7 +117,7 @@ const Timeline = () => {
                         objectFit="contain"
                         className="rounded-lg"
                       />
-                      <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white w-full p-4 rounded-b-lg">
+                      <div className="absolute bottom-0 left-0 bg-black/50 text-white w-full p-4 rounded-b-lg">
                         <h3 className="text-2xl">{event.title}</h3>
                         <p>{event.description}</p>
                       </div>
@@ -148,7 +148,7 @@ const Timeline = () => {
               objectFit="contain"
               className="rounded-lg"
             />
-            <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white w-[500px] p-4 rounded-b-lg">
+            <div className="absolute bottom-0 left-0 bg-black/50 text-white w-[500px] p-4 rounded-b-lg">
               <h3 className="text-2xl">{event.title}</h3>
               <p>{event.description}</p>
             </div>

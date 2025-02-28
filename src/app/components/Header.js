@@ -87,7 +87,7 @@ const Header = () => {
               key={item.href}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
-              className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"
+              className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-medium"
             >
               {item.label}
             </a>
@@ -99,7 +99,7 @@ const Header = () => {
           <ThemeToggle />
           <button
             onClick={toggleMenu}
-            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 p-2 rounded-md"
+            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 p-2 rounded-md"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
@@ -123,11 +123,11 @@ const Header = () => {
               onClick={toggleMenu}
             />
 
-            <div className="relative right-0 top-0 h-screen w-screen bg-white/75 dark:bg-[#121212]/75 p-4 backdrop-blur-sm">
+            <div className="relative right-0 top-0 h-screen w-screen bg-white/75 dark:bg-[#121212]/75 p-4 backdrop-blur-xs">
               <div className="flex justify-end">
                 <button
                   onClick={toggleMenu}
-                  className="text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 p-2 rounded-md"
+                  className="text-gray-800 dark:text-gray-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 p-2 rounded-md"
                   aria-label="Fermer le menu"
                 >
                   <X className="h-7 w-7" />
@@ -139,7 +139,7 @@ const Header = () => {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="text-2xl text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors"
+                    className="text-2xl text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 py-2 px-3 rounded-md transition-colors"
                   >
                     {item.label}
                   </a>
