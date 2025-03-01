@@ -61,7 +61,7 @@ const Header = () => {
   return (
     <header
       role="banner"
-      className="fixed z-50 w-full transition-transform duration-300 backdrop-blur-md bg-white/50 dark:bg-[#121212]/50"
+      className="fixed z-50 w-full transition-transform duration-300 backdrop-blur-md bg-white/50 dark:bg-black/50"
     >
       <div className="md:container opacity-100 mx-auto flex justify-between items-center p-4 md:p-2.5 lg:p-3 xl:p-3.5 2xl:p-4">
         <div className="flex items-center">
