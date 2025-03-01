@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
+/* :root {
     --foreground: black;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: #FBF8FF;
@@ -13,7 +13,7 @@
         --background-start-rgb: black;
         --background-end-rgb: black;
     }
-}
+} */
 
 @layer utilities {
     .scrollbar-none {
