@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import ThemeProvider from "./components/ThemeProvider";
-import "../style/app.scss";
+import "../style/app.css";
+import "../style/fonts.css";
 import SkipLink from "./components/SkipLink";
 import preloadLinks from "../../preloadLinks.json";
 
