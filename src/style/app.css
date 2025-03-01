@@ -275,12 +275,13 @@
         width: 100%;
         max-width: 400px;
         height: auto;
-        margin-top: 1rem;
+        margin-top: .5rem;
     }
 
     .tablet--horizontal .tablet__screen {
         height: auto;
         border-width: 15px;
+        padding: 1rem;
     }
 
     .tablet--horizontal .tablet__content {
