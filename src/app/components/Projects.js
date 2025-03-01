@@ -153,11 +153,11 @@ const Projects = () => {
         <div className="relative tablet tablet--horizontal">
           <button
             onClick={prevProject}
-            className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
+            className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowLeft />
           </button>
-          <div className="tablet__screen bg-white dark:bg-black">
+          <div className="tablet__screen bg-white dark:bg-black text-black">
             <div className="tablet__content">
               <h3 className="text-xl font-semibold mb-2">
                 {projets[currentProject].title}
@@ -187,7 +187,7 @@ const Projects = () => {
           </div>
           <button
             onClick={nextProject}
-            className="absolute right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10"
+            className="absolute right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowRight />
           </button>
