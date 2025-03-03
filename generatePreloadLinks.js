@@ -20,4 +20,15 @@ const preloadLinks = [
   ...generatePreloadLinks("public/img/quasar-blog/tablet"),
 ];
 
-fs.writeFileSync("preloadLinks.json", JSON.stringify(preloadLinks, null, 2));
+// Ajouter la feuille de style Font Awesome séparément
+const additionalLinks = [
+  {
+    rel: "stylesheet",
+    href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css",
+  },
+];
+
+fs.writeFileSync(
+  "preloadLinks.json",
+  JSON.stringify([...preloadLinks, ...additionalLinks], null, 2)
+);

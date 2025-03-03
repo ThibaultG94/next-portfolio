@@ -1,0 +1,20 @@
+[
+    {
+      "id": "montagne",
+      "title": "La Montagne",
+      "description": "Site vitrine one-page pour une agence de randonnée et de tourisme montagnard.",
+      "image": "/img/sites-vitrines/montagne.webp",
+      "url": "/sites-vitrines/montagne",
+      "technologies": ["HTML5", "CSS3", "JavaScript"],
+      "categories": ["tourisme", "one-page"]
+    },
+    {
+      "id": "resto",
+      "title": "The Resto",
+      "description": "Site complet pour un restaurant haut de gamme avec menu interactif et système de réservation.",
+      "image": "/img/sites-vitrines/resto.webp",
+      "url": "/sites-vitrines/resto",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "TailwindCSS"],
+      "categories": ["restauration", "service"]
+    }
+  ]

@@ -2,6 +2,7 @@
     {
       "title": "Task Manager",
       "description": "Application de gestion de tâches et de workspace conçue pour être performante et sécurisée.",
+      "category": "application",
       "images": [
         "/img/task-manager/01_task-manager-dashboard.webp",
         "/img/task-manager/02_task-manager-dashboard-messagerie.webp",
@@ -49,6 +50,7 @@
     {
       "title": "Chroniques d'un dev",
       "description": "Blog personnel pour partager mes expériences et mes projets de développeur web. Codé avec Quasar",
+      "category": "application",
       "images": [
         "/img/quasar-blog/1-thiblog-home.webp",
         "/img/quasar-blog/2-thiblog.webp",
@@ -79,6 +81,18 @@
       ],
       "github": "https://github.com/ThibaultG94/quasar-blog",
       "url": "https://www.chroniques-d-un-dev.com/"
+    },
+    {
+      "title": "Sites Vitrines",
+      "description": "Découvrez ma collection de sites vitrines créés avec des technologies modernes pour divers clients.",
+      "category": "vitrine",
+      "images": [
+        "/img/sites-vitrines/preview.webp"
+      ],
+      "tabletImages": [
+        "/img/sites-vitrines/preview-tablet.webp"
+      ],
+      "url": "/sites-vitrines"
     }
   ]
   

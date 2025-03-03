@@ -7,6 +7,7 @@ import ProjectsModal from "./ProjectsModal";
 import SwiperImage from "./SwiperImage";
 
 import projets from "../../../public/data/projects.json";
+import { useRouter } from "next/navigation";
 
 const Projects = () => {
   const laptopSwiperRef = useRef(null);
@@ -16,6 +17,7 @@ const Projects = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const { theme } = useTheme();
+  const router = useRouter();
 
   const nextProject = () => {
     setCurrentProject((prev) => (prev + 1) % projets.length);
@@ -25,20 +27,6 @@ const Projects = () => {
   const prevProject = () => {
     setCurrentProject((prev) => (prev - 1 + projets.length) % projets.length);
     setCurrentImage(0); // Reset image index when changing project
-  };
-
-  const nextImage = () => {
-    setCurrentImage(
-      (prev) => (prev + 1) % projets[currentProject].images.length
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentImage(
-      (prev) =>
-        (prev - 1 + projets[currentProject].images.length) %
-        projets[currentProject].images.length
-    );
   };
 
   const handlePrevLaptop = () => {
@@ -74,6 +62,14 @@ const Projects = () => {
     theme === "dark" && projets[currentProject].tabletDarkImages
       ? projets[currentProject].tabletDarkImages
       : projets[currentProject].tabletImages || currentImages;
+
+  const handleProjectLink = (url) => {
+    if (url.startsWith("/")) {
+      router.push(url);
+    } else {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <section className="py-20 bg-dark text-light">
@@ -124,7 +120,7 @@ const Projects = () => {
           <div className="tablet">
             <button
               onClick={handlePrevTablet}
-              className="absolute left-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
+              className="absolute cursor-pointer left-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowLeft />
             </button>
@@ -143,7 +139,7 @@ const Projects = () => {
             </div>
             <button
               onClick={handleNextTablet}
-              className="absolute right-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
+              className="absolute cursor-pointer right-1 top-1/2 transform -translate-y-1/2 text-xs text-gray-800 dark:text-gray-400 hover:text-gray-200 transition duration-300 z-10 bg-white rounded-full p-0.5"
             >
               <FaArrowRight />
             </button>
@@ -153,7 +149,7 @@ const Projects = () => {
         <div className="relative tablet tablet--horizontal">
           <button
             onClick={prevProject}
-            className="absolute left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 hover:text-gray-200 transition duration-300 z-10"
+            className="absolute cursor-pointer left-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowLeft />
           </button>
@@ -171,23 +167,31 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:text-blue-400 text-sm"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleProjectLink(projets[currentProject].url);
+                  }}
                 >
-                  Voir le site
+                  {projets[currentProject].url.startsWith("/")
+                    ? "Voir les projets"
+                    : "Voir le site"}
                 </a>
-                <a
-                  href={projets[currentProject].github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-400 text-sm"
-                >
-                  Voir sur GitHub
-                </a>
+                {projets[currentProject].github && (
+                  <a
+                    href={projets[currentProject].github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:text-blue-400 text-sm"
+                  >
+                    Voir sur GitHub
+                  </a>
+                )}
               </div>
             </div>
           </div>
           <button
             onClick={nextProject}
-            className="absolute right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 hover:text-gray-200 transition duration-300 z-10"
+            className="absolute cursor-pointer right-8 top-1/2 transform -translate-y-1/2 text-2xl text-gray-800 hover:text-gray-200 transition duration-300 z-10"
           >
             <FaArrowRight />
           </button>
