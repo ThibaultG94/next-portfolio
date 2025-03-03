@@ -12,17 +12,25 @@ export default function MontagnePage() {
   }, []);
 
   useEffect(() => {
+    // Change l'attribut data-page du body
     document.body.setAttribute("data-page", "montagne");
 
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href =
+    // Ajout de Font Awesome
+    const fontAwesome = document.createElement("link");
+    fontAwesome.rel = "stylesheet";
+    fontAwesome.href =
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css";
-    document.head.appendChild(link);
+    document.head.appendChild(fontAwesome);
 
+    // Nettoyage à la sortie du composant
     return () => {
-      document.body.removeAttribute("data-page");
-      document.head.removeChild(link);
+      // Réinitialise l'attribut data-page à "portfolio"
+      document.body.setAttribute("data-page", "portfolio");
+
+      // Supprime Font Awesome
+      if (fontAwesome && document.head.contains(fontAwesome)) {
+        document.head.removeChild(fontAwesome);
+      }
     };
   }, []);
 

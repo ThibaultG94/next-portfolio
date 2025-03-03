@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className="text-foreground" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={inter.className} data-page="portfolio">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="relative">
             <SkipLink />
