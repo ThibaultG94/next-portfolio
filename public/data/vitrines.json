@@ -2,19 +2,19 @@
     {
       "id": "montagne",
       "title": "La Montagne",
-      "description": "Site vitrine one-page pour une agence de randonnée et de tourisme montagnard.",
+      "description": "Site vitrine one-page pour une fausse agence de randonnée et de tourisme montagnard.",
       "image": "/img/sites-vitrines/montagne.webp",
-      "url": "/sites-vitrines/montagne",
-      "technologies": ["HTML5", "CSS3", "JavaScript"],
+      "url": "https://thibaultg94.github.io/Projet_1/",
+      "technologies": ["HTML5", "CSS3", "SCSS"],
       "categories": ["tourisme", "one-page"]
     },
     {
       "id": "resto",
       "title": "The Resto",
-      "description": "Site complet pour un restaurant haut de gamme avec menu interactif et système de réservation.",
+      "description": "Site vitrine pour un faux restaurant haut de gamme avec menu interactif et système de réservation.",
       "image": "/img/sites-vitrines/resto.webp",
-      "url": "/sites-vitrines/resto",
-      "technologies": ["HTML5", "CSS3", "JavaScript", "TailwindCSS"],
+      "url": "https://thibaultg94.github.io/Projet_2/",
+      "technologies": ["HTML5", "CSS3", "SCSS"],
       "categories": ["restauration", "service"]
     }
   ]
