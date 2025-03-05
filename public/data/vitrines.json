@@ -16,5 +16,13 @@
       "url": "https://thibaultg94.github.io/Projet_2/",
       "technologies": ["HTML5", "CSS3", "SCSS"],
       "categories": ["restauration", "service"]
+    },
+    {
+      "id": "helium",
+      "title": "Hélium",
+      "description": "Alimenté par la blockchain Helium, The People's Network représente un changement de paradigme pour l'infrastructure sans fil décentralisée.",
+      "image": "/img/sites-vitrines/helium.webp",
+      "url": "https://thibaultg94.github.io/Projet_3/",
+      "technologies": ["HTML5", "CSS3", "SCSS", "JavaScript"]
     }
   ]
