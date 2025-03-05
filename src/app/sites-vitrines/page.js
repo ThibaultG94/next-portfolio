@@ -98,53 +98,54 @@ export default function SitesVitrinesPage() {
               animate="visible"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             >
-              {filteredSites.map((site) => (
-                <motion.div
-                  key={site.id}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
-                >
-                  <a
-                    href={site.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
+              {filteredSites
+                .slice()
+                .reverse()
+                .map((site) => (
+                  <motion.div
+                    key={site.id}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col"
                   >
-                    <div className="aspect-square relative overflow-hidden">
-                      <OptimizedImage
-                        src={site.image}
-                        alt={site.title}
-                        width={500}
-                        height={500}
-                        className="transition-transform duration-300 hover:scale-105"
-                      />
-                    </div>
-
-                    <div className="p-5">
-                      <h2 className="text-xl font-semibold mb-2">
-                        {site.title}
-                      </h2>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                        {site.description}
-                      </p>
-
-                      {/* Technologies used */}
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {site.technologies.map((tech, index) => (
-                          <span
-                            key={index}
-                            className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                    <a
+                      href={site.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-grow flex-col"
+                    >
+                      <div className="relative overflow-hidden">
+                        <OptimizedImage
+                          src={site.image}
+                          alt={site.title}
+                          width={307}
+                          height={172}
+                          className="transition-transform duration-300 scale-105 hover:scale-110"
+                        />
                       </div>
-                    </div>
-                  </a>
-                </motion.div>
-              ))}
+
+                      <div className="p-3 flex flex-col flex-grow">
+                        <h2 className="text-lg font-semibold mb-1">
+                          {site.title}
+                        </h2>
+                        <p className="text-gray-600 dark:text-gray-300 text-xs mb-2 line-clamp-2">
+                          {site.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1 mt-auto">
+                          {site.technologies.map((tech, index) => (
+                            <span
+                              key={index}
+                              className="text-xs px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 rounded-full"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </a>
+                  </motion.div>
+                ))}
             </motion.div>
 
             {filteredSites.length === 0 && (
