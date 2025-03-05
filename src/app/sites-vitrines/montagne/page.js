@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import "./montagne.css";
 
 export default function MontagnePage() {
   useEffect(() => {
@@ -248,10 +246,6 @@ export default function MontagnePage() {
           </div>
         </div>
       </footer>
-
-      <div className="portfolio-return-button">
-        <Link href="/sites-vitrines">← Retour au portfolio</Link>
-      </div>
     </>
   );
 }

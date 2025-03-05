@@ -1,23 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import SkipLink from "../components/SkipLink";
+import "..//(portfolio)//main.css";
+import Link from "next/link";
 import OptimizedImage from "../components/OptimizedImage";
 import sitesVitrines from "../../../public/data/vitrines.json";
 
 export default function SitesVitrinesPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Extraire toutes les catégories uniques
+  // Extract all unique categories
   const allCategories = [
     "all",
     ...new Set(sitesVitrines.flatMap((site) => site.categories || [])),
   ];
 
-  // Filtrer les sites par catégorie
+  // Filter sites by category
   const filteredSites =
     selectedCategory === "all"
       ? sitesVitrines
@@ -25,7 +24,7 @@ export default function SitesVitrinesPage() {
           site.categories?.includes(selectedCategory)
         );
 
-  // Animation pour les éléments du container
+  // Animation for container elements
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,7 +35,7 @@ export default function SitesVitrinesPage() {
     },
   };
 
-  // Animation pour chaque carte
+  // Animation for each card
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -46,13 +45,14 @@ export default function SitesVitrinesPage() {
     },
   };
 
+  useEffect(() => {
+    document.body.setAttribute("data-page", "portfolio");
+  }, []);
+
   return (
     <>
-      <SkipLink />
       <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
-        <Header />
-
-        <main id="main-content" className="flex-grow pt-24 pb-16 px-4">
+        <main id="main-content" className="flex-grow py-12 px-4">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -69,7 +69,7 @@ export default function SitesVitrinesPage() {
               </p>
             </motion.div>
 
-            {/* Filtres par catégorie */}
+            {/* Filters by category */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -91,7 +91,7 @@ export default function SitesVitrinesPage() {
               ))}
             </motion.div>
 
-            {/* Grille de sites */}
+            {/* Site grid */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -130,7 +130,7 @@ export default function SitesVitrinesPage() {
                         {site.description}
                       </p>
 
-                      {/* Technologies utilisées */}
+                      {/* Technologies used */}
                       <div className="flex flex-wrap gap-2 mt-3">
                         {site.technologies.map((tech, index) => (
                           <span
@@ -147,7 +147,6 @@ export default function SitesVitrinesPage() {
               ))}
             </motion.div>
 
-            {/* Message si aucun résultat */}
             {filteredSites.length === 0 && (
               <motion.p
                 initial={{ opacity: 0 }}
@@ -160,7 +159,9 @@ export default function SitesVitrinesPage() {
           </div>
         </main>
 
-        <Footer />
+        <div className="absolute top-0 left-0 p-4">
+          <Link href="/?section=projects">← Retour au portfolio</Link>
+        </div>
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import ScrollContainer, { useScroll } from "../components/ScrollContainer";
 import "./main.css";
@@ -98,12 +99,29 @@ const MainContent = () => {
 };
 
 const Home = () => {
-  useEffect(() => {
-    document.body.setAttribute("data-page", "portfolio");
-  }, []);
+  const searchParams = useSearchParams();
 
   return (
     <ScrollContainer sections={baseSections}>
+      <HomeContent searchParams={searchParams} />
+    </ScrollContainer>
+  );
+};
+
+const HomeContent = ({ searchParams }) => {
+  const { scrollToSection, sectionIds } = useScroll();
+
+  useEffect(() => {
+    const section = searchParams.get("section");
+    if (section && sectionIds.includes(section)) {
+      setTimeout(() => {
+        scrollToSection(section);
+      }, 30);
+    }
+  }, [searchParams, scrollToSection, sectionIds]);
+
+  return (
+    <>
       <Header />
       <main
         id="main-content"
@@ -112,7 +130,7 @@ const Home = () => {
       >
         <MainContent />
       </main>
-    </ScrollContainer>
+    </>
   );
 };
 

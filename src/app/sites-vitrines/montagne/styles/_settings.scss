@@ -71,3 +71,22 @@ body {
     background: $color1;
     cursor: pointer;
 }
+
+.portfolio-return-button {
+    background: $color2;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    font-size: .9rem;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    border: 1px solid #181818;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.portfolio-return-button:hover {
+    color: $color2;
+    background: $color1;
+}
