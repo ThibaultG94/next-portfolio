@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter/static/Inter-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "Merriweather";
+    src: url("/fonts/Merriweather/Merriweather-Light.ttf");
+}
+
+$font1: "Inter", sans-serif;
+$font2: "Merriweather", sans-serif;
+$color1: #181818;
+$color2: #F7F7F7;
+$color3: rgba(250, 250, 250, 0.2);
+$color4: #e2e2e2;
+$color5: #d1d1d1;
+$color6: #eeeeee;
+
+@mixin center-page {
+    width: 72.5%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 608px) {
+        width: 80%;
+    }
+
+    @media screen and (max-width: 552px) {
+        width: 85%;
+    }
+
+    @media screen and (max-width: 527px) {
+        width: 90%;
+    }
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    font-family: $font1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: $color1;
+    background: url("/img/sites-vitrines/montagne/bg.jpg") fixed center/cover;
+}
+
+.button {
+    background: $color2;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    border: 2px solid #181818;
+    border-radius: 5px
+}
+
+.button:hover {
+    color: $color2;
+    background: $color1;
+    cursor: pointer;
+}

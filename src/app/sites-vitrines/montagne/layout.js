@@ -1,4 +1,4 @@
-import "./montagne.css";
+import "./styles/index.scss";
 
 export const metadata = {
   title: "La Montagne ça vous gagne",

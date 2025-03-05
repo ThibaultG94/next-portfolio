@@ -120,7 +120,7 @@ export default function MontagnePage() {
           <div className="article-side left">
             <p>April 24, 2017</p>
             <h3>Sed magna ipsum faucibus</h3>
-            <div>
+            <div className="flex items-center justify-center">
               <Image
                 src="/img/sites-vitrines/montagne/pic02.jpg"
                 alt="Photographie de montagne"
@@ -139,7 +139,7 @@ export default function MontagnePage() {
           <div className="article-side right">
             <p>April 22, 2017</p>
             <h3>Primis eget imperdiet lorem</h3>
-            <div>
+            <div className="flex items-center justify-center">
               <Image
                 src="/img/sites-vitrines/montagne/pic03.jpg"
                 alt="Photographie de montagne"

@@ -1,0 +1,57 @@
+.article {
+    @include center-page;
+
+    .article-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        text-align: center;
+        background: $color2;
+        border-top: 2px solid $color4;
+
+        @media screen and (max-width: 1069px) {
+            display: block;
+        }
+
+        .article-side {
+            p:first-child {
+                font-family: $font2;
+                padding: 80px 0 26px;
+            }
+
+            h3 {
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+                padding: 0 0 25px;
+                line-height: 35px;
+                max-width: 270px;
+                margin: 0 auto;
+            }
+
+            div {
+                img {
+                    width: 78%;
+                }
+            }
+
+            p:nth-child(n+2) {
+                font-family: $font2;
+                padding: 38px 70px 37px;
+                text-align: left;
+                line-height: 38px;
+            }
+
+            button {
+                margin: 0 0 75px;
+            }
+        }
+
+        .left {
+            border-right: 2px solid $color4;
+
+            @media screen and (max-width: 1069px) {
+                border-right: none;
+            }
+        }
+    }
+}
