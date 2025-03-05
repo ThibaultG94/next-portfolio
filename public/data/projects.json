@@ -87,9 +87,11 @@
       "description": "Découvrez ma collection de sites vitrines créés avec des technologies modernes pour divers clients.",
       "category": "vitrine",
       "images": [
+        "/img/sites-vitrines/resto.webp",
         "/img/sites-vitrines/montagne.webp"
       ],
       "tabletImages": [
+        "/img/sites-vitrines/resto-tablet.webp",
         "/img/sites-vitrines/montagne-tablet.webp"
       ],
       "url": "/sites-vitrines"
