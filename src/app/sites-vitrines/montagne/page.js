@@ -12,22 +12,22 @@ export default function MontagnePage() {
   }, []);
 
   useEffect(() => {
-    // Change l'attribut data-page du body
+    // Changes body data-page attribute
     document.body.setAttribute("data-page", "montagne");
 
-    // Ajout de Font Awesome
+    // Add Font Awesome
     const fontAwesome = document.createElement("link");
     fontAwesome.rel = "stylesheet";
     fontAwesome.href =
       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css";
     document.head.appendChild(fontAwesome);
 
-    // Nettoyage à la sortie du composant
+    // Component exit cleaning
     return () => {
-      // Réinitialise l'attribut data-page à "portfolio"
+      // Resets data-page attribute to “portfolio”.
       document.body.setAttribute("data-page", "portfolio");
 
-      // Supprime Font Awesome
+      // Remove Font Awesome
       if (fontAwesome && document.head.contains(fontAwesome)) {
         document.head.removeChild(fontAwesome);
       }
@@ -35,7 +35,7 @@ export default function MontagnePage() {
   }, []);
 
   return (
-    <div className="montagne-container">
+    <>
       <header>
         <div className="header-container">
           <div className="header-text">
@@ -45,7 +45,7 @@ export default function MontagnePage() {
               id, sapiente consequuntur dolor magni praesentium?
             </p>
             <a href="#ancre-nav">
-              <i className="fa-solid fa-arrow-down"></i>
+              <i className="fa-solid fa-arrow-down" />
             </a>
           </div>
 
@@ -68,22 +68,22 @@ export default function MontagnePage() {
               <ul>
                 <li>
                   <a href="#">
-                    <i className="fab fa-twitter"></i>
+                    <i className="fab fa-twitter" />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i className="fab fa-facebook-f"></i>
+                    <i className="fab fa-facebook-f" />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i className="fab fa-instagram"></i>
+                    <i className="fab fa-instagram" />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <i className="fab fa-github"></i>
+                    <i className="fab fa-github" />
                   </a>
                 </li>
               </ul>
@@ -224,22 +224,22 @@ export default function MontagnePage() {
                 <ul>
                   <li>
                     <a href="#">
-                      <i className="fab fa-twitter"></i>
+                      <i className="fab fa-twitter" />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fab fa-facebook-f"></i>
+                      <i className="fab fa-facebook-f" />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fab fa-instagram"></i>
+                      <i className="fab fa-instagram" />
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fab fa-github"></i>
+                      <i className="fab fa-github" />
                     </a>
                   </li>
                 </ul>
@@ -249,10 +249,9 @@ export default function MontagnePage() {
         </div>
       </footer>
 
-      {/* Bouton de retour vers le portfolio */}
       <div className="portfolio-return-button">
         <Link href="/sites-vitrines">← Retour au portfolio</Link>
       </div>
-    </div>
+    </>
   );
 }

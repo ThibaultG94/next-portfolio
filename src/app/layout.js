@@ -1,8 +1,6 @@
 import { Inter } from "next/font/google";
-import ThemeProvider from "./components/ThemeProvider";
 import "../style/app.css";
 import "../style/fonts.css";
-import SkipLink from "./components/SkipLink";
 import preloadLinks from "../../preloadLinks.json";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,14 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className="text-foreground" suppressHydrationWarning>
-      <body className={inter.className} data-page="portfolio">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="relative">
-            <SkipLink />
-            {children}
-          </div>
-        </ThemeProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

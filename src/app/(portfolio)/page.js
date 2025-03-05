@@ -1,14 +1,15 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import ScrollContainer, { useScroll } from "./components/ScrollContainer";
-import Dashboard from "./components/Dashboard";
-import TextSection from "./components/TextSection";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import ScrollContainer, { useScroll } from "../components/ScrollContainer";
+import "./main.css";
+import Dashboard from "../components/Dashboard";
+import TextSection from "../components/TextSection";
+import Projects from "../components/Projects";
+import Skills from "../components/Skills";
+import Contact from "../components/Contact";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const introTexts = [
   "Je suis un développeur web fullstack passionné.",
@@ -97,6 +98,10 @@ const MainContent = () => {
 };
 
 const Home = () => {
+  useEffect(() => {
+    document.body.setAttribute("data-page", "portfolio");
+  }, []);
+
   return (
     <ScrollContainer sections={baseSections}>
       <Header />
