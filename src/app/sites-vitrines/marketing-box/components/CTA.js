@@ -27,13 +27,19 @@ const CTA = () => {
 
   // Partner brand logos
   const brandLogos = [
-    { src: "/images/marketing-box/leclerc-logo.png", alt: "Leclerc" },
     {
-      src: "/images/marketing-box/serre-papillons-logo.png",
+      src: "/img/sites-vitrines/marketing-box/leclerc-logo.png",
+      alt: "Leclerc",
+    },
+    {
+      src: "/img/sites-vitrines/marketing-box/serre-papillons-logo.png",
       alt: "La Serre aux Papillons",
     },
-    { src: "/images/marketing-box/jomo-logo.png", alt: "Jomo" },
-    { src: "/images/marketing-box/burger-king-logo.png", alt: "Burger King" },
+    { src: "/img/sites-vitrines/marketing-box/jomo-logo.png", alt: "Jomo" },
+    {
+      src: "/img/sites-vitrines/marketing-box/burger-king-logo.png",
+      alt: "Burger King",
+    },
   ];
 
   return (
@@ -113,7 +119,7 @@ const CTA = () => {
               className="relative aspect-square"
             >
               <Image
-                src="/images/marketing-box/analyse-performance.png"
+                src="/img/sites-vitrines/marketing-box/analyse-performance.png"
                 alt="Analyse de performance commerciale"
                 width={414}
                 height={414}
@@ -162,7 +168,7 @@ const CTA = () => {
               className="relative aspect-square place-self-center justify-self-center"
             >
               <Image
-                src="/images/marketing-box/equipe-brainstorming.png"
+                src="/img/sites-vitrines/marketing-box/equipe-brainstorming.png"
                 alt="Équipe brainstorming"
                 width={351}
                 height={351}
