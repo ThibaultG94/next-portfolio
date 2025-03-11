@@ -3,12 +3,10 @@
     "id": "marketing-box",
     "title": "Marketing Box",
     "description": "Agence de marketing digital offrant des services de conseil, stratégie, création web, réseaux sociaux et automatisation.",
-    "thumbnail": "/img/sites-vitrines/marketing-box/thumbnail.jpg",
+    "image": "/img/sites-vitrines/marketing-box.webp",
     "path": "/sites-vitrines/marketing-box",
     "technologies": ["React", "Next.js", "Framer Motion", "Tailwind CSS"],
-    "categories": ["Marketing", "Business", "Agence"],
-    "colorScheme": "purple",
-    "featured": true
+    "categories": ["Marketing", "Business", "Agence"]
   },
   {
     "id": "helium",
@@ -16,7 +14,8 @@
     "description": "Alimenté par la blockchain Helium, The People's Network représente un changement de paradigme pour l'infrastructure sans fil décentralisée.",
     "image": "/img/sites-vitrines/helium.webp",
     "url": "https://thibaultg94.github.io/Projet_3/",
-    "technologies": ["HTML5", "CSS3", "SCSS", "JavaScript"]
+    "technologies": ["HTML5", "CSS3", "SCSS", "JavaScript"],
+    "categories": ["blockchain", "IoT"]
   },
   {
     "id": "resto",

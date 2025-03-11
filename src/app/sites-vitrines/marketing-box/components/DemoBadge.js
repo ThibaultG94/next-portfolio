@@ -76,7 +76,7 @@ const DemoBadge = () => {
             ${isOverDark ? "bg-green-600" : "bg-green-400"}
           `}
           />
-          Version Demo • React + Next.js
+          Version Demo • Next.js + Tailwind CSS
         </span>
       </motion.a>
     </motion.div>
