@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import ScrollContainer, { useScroll } from "../components/ScrollContainer";
 import "./main.css";
@@ -110,6 +110,7 @@ const Home = () => {
 
 const HomeContent = ({ searchParams }) => {
   const { scrollToSection, sectionIds } = useScroll();
+  const router = useRouter();
 
   useEffect(() => {
     document.body.setAttribute("data-page", "portfolio");
@@ -118,6 +119,7 @@ const HomeContent = ({ searchParams }) => {
   useEffect(() => {
     const section = searchParams.get("section");
     if (section && sectionIds.includes(section)) {
+      router.replace("/", { scroll: false });
       setTimeout(() => {
         scrollToSection(section);
       }, 30);
