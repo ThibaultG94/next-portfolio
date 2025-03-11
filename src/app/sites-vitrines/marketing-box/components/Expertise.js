@@ -10,7 +10,7 @@ const ExpertiseCard = ({ icon, title }) => (
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
   >
     <Image
-      src={`/images/marketing-box/${icon}.png`}
+      src={`/img/sites-vitrines/marketing-box/${icon}.png`}
       alt={title}
       width={128}
       height={128}

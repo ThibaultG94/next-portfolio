@@ -7,9 +7,9 @@ const DemoBadge = () => {
   const [isOverDark, setIsOverDark] = useState(false);
 
   useEffect(() => {
-    // Récupérer TOUS les éléments avec un fond noir
+    // Retrieve ALL elements with a black background
     const getDarkElements = () => {
-      // On sélectionne les sections ET le footer avec fond noir
+      // Select sections AND footer with black background
       const darkSections = Array.from(
         document.querySelectorAll("section, footer")
       ).filter(
@@ -20,10 +20,9 @@ const DemoBadge = () => {
     };
 
     const handleScroll = () => {
-      // Position du badge (en bas de l'écran - 40px pour sa hauteur)
       const badgePosition = window.scrollY + window.innerHeight - 40;
 
-      // Vérifier si le badge est au-dessus d'un élément noir
+      // Check if the badge is above a black element
       const darkElements = getDarkElements();
       const isOverDarkElement = darkElements.some((element) => {
         const rect = element.getBoundingClientRect();
@@ -37,15 +36,14 @@ const DemoBadge = () => {
       }
     };
 
-    // Vérification initiale
+    // Initial check
     handleScroll();
 
-    // Écouter le défilement avec passive: true pour de meilleures performances
+    // Listen to scrolling with passive: true for best performance
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Nettoyer l'écouteur au démontage
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isOverDark]); // Dépendance à isOverDark pour éviter les mises à jour inutiles
+  }, [isOverDark]);
 
   return (
     <motion.div

@@ -90,7 +90,7 @@ const Header = () => {
             className="w-20"
           >
             <Image
-              src="/images/marketing-box/logo.png"
+              src="/img/sites-vitrines/marketing-box/logo.png"
               alt="Marketing Box Logo"
               width={80}
               height={80}

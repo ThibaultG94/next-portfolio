@@ -3,7 +3,7 @@
     "id": "marketing-box",
     "title": "Marketing Box",
     "description": "Agence de marketing digital offrant des services de conseil, stratégie, création web, réseaux sociaux et automatisation.",
-    "thumbnail": "/images/marketing-box/thumbnail.jpg",
+    "thumbnail": "/img/sites-vitrines/marketing-box/thumbnail.jpg",
     "path": "/sites-vitrines/marketing-box",
     "technologies": ["React", "Next.js", "Framer Motion", "Tailwind CSS"],
     "categories": ["Marketing", "Business", "Agence"],
