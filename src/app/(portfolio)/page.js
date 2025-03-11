@@ -112,6 +112,10 @@ const HomeContent = ({ searchParams }) => {
   const { scrollToSection, sectionIds } = useScroll();
 
   useEffect(() => {
+    document.body.setAttribute("data-page", "portfolio");
+  }, []);
+
+  useEffect(() => {
     const section = searchParams.get("section");
     if (section && sectionIds.includes(section)) {
       setTimeout(() => {
