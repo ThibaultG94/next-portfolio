@@ -1,28 +1,39 @@
 [
-    {
-      "id": "montagne",
-      "title": "La Montagne",
-      "description": "Site vitrine one-page pour une fausse agence de randonnée et de tourisme montagnard.",
-      "image": "/img/sites-vitrines/montagne.webp",
-      "url": "https://thibaultg94.github.io/Projet_1/",
-      "technologies": ["HTML5", "CSS3", "SCSS"],
-      "categories": ["tourisme", "one-page"]
-    },
-    {
-      "id": "resto",
-      "title": "The Resto",
-      "description": "Site vitrine pour un faux restaurant haut de gamme avec menu interactif et système de réservation.",
-      "image": "/img/sites-vitrines/resto.webp",
-      "url": "https://thibaultg94.github.io/Projet_2/",
-      "technologies": ["HTML5", "CSS3", "SCSS"],
-      "categories": ["restauration", "service"]
-    },
-    {
-      "id": "helium",
-      "title": "Hélium",
-      "description": "Alimenté par la blockchain Helium, The People's Network représente un changement de paradigme pour l'infrastructure sans fil décentralisée.",
-      "image": "/img/sites-vitrines/helium.webp",
-      "url": "https://thibaultg94.github.io/Projet_3/",
-      "technologies": ["HTML5", "CSS3", "SCSS", "JavaScript"]
-    }
-  ]
+  {
+    "id": "marketing-box",
+    "title": "Marketing Box",
+    "description": "Agence de marketing digital offrant des services de conseil, stratégie, création web, réseaux sociaux et automatisation.",
+    "thumbnail": "/images/marketing-box/thumbnail.jpg",
+    "path": "/sites-vitrines/marketing-box",
+    "technologies": ["React", "Next.js", "Framer Motion", "Tailwind CSS"],
+    "categories": ["Marketing", "Business", "Agence"],
+    "colorScheme": "purple",
+    "featured": true
+  },
+  {
+    "id": "helium",
+    "title": "Hélium",
+    "description": "Alimenté par la blockchain Helium, The People's Network représente un changement de paradigme pour l'infrastructure sans fil décentralisée.",
+    "image": "/img/sites-vitrines/helium.webp",
+    "url": "https://thibaultg94.github.io/Projet_3/",
+    "technologies": ["HTML5", "CSS3", "SCSS", "JavaScript"]
+  },
+  {
+    "id": "resto",
+    "title": "The Resto",
+    "description": "Site vitrine pour un faux restaurant haut de gamme avec menu interactif et système de réservation.",
+    "image": "/img/sites-vitrines/resto.webp",
+    "url": "https://thibaultg94.github.io/Projet_2/",
+    "technologies": ["HTML5", "CSS3", "SCSS"],
+    "categories": ["restauration", "service"]
+  },
+  {
+    "id": "montagne",
+    "title": "La Montagne",
+    "description": "Site vitrine one-page pour une fausse agence de randonnée et de tourisme montagnard.",
+    "image": "/img/sites-vitrines/montagne.webp",
+    "url": "https://thibaultg94.github.io/Projet_1/",
+    "technologies": ["HTML5", "CSS3", "SCSS"],
+    "categories": ["tourisme", "one-page"]
+  }
+]

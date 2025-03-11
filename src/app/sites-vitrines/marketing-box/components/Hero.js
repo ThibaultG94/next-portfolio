@@ -15,8 +15,6 @@ const ActionButton = ({ href, children }) => (
   </motion.a>
 );
 
-export default Hero;
-
 const Hero = () => {
   const containerVariants = {
     hidden: {},
@@ -100,3 +98,5 @@ const Hero = () => {
     </section>
   );
 };
+
+export default Hero;
