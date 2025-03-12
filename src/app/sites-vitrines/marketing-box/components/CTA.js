@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import OptimizedImage from "../../../components/OptimizedImage";
+import Image from "next/image";
 
 const ActionButton = ({ children, href = "#", className = "" }) => (
   <motion.a
@@ -66,7 +67,7 @@ const CTA = () => {
                 transition={{ delay: index * 0.2 }}
                 className="flex justify-center"
               >
-                <OptimizedImage
+                <Image
                   src={logo.src}
                   alt={logo.alt}
                   width={140}
