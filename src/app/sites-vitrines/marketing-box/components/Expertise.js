@@ -1,7 +1,7 @@
 "use client";
 
+import OptimizedImage from "../../../components/OptimizedImage";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const ExpertiseCard = ({ icon, title }) => (
   <motion.div
@@ -9,7 +9,7 @@ const ExpertiseCard = ({ icon, title }) => (
     whileHover={{ scale: 1.05 }}
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
   >
-    <Image
+    <OptimizedImage
       src={`/img/sites-vitrines/marketing-box/${icon}.png`}
       alt={title}
       width={128}

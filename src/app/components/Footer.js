@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import { useScroll } from "./ScrollContainer";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import OptimizedImage from "./OptimizedImage";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ const Footer = () => {
     scrollToSection(sectionId);
   };
 
-  // Variantes d'animation pour les sections
+  // Animation variations for sections
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -41,7 +41,7 @@ const Footer = () => {
     },
   };
 
-  // Animation pour les icônes sociales
+  // Animation for social icons
   const socialVariants = {
     hover: {
       scale: 1.1,
@@ -157,7 +157,7 @@ const Footer = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <Image
+              <OptimizedImage
                 src="/img/logos/js.png"
                 alt="JavaScript"
                 className="w-8 sm:w-10 md:w-12 2xl:w-14 h-auto my-auto"
@@ -169,7 +169,7 @@ const Footer = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <Image
+              <OptimizedImage
                 src="/img/logos/react.png"
                 alt="React"
                 className="w-8 sm:w-10 md:w-12 2xl:w-14 h-auto my-auto"
@@ -193,7 +193,7 @@ const Footer = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <Image
+              <OptimizedImage
                 src="/img/logos/tailwind-css.svg"
                 alt="Tailwind CSS"
                 className="w-8 sm:w-10 md:w-12 2xl:w-14 h-auto my-auto"

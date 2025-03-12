@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import OptimizedImage from "../../../components/OptimizedImage";
 
 const FooterLink = ({ href, children }) => (
   <motion.a
@@ -51,7 +51,7 @@ const Footer = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className="inline-block"
             >
-              <Image
+              <OptimizedImage
                 src="/img/sites-vitrines/marketing-box/logo-white.png"
                 alt="Marketing Box"
                 width={72}

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import OptimizedImage from "../../../components/OptimizedImage";
 
 const ActionButton = ({ children, href = "#", className = "" }) => (
   <motion.a
@@ -66,7 +66,7 @@ const CTA = () => {
                 transition={{ delay: index * 0.2 }}
                 className="flex justify-center"
               >
-                <Image
+                <OptimizedImage
                   src={logo.src}
                   alt={logo.alt}
                   width={140}
@@ -118,7 +118,7 @@ const CTA = () => {
               transition={{ duration: 0.8 }}
               className="relative aspect-square"
             >
-              <Image
+              <OptimizedImage
                 src="/img/sites-vitrines/marketing-box/analyse-performance.png"
                 alt="Analyse de performance commerciale"
                 width={414}
@@ -167,7 +167,7 @@ const CTA = () => {
               transition={{ duration: 0.8 }}
               className="relative aspect-square place-self-center justify-self-center"
             >
-              <Image
+              <OptimizedImage
                 src="/img/sites-vitrines/marketing-box/equipe-brainstorming.png"
                 alt="Équipe brainstorming"
                 width={351}

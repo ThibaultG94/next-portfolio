@@ -1,7 +1,7 @@
 "use client";
 
+import OptimizedImage from "../../../components/OptimizedImage";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const CTAButton = ({ href, children }) => (
   <motion.a
@@ -89,7 +89,7 @@ const Header = () => {
             }}
             className="w-20"
           >
-            <Image
+            <OptimizedImage
               src="/img/sites-vitrines/marketing-box/logo.png"
               alt="Marketing Box Logo"
               width={80}

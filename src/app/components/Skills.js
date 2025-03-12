@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import OptimizedImage from "./OptimizedImage";
 
 const Skills = () => {
   const skillsData = [
@@ -18,18 +18,18 @@ const Skills = () => {
     { src: "/img/logos/nodejs.png", alt: "Node js", width: 64, height: 64 },
   ];
 
-  // Animation pour le conteneur
+  // Animation for the container
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Délai entre chaque enfant
+        staggerChildren: 0.2,
       },
     },
   };
 
-  // Animation pour chaque logo
+  // Animation for each logo
   const itemVariants = {
     hidden: {
       opacity: 0,
@@ -45,11 +45,11 @@ const Skills = () => {
     },
   };
 
-  // Animation au survol
+  // Flyover animation
   const hoverVariants = {
     hover: {
       scale: 1.1,
-      rotate: [0, -5, 5, 0], // Petit effet de rotation
+      rotate: [0, -5, 5, 0],
       transition: {
         duration: 0.3,
       },
@@ -58,7 +58,7 @@ const Skills = () => {
 
   return (
     <section className="py-10 sm:py-12 md:py-16 lg:py-20 px-3">
-      {/* Titre avec animation de fade in */}
+      {/* Title with fade-in animation */}
       <motion.h2
         className="text-3xl 2xl:text-4xl text-center"
         initial={{ opacity: 0, y: -20 }}
@@ -68,7 +68,7 @@ const Skills = () => {
         Mes Compétences
       </motion.h2>
 
-      {/* Sous-titre avec animation de fade in décalée */}
+      {/* Subtitle with offbeat fade-in animation */}
       <motion.p
         className="text-xl 2xl:text-2xl text-center mt-4 xl:mt-5 2xl:mt-6"
         initial={{ opacity: 0, y: -20 }}
@@ -79,7 +79,7 @@ const Skills = () => {
         utilisateur esthétique en utilisant une architecture frontend moderne.
       </motion.p>
 
-      {/* Grille de logos avec animations */}
+      {/* Logo grid with animations */}
       <motion.div
         className="mt-8 xl:mt-9 2xl:mt-10 flex flex-wrap justify-around items-center gap-8 max-w-5xl mx-auto"
         variants={containerVariants}
@@ -96,9 +96,9 @@ const Skills = () => {
             whileTap={{ scale: 0.95 }}
             custom={index}
           >
-            {/* Logo avec animation au survol */}
+            {/* Logo with hover animation */}
             <motion.div variants={hoverVariants} className="relative">
-              <Image
+              <OptimizedImage
                 src={skill.src}
                 alt={skill.alt}
                 width={skill.width}
@@ -106,7 +106,7 @@ const Skills = () => {
                 className="w-auto h-16"
               />
 
-              {/* Effet de tooltip au survol */}
+              {/* Tooltip effect on hover */}
               <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-sm whitespace-nowrap">
                 {skill.alt}
               </div>

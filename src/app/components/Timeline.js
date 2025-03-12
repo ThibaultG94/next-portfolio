@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import OptimizedImage from "./OptimizedImage";
 
 const timelineEvents = [
   {
@@ -109,7 +109,7 @@ const Timeline = () => {
                 (index === 0 || index === timelineEvents.length - 1) && (
                   <div className="flex justify-end w-full mr-32">
                     <div className="relative h-full w-[500px]">
-                      <Image
+                      <OptimizedImage
                         src={event.image}
                         alt={event.title}
                         width={500}
@@ -140,7 +140,7 @@ const Timeline = () => {
           }`}
         >
           <div className="relative h-full w-[500px]">
-            <Image
+            <OptimizedImage
               src={event.image}
               alt={event.title}
               width={500}
