@@ -2,37 +2,45 @@
   {
     "id": "marketing-box",
     "title": "Marketing Box",
-    "description": "Agence de marketing digital offrant des services de conseil, stratégie, création web, réseaux sociaux et automatisation.",
+    "description": "Reproduction d'une agence marketing digital réalisée entièrement par mes soins. Ce projet démontre mes compétences en animation UI, responsive design et architecture React moderne.",
     "image": "/img/sites-vitrines/marketing-box.webp",
     "path": "/sites-vitrines/marketing-box",
     "technologies": ["React", "Next.js", "Framer Motion", "Tailwind CSS"],
-    "categories": ["Marketing", "Business", "Agence"]
+    "categories": ["Marketing", "Business", "Agence"],
+    "disclaimer": "Projet personnel d'étude - non affilié à une marque existante",
+    "caseStudy": "Ce projet m'a permis d'approfondir l'utilisation de Framer Motion pour des animations fluides et l'intégration de composants réutilisables dans une architecture Next.js. J'ai porté une attention particulière à l'expérience utilisateur et aux performances."
   },
   {
     "id": "helium",
     "title": "Hélium",
-    "description": "Alimenté par la blockchain Helium, The People's Network représente un changement de paradigme pour l'infrastructure sans fil décentralisée.",
+    "description": "Maquette statique d'un site one-page pour une entreprise de services IT. Interface responsive avec quelques animations CSS simples.",
     "image": "/img/sites-vitrines/helium.webp",
     "url": "https://thibaultg94.github.io/Projet_3/",
     "technologies": ["HTML5", "CSS3", "SCSS", "JavaScript"],
-    "categories": ["blockchain", "IoT"]
+    "categories": ["blockchain", "IoT"],
+    "disclaimer": "Interface statique d'étude - aucun service réel proposé",
+    "caseStudy": "Ce projet m'a permis de pratiquer l'intégration responsive et les bonnes pratiques en HTML/CSS. J'ai utilisé des techniques de mise en page modernes comme Flexbox."
   },
   {
     "id": "resto",
     "title": "The Resto",
-    "description": "Site vitrine pour un faux restaurant haut de gamme avec menu interactif et système de réservation.",
+    "description": "Maquette d'interface pour un site e-commerce écologique. Design one-page avec mise en page responsive.",
     "image": "/img/sites-vitrines/resto.webp",
     "url": "https://thibaultg94.github.io/Projet_2/",
     "technologies": ["HTML5", "CSS3", "SCSS"],
-    "categories": ["restauration", "service"]
+    "categories": ["restauration", "service", "one-page", "e-commerce"],
+    "disclaimer": "Projet d'intégration à but éducatif uniquement",
+    "caseStudy": "J'ai créé cette maquette pour explorer le préprocesseur SCSS et améliorer mes compétences en organisation CSS. La page inclut quelques effets de survol et animations légères."
   },
   {
     "id": "montagne",
     "title": "La Montagne",
-    "description": "Site vitrine one-page pour une fausse agence de randonnée et de tourisme montagnard.",
+    "description": "Interface one-page pour une agence créative fictive. Focus sur le design et les transitions fluides entre sections.",
     "image": "/img/sites-vitrines/montagne.webp",
     "url": "https://thibaultg94.github.io/Projet_1/",
     "technologies": ["HTML5", "CSS3", "SCSS"],
-    "categories": ["tourisme", "one-page"]
+    "categories": ["design", "créatif", "one-page"],
+    "disclaimer": "Maquette statique - non liée à une agence existante",
+    "caseStudy": "Pour ce projet, j'ai travaillé sur l'expérience utilisateur en one-page avec un menu de navigation qui défile vers les différentes sections. J'ai utilisé JavaScript vanilla pour les animations et la navigation."
   }
 ]

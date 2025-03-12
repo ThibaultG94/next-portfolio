@@ -7,9 +7,9 @@ const DemoBadge = () => {
   const [isOverDark, setIsOverDark] = useState(false);
 
   useEffect(() => {
-    // Retrieve ALL elements with a black background
+    // Récupérer TOUS les éléments avec un fond noir
     const getDarkElements = () => {
-      // Select sections AND footer with black background
+      // On sélectionne les sections ET le footer avec fond noir
       const darkSections = Array.from(
         document.querySelectorAll("section, footer")
       ).filter(
@@ -20,9 +20,10 @@ const DemoBadge = () => {
     };
 
     const handleScroll = () => {
+      // Position du badge (en bas de l'écran - 40px pour sa hauteur)
       const badgePosition = window.scrollY + window.innerHeight - 40;
 
-      // Check if the badge is above a black element
+      // Vérifier si le badge est au-dessus d'un élément noir
       const darkElements = getDarkElements();
       const isOverDarkElement = darkElements.some((element) => {
         const rect = element.getBoundingClientRect();
@@ -36,14 +37,15 @@ const DemoBadge = () => {
       }
     };
 
-    // Initial check
+    // Vérification initiale
     handleScroll();
 
-    // Listen to scrolling with passive: true for best performance
+    // Écouter le défilement avec passive: true pour de meilleures performances
     window.addEventListener("scroll", handleScroll, { passive: true });
 
+    // Nettoyer l'écouteur au démontage
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isOverDark]);
+  }, [isOverDark]); // Dépendance à isOverDark pour éviter les mises à jour inutiles
 
   return (
     <motion.div
@@ -76,7 +78,7 @@ const DemoBadge = () => {
             ${isOverDark ? "bg-green-600" : "bg-green-400"}
           `}
           />
-          Version Demo • Next.js + Tailwind CSS
+          Projet d'étude personnel • Non affilié
         </span>
       </motion.a>
     </motion.div>

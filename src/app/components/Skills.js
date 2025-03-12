@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import OptimizedImage from "./OptimizedImage";
+import Image from "next/image";
 
 const Skills = () => {
   const skillsData = [
@@ -98,7 +98,7 @@ const Skills = () => {
           >
             {/* Logo with hover animation */}
             <motion.div variants={hoverVariants} className="relative">
-              <OptimizedImage
+              <Image
                 src={skill.src}
                 alt={skill.alt}
                 width={skill.width}
