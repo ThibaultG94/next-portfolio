@@ -60,7 +60,7 @@ const Hero = () => {
         className="absolute inset-0"
         style={{
           background:
-            'url("/img/sites-vitrines/marketing-box/hero-bg.webp") center 0% / cover no-repeat',
+            'url("/img/sites-vitrines/market-kit/hero-bg.webp") center 0% / cover no-repeat',
         }}
       />
 

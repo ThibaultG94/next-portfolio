@@ -10,7 +10,7 @@ const Expertise = dynamic(() => import("./components/Expertise"));
 const CTA = dynamic(() => import("./components/CTA"));
 const DemoBadge = dynamic(() => import("./components/DemoBadge"));
 
-export default function MarketingBox() {
+export default function MarketKit() {
   useEffect(() => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
@@ -24,7 +24,7 @@ export default function MarketingBox() {
   }, []);
 
   return (
-    <div className="marketing-box min-h-screen bg-white">
+    <div className="market-kit min-h-screen bg-white">
       <div className="sticky top-0 z-[60] bg-yellow-100 text-black text-sm font-medium py-1 px-4 text-center">
         ⚠️ Projet d'étude personnel réalisé pour démontrer mes compétences web -
         Aucune affiliation commerciale

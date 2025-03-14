@@ -55,7 +55,7 @@ const DemoBadge = () => {
       className="fixed bottom-4 left-4 z-50"
     >
       <motion.a
-        href="https://github.com/ThibaultG94/marketing-box-web-showcase"
+        href="https://github.com/ThibaultG94/market-kit-web-showcase"
         target="_blank"
         rel="noopener noreferrer"
         className={`

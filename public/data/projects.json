@@ -87,13 +87,13 @@
       "description": "Explorez ma collection de maquettes et d'interfaces web créées comme exercices d'intégration et d'études de cas.",
       "category": "vitrine",
       "images": [
-        "/img/sites-vitrines/marketing-box.webp",
+        "/img/sites-vitrines/market-kit.webp",
         "/img/sites-vitrines/helium.webp",
         "/img/sites-vitrines/resto.webp",
         "/img/sites-vitrines/montagne.webp"
       ],
       "tabletImages": [
-        "/img/sites-vitrines/marketing-box-tablet.webp",
+        "/img/sites-vitrines/market-kit-tablet.webp",
         "/img/sites-vitrines/helium-tablet.webp",
         "/img/sites-vitrines/resto-tablet.webp",
         "/img/sites-vitrines/montagne-tablet.webp"

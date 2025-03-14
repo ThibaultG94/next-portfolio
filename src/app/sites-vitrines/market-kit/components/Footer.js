@@ -30,8 +30,8 @@ const FooterColumn = ({ title, links }) => (
 
 const Footer = () => {
   const footerLinks = {
-    marketingBox: {
-      title: "MarketingBox",
+    marketKit: {
+      title: "MarketKit",
       links: [{ href: "#", text: "Nous contacter" }],
     },
     contact: {
@@ -52,8 +52,8 @@ const Footer = () => {
               className="inline-block"
             >
               <OptimizedImage
-                src="/img/sites-vitrines/marketing-box/logo-white_transparent.png"
-                alt="Marketing Box"
+                src="/img/sites-vitrines/market-kit/logo-white_transparent.png"
+                alt="Market Kit"
                 width={72}
                 height={72}
                 className="w-18 h-18 object-contain"

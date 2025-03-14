@@ -1,10 +1,10 @@
 [
   {
-    "id": "marketing-box",
-    "title": "Marketing Box",
+    "id": "market-kit",
+    "title": "Market Kit",
     "description": "Reproduction d'une agence marketing digital réalisée entièrement par mes soins. Ce projet démontre mes compétences en animation UI, responsive design et architecture React moderne.",
-    "image": "/img/sites-vitrines/marketing-box.webp",
-    "path": "/sites-vitrines/marketing-box",
+    "image": "/img/sites-vitrines/market-kit.webp",
+    "path": "/sites-vitrines/market-kit",
     "technologies": ["React", "Next.js", "Framer Motion", "Tailwind CSS"],
     "categories": ["Marketing", "Business", "Agence"],
     "disclaimer": "Projet personnel d'étude - non affilié à une marque existante",
