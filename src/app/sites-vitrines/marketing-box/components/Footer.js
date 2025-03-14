@@ -52,7 +52,7 @@ const Footer = () => {
               className="inline-block"
             >
               <OptimizedImage
-                src="/img/sites-vitrines/marketing-box/logo-white.png"
+                src="/img/sites-vitrines/marketing-box/logo-white_transparent.png"
                 alt="Marketing Box"
                 width={72}
                 height={72}
