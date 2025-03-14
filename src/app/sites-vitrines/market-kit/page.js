@@ -25,7 +25,7 @@ export default function MarketKit() {
 
   return (
     <div className="market-kit min-h-screen bg-white">
-      <div className="sticky top-0 z-[60] bg-yellow-100 text-black text-sm font-medium py-1 px-4 text-center">
+      <div className="sticky top-0 z-[60] bg-yellow-100/50 text-black text-sm font-medium py-1 px-4 text-center">
         ⚠️ Projet d'étude personnel réalisé pour démontrer mes compétences web -
         Aucune affiliation commerciale
       </div>
