@@ -29,17 +29,17 @@ const CTA = () => {
   // Partner brand logos
   const brandLogos = [
     {
-      src: "/img/sites-vitrines/marketing-box/leclerc-logo.png",
-      alt: "Leclerc",
+      src: "/img/sites-vitrines/marketing-box/leclerx-logo.png",
+      alt: "Leclerx",
     },
     {
-      src: "/img/sites-vitrines/marketing-box/serre-papillons-logo.png",
-      alt: "La Serre aux Papillons",
+      src: "/img/sites-vitrines/marketing-box/butterfly-groenhouse-logo.png",
+      alt: "The Butterfly Greenhouse",
     },
-    { src: "/img/sites-vitrines/marketing-box/jomo-logo.png", alt: "Jomo" },
+    { src: "/img/sites-vitrines/marketing-box/jbo-logo.png", alt: "JBO" },
     {
-      src: "/img/sites-vitrines/marketing-box/burger-king-logo.png",
-      alt: "Burger King",
+      src: "/img/sites-vitrines/marketing-box/burger-queen-logo.png",
+      alt: "Burger Queen",
     },
   ];
 
