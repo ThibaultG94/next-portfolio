@@ -90,7 +90,7 @@ const Header = () => {
             className="w-20"
           >
             <OptimizedImage
-              src="/img/sites-vitrines/market-kit/logo_transparent.png"
+              src="/img/sites-vitrines/market-kit/logo_transparent.webp"
               alt="Market Kit Logo"
               width={80}
               height={80}

@@ -10,7 +10,7 @@ const ExpertiseCard = ({ icon, title }) => (
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
   >
     <OptimizedImage
-      src={`/img/sites-vitrines/market-kit/${icon}.png`}
+      src={`/img/sites-vitrines/market-kit/${icon}.webp`}
       alt={title}
       width={128}
       height={128}

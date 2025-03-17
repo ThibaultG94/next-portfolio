@@ -29,16 +29,16 @@ const CTA = () => {
   // Partner brand logos
   const brandLogos = [
     {
-      src: "/img/sites-vitrines/market-kit/leclerx-logo.png",
+      src: "/img/sites-vitrines/market-kit/leclerx-logo.webp",
       alt: "Leclerx",
     },
     {
-      src: "/img/sites-vitrines/market-kit/butterfly-groenhouse-logo.png",
+      src: "/img/sites-vitrines/market-kit/butterfly-groenhouse-logo.webp",
       alt: "The Butterfly Greenhouse",
     },
-    { src: "/img/sites-vitrines/market-kit/jbo-logo.png", alt: "JBO" },
+    { src: "/img/sites-vitrines/market-kit/jbo-logo.webp", alt: "JBO" },
     {
-      src: "/img/sites-vitrines/market-kit/burger-queen-logo.png",
+      src: "/img/sites-vitrines/market-kit/burger-queen-logo.webp",
       alt: "Burger Queen",
     },
   ];
@@ -120,7 +120,7 @@ const CTA = () => {
               className="relative aspect-square"
             >
               <OptimizedImage
-                src="/img/sites-vitrines/market-kit/analyse-performance.png"
+                src="/img/sites-vitrines/market-kit/analyse-performance.webp"
                 alt="Analyse de performance commerciale"
                 width={414}
                 height={414}
@@ -169,7 +169,7 @@ const CTA = () => {
               className="relative aspect-square place-self-center justify-self-center"
             >
               <OptimizedImage
-                src="/img/sites-vitrines/market-kit/equipe-brainstorming.png"
+                src="/img/sites-vitrines/market-kit/equipe-brainstorming.webp"
                 alt="Équipe brainstorming"
                 width={351}
                 height={351}
