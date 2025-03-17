@@ -17,6 +17,18 @@ export default function ProjectsModal({
   const [deviceType, setDeviceType] = useState("laptop");
   const [displayImages, setDisplayImages] = useState([]);
 
+  const handlePrevModal = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNextModal = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
+
   useEffect(() => {
     setDisplayImages(deviceType === "laptop" ? desktopImages : tabletImages);
   }, [deviceType, desktopImages, tabletImages]);
@@ -116,7 +128,7 @@ export default function ProjectsModal({
             <div className={`${deviceType}-modal`}>
               <div className={`${deviceType}-modal__screen`}>
                 <button
-                  onClick={() => swiperRef.current?.slidePrev()}
+                  onClick={() => handlePrevModal()}
                   className="absolute cursor-pointer left-4 z-50 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all transform -translate-y-1/2 top-1/2"
                   aria-label="Image précédente"
                 >
@@ -135,7 +147,7 @@ export default function ProjectsModal({
                 />
 
                 <button
-                  onClick={() => swiperRef.current?.slideNext()}
+                  onClick={() => handleNextModal()}
                   className="absolute cursor-pointer right-4 z-50 p-2 bg-black/50 rounded-full text-white hover:bg-black/75 transition-all transform -translate-y-1/2 top-1/2"
                   aria-label="Image suivante"
                 >
