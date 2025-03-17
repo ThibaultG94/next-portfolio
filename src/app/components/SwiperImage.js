@@ -104,7 +104,7 @@ const SwiperImage = ({
                   ease: "easeInOut",
                 }}
               >
-                Chargement de l'image...
+                Chargement de l&apos;image...
               </motion.p>
             </div>
           </motion.div>
