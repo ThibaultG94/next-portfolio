@@ -98,6 +98,45 @@ const MainContent = () => {
   );
 };
 
+const LoadingSkeleton = () => {
+  return (
+    <div className="h-screen w-full flex items-center justify-center">
+      <motion.div
+        className="flex flex-col items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Logo or image with pulse animation */}
+        <div className="w-16 h-16 relative mb-4">
+          <motion.div
+            className="w-full h-full rounded-full bg-blue-300 dark:bg-blue-600 absolute"
+            animate={{
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 1.5,
+            }}
+          />
+        </div>
+
+        {/* Text with fade animation */}
+        <motion.p
+          className="text-lg text-gray-800 dark:text-gray-200"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{
+            repeat: Infinity,
+            duration: 1.5,
+          }}
+        >
+          Chargement...
+        </motion.p>
+      </motion.div>
+    </div>
+  );
+};
+
 const HomeWithSearchParams = () => {
   const searchParams = useSearchParams();
 
@@ -110,7 +149,7 @@ const HomeWithSearchParams = () => {
 
 const Home = () => {
   return (
-    <Suspense fallback={<div>Chargement...</div>}>
+    <Suspense fallback={<LoadingSkeleton />}>
       <HomeWithSearchParams />
     </Suspense>
   );
