@@ -65,7 +65,7 @@ export default function SitesVitrinesPage() {
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 Découvrez ma collection de sites vitrines développés pour divers
-                secteurs d'activité.
+                secteurs d&apos;activité.
               </p>
             </motion.div>
 

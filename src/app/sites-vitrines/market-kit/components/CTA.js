@@ -141,7 +141,7 @@ const CTA = () => {
             className="text-2xl/9 font-bold max-w-4xl mx-auto leading-10"
           >
             Mettez les outils, les algorithmes, les robots et <br />{" "}
-            l'intelligence artificielle au service de votre performance.
+            l&apos;intelligence artificielle au service de votre performance.
           </motion.h3>
 
           <motion.div
@@ -201,7 +201,7 @@ const CTA = () => {
                 <div className="flex items-start gap-2 mt-10">
                   <p>
                     <span className="text-green-600 text-xl mr-3.5">✓</span>
-                    Une équipe d'experts à votre service, encadrés par un
+                    Une équipe d&apos;experts à votre service, encadrés par un
                     consultant unique à vos côtés.
                   </p>
                 </div>

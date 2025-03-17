@@ -90,7 +90,9 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <ActionButton href="#contact">J'ai un projet 🤚🏼</ActionButton>
+              <ActionButton href="#contact">
+                J&apos;ai un projet 🤚🏼
+              </ActionButton>
             </motion.div>
           </motion.div>
         </div>

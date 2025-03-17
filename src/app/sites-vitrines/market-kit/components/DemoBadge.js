@@ -78,7 +78,7 @@ const DemoBadge = () => {
             ${isOverDark ? "bg-green-600" : "bg-green-400"}
           `}
           />
-          Projet d'étude personnel • Non affilié
+          Projet d&apos;étude personnel • Non affilié
         </span>
       </motion.a>
     </motion.div>
