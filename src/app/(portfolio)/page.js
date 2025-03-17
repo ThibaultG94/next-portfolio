@@ -15,7 +15,7 @@ import Footer from "../components/Footer";
 const introTexts = [
   "Je suis un développeur web fullstack passionné.",
   "Créant des expériences utilisateur dynamiques.",
-  "Utilisant une architecture frontend moderne et réactive.",
+  "Transformant des idées complexes en solutions élégantes.",
 ];
 
 const baseSections = [
