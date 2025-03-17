@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import ScrollContainer, { useScroll } from "../components/ScrollContainer";
@@ -98,13 +98,21 @@ const MainContent = () => {
   );
 };
 
-const Home = () => {
+const HomeWithSearchParams = () => {
   const searchParams = useSearchParams();
 
   return (
     <ScrollContainer sections={baseSections}>
       <HomeContent searchParams={searchParams} />
     </ScrollContainer>
+  );
+};
+
+const Home = () => {
+  return (
+    <Suspense fallback={<div>Chargement...</div>}>
+      <HomeWithSearchParams />
+    </Suspense>
   );
 };
 
