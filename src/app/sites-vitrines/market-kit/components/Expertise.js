@@ -1,6 +1,6 @@
 "use client";
 
-import OptimizedImage from "../../../components/OptimizedImage";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const ExpertiseCard = ({ icon, title }) => (
@@ -9,7 +9,7 @@ const ExpertiseCard = ({ icon, title }) => (
     whileHover={{ scale: 1.05 }}
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
   >
-    <OptimizedImage
+    <Image
       src={`/img/sites-vitrines/market-kit/${icon}.webp`}
       alt={title}
       width={128}
@@ -99,7 +99,7 @@ const Expertise = () => {
         </motion.h2>
 
         <motion.div
-          className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-16 max-w-5xl mx-auto mb-16"
+          className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 md:gap-2 gap-16 max-w-5xl mx-auto mb-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
