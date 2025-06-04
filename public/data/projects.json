@@ -104,8 +104,8 @@
       "title": "Curriculum vitæ",
       "description": "CV interactif de Thibault Guilhem - Développeur React",
       "category": "cv",
-      "images": ["/img/cv/cv-thibaultguilhem.png"],
-      "tabletImages": ["/img/cv/tablet/cv-thibaultguilhem-tablet.png"],
+      "images": ["/img/cv/cv-thibaultguilhem.webp"],
+      "tabletImages": ["/img/cv/tablet/cv-thibaultguilhem-tablet.webp"],
       "github": "https://github.com/ThibaultG94/designcv",
       "url": "https://www.cv.thibaultguilhem.com/"
     }
