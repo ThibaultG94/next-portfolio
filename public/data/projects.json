@@ -99,6 +99,15 @@
         "/img/sites-vitrines/montagne-tablet.webp"
       ],
       "url": "/sites-vitrines"
+    },
+    {
+      "title": "Curriculum vitæ",
+      "description": "CV interactif de Thibault Guilhem - Développeur React",
+      "category": "cv",
+      "images": ["/img/cv/cv-thibaultguilhem.png"],
+      "tabletImages": ["/img/cv/tablet/cv-thibaultguilhem-tablet.png"],
+      "github": "https://github.com/ThibaultG94/designcv",
+      "url": "https://www.cv.thibaultguilhem.com/"
     }
 ]
   
